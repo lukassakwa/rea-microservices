@@ -24,11 +24,17 @@ public class OfferService {
                                              Integer priceTo,
                                              Double metersFrom,
                                              Double metersTo) {
-        List<OfferDto> offers = offerClient.getOffers(estateServiceType, pageIndex, pageSize,
-                priceFrom, priceTo, metersFrom, metersTo);
-        return new PageImpl<>(
-                offers,
-                PageRequest.of(Integer.parseInt(pageIndex), Integer.parseInt(pageSize)),
-                offers.size());
+        OfferParamsBuilder offerParamsBuilder = OfferParamsBuilder.builder()
+                .estateServiceType(estateServiceType)
+                .pageIndex(pageIndex)
+                .pageSize(pageSize)
+                .priceFrom(priceFrom)
+                .priceTo(priceTo)
+                .metersFrom(metersFrom)
+                .metersTo(metersTo)
+                .build()
+                .buildParams();
+        List<OfferDto> offers = offerClient.getOffers(offerParamsBuilder.getParams());
+        return new PageImpl<>(offers, PageRequest.of(Integer.parseInt(pageIndex), Integer.parseInt(pageSize)), offers.size());
     }
 }
