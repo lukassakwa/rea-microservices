@@ -10,15 +10,6 @@ import java.util.Set;
 public interface OfferService {
 
     List<OfferDto> findOffers(EstateServiceType estateServiceType,
-                              Integer pageIndex,
-                              Integer pageSize,
-                              Integer priceFrom,
-                              Integer priceTo,
-                              Double metersFrom,
-                              Double metersTo
-    );
-
-    List<OfferDto> findOffers(EstateServiceType estateServiceType,
                               Set<String> offerIds,
                               Integer pageIndex,
                               Integer pageSize,

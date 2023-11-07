@@ -21,30 +21,11 @@ public class OfferController {
     List<OfferDto> getOffers(@RequestParam EstateServiceType estateServiceType,
                              @RequestParam String pageIndex,
                              @RequestParam String pageSize,
+                             @RequestParam(required = false) Set<String> offerIds,
                              @RequestParam(required = false) Integer priceFrom,
                              @RequestParam(required = false) Integer priceTo,
                              @RequestParam(required = false) Double metersFrom,
                              @RequestParam(required = false) Double metersTo) {
-        return offerService.findOffers(
-                estateServiceType,
-                Integer.parseInt(pageIndex),
-                Integer.parseInt(pageSize),
-                priceFrom,
-                priceTo,
-                metersFrom,
-                metersTo
-        );
-    }
-
-    @GetMapping("/favorite")
-    List<OfferDto> getFavorites(@RequestParam EstateServiceType estateServiceType,
-                                @RequestParam String pageIndex,
-                                @RequestParam String pageSize,
-                                @RequestParam Set<String> offerIds,
-                                @RequestParam(required = false) Integer priceFrom,
-                                @RequestParam(required = false) Integer priceTo,
-                                @RequestParam(required = false) Double metersFrom,
-                                @RequestParam(required = false) Double metersTo) {
         return offerService.findOffers(
                 estateServiceType,
                 offerIds,

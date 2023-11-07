@@ -19,7 +19,7 @@ class OfferParamsBuilder {
     private final Double metersTo;
 
     @Getter
-    private MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
+    private final MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
 
     @Builder
     private OfferParamsBuilder(EstateServiceType estateServiceType,

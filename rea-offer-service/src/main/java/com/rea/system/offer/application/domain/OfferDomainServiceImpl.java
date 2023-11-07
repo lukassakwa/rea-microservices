@@ -26,26 +26,6 @@ public class OfferDomainServiceImpl implements OfferService {
 
     @Override
     public List<OfferDto> findOffers(EstateServiceType estateServiceType,
-                                                   Integer pageIndex,
-                                                   Integer pageSize,
-                                                   Integer priceFrom,
-                                                   Integer priceTo,
-                                                   Double metersFrom,
-                                                   Double metersTo) {
-        Fillter fillter = Fillter.builder()
-                .service(estateServiceType)
-                .priceFrom(priceFrom)
-                .priceTo(priceTo)
-                .metersFrom(metersFrom)
-                .metersTo(metersTo)
-                .build();
-        return availableOfferDataService.findOffersById(fillter, pageIndex, pageSize).stream()
-                .map(offerResponseMapper::toResponse)
-                .toList();
-    }
-
-    @Override
-    public List<OfferDto> findOffers(EstateServiceType estateServiceType,
                                                    Set<String> offerIds,
                                                    Integer pageIndex,
                                                    Integer pageSize,
