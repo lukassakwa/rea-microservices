@@ -12,12 +12,11 @@
     <name>rea-parent</name>
     <url>https://www.rea.com</url>
     <modules>
-        <module>rea-offer-service</module>
-        <module>rea-user-offer-service</module>
-        <module>rea-user-service</module>
-        <module>rea-mail-service</module>
-        <module>rea-app-service</module>
-        <module>rea-common</module>
+        <module>../rea-app-service</module>
+        <module>../rea-user-offer-service</module>
+        <module>../rea-user-service</module>
+        <module>../rea-mail-service</module>
+        <module>../rea-common</module>
     </modules>
 
     <properties>
