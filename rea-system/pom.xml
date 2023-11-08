@@ -13,6 +13,7 @@
     <url>https://www.rea.com</url>
     <modules>
         <module>../rea-app-service</module>
+        <module>../rea-offer-service</module>
         <module>../rea-user-offer-service</module>
         <module>../rea-user-service</module>
         <module>../rea-mail-service</module>
