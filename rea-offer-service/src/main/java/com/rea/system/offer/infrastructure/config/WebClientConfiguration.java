@@ -31,7 +31,7 @@ public class WebClientConfiguration {
     private HttpClient create() {
         return HttpClient.create()
                 .followRedirect(true)
-                .responseTimeout(Duration.of(120, ChronoUnit.SECONDS));
+                .responseTimeout(Duration.of(300, ChronoUnit.SECONDS));
     }
 
 
