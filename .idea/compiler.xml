@@ -7,7 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
       </profile>
-      <profile name="Annotation profile for rea-offer-service" enabled="true">
+      <profile name="Annotation profile for rea-parent" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -19,8 +19,8 @@
         </processorPath>
         <module name="rea-app-service" />
         <module name="rea-user-service" />
-        <module name="rea-offer-service" />
         <module name="rea-user-offer-service" />
+        <module name="rea-offer-service" />
         <module name="rea-common" />
         <module name="rea-mail-service" />
       </profile>
