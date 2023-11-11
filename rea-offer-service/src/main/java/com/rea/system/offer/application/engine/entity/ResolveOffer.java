@@ -73,7 +73,7 @@ public class ResolveOffer {
         this.modifiedAt = LocalDateTime.now();
     }
 
-    public void processHistoricalData() {
+    public void processDuplicateData() {
         this.publicId = this.id;
     }
 

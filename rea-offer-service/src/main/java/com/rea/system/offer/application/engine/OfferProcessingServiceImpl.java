@@ -20,8 +20,8 @@ class OfferProcessingServiceImpl implements OfferProcessingService {
 
     @Override
     public void process(OfferLoadDto offerLoadDto) {
+        log.info("processing started");
         Flux.fromIterable(offerLoadDto.getOffersUrl())
-                .subscribeOn(Schedulers.boundedElastic())
                 .map(href -> buildOfferContext(href, offerLoadDto))
                 .flatMap(acquisitionReactiveOfferService::resolveAllSpecificOffers)
                 .filter(ResolveOffer::isOfferValid)

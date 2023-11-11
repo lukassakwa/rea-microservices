@@ -17,8 +17,11 @@ import org.springframework.web.reactive.function.client.WebClient;
 import rea.system.common.model.ServiceType;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Scheduler;
+import reactor.core.scheduler.Schedulers;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 @Slf4j
 @Service
@@ -32,45 +35,38 @@ public class AcquisitionReactiveServiceImpl implements AcquisitionReactiveOfferS
     @SneakyThrows
     public Flux<ResolveOffer> resolveAllSpecificOffers(OfferLoadContext context) {
         OfferScrapperService<? extends GeneralOfferContext> service = getService(context.getUrl());
-        return getMainDocument(context.getUrl())
+        return getDocument(context.getUrl())
                 .map(service::generalOffersInfo)
                 .flatMapMany(Flux::fromIterable)
                 .filter(GeneralOfferContext::filterOffers)
-                .flatMap(this::getContextWithDocument)
-                .map(scrappedContext -> this.scrappedDetailsOffer(scrappedContext, context))
-                .onErrorResume(e ->  {
-                    log.warn("warn: {}", e.getMessage());
-                    return Mono.empty();
-                });
+                .flatMap(generalOfferContext -> scrapDetailsOffer(generalOfferContext, context))
+                .onErrorResume(e -> Mono.empty());
     }
 
-    private Mono<ScrapperLoaderContext> getContextWithDocument(GeneralOfferContext context) {
-        return webClient.get()
-                .uri(context.getDetailsUrl())
-                .retrieve()
-                .bodyToMono(String.class)
-                .map(body -> ScrapperLoaderContext.builder()
-                        .document(Jsoup.parse(body))
-                        .generalOfferContext(context)
-                        .build()
-                );
-    }
-
-    private Mono<Document> getMainDocument(String url) {
+    private Mono<Document> getDocument(String url) {
         return webClient.get()
                 .uri(url)
                 .retrieve()
                 .bodyToMono(String.class)
-                .map(Jsoup::parse);
+                .map(Jsoup::parse)
+                .subscribeOn(Schedulers.boundedElastic());
     }
 
-    private ResolveOffer scrappedDetailsOffer(ScrapperLoaderContext scrapperLoaderContext, OfferLoadContext offerLoadContext) {
+    private Mono<ResolveOffer> scrapDetailsOffer(GeneralOfferContext generalOfferContext, OfferLoadContext offerLoadContext) {
+        Mono<Document> document = getDocument(generalOfferContext.getDetailsUrl());
+        Mono<ScrapperLoaderContext> scrapperLoaderContextMono = document.map(receivedDocument ->
+                ScrapperLoaderContext.buildContext(generalOfferContext, receivedDocument, offerLoadContext)
+        );
+        return scrapperLoaderContextMono.map(this::scrapSpecificOffer);
+    }
+
+    private ResolveOffer scrapSpecificOffer(ScrapperLoaderContext scrapperLoaderContext) {
         String url = scrapperLoaderContext.getGeneralOfferContext().getDetailsUrl();
         OfferScrapperService<GeneralOfferContext> offerScrapperService = (OfferScrapperService<GeneralOfferContext>) getService(url);
         return offerScrapperService.specificOffer(
                 scrapperLoaderContext.getGeneralOfferContext(),
                 scrapperLoaderContext.getDocument(),
-                offerLoadContext);
+                scrapperLoaderContext.getOfferLoadContext());
     }
 
     private OfferScrapperService<? extends GeneralOfferContext> getService(String url) {
