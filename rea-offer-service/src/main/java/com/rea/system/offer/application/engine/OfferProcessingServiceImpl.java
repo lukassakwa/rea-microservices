@@ -32,7 +32,6 @@ class OfferProcessingServiceImpl implements OfferProcessingService {
                 .map(ResolveOffer::prepareKeyValues)
                 .sort(Comparator.comparing(ResolveOffer::order))
                 .collectList()
-                .doOnNext(resolveOffers -> log.info("scrapped {} offers", resolveOffers.size()))
                 .map(LinkedHashSet::new)
                 .flatMapMany(Flux::fromIterable)
                 .flatMap(dataService::upsertOfferAndMoveToHistoricalIfNecessarily)

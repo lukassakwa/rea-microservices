@@ -1,5 +1,8 @@
 package com.rea.system.offer.infrastructure.config;
 
+import io.netty.channel.ChannelOption;
+import io.netty.handler.timeout.ReadTimeoutHandler;
+import io.netty.handler.timeout.WriteTimeoutHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
@@ -10,6 +13,7 @@ import reactor.netty.http.client.HttpClient;
 
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
+import java.util.concurrent.TimeUnit;
 
 @Configuration
 public class WebClientConfiguration {
@@ -31,7 +35,11 @@ public class WebClientConfiguration {
     private HttpClient create() {
         return HttpClient.create()
                 .followRedirect(true)
-                .responseTimeout(Duration.of(300, ChronoUnit.SECONDS));
+                .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 20000)
+                .responseTimeout(Duration.ofMillis(20000))
+                .doOnConnected(conn ->
+                        conn.addHandlerLast(new ReadTimeoutHandler(20))
+                                .addHandlerLast(new WriteTimeoutHandler(20)));
     }
 
 

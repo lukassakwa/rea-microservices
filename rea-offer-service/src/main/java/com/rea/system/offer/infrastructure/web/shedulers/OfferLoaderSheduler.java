@@ -17,7 +17,7 @@ public class OfferLoaderSheduler {
     private final InvokerEngineService inokerEngineService;
 
     @Async
-    @Scheduled(cron = "0 0/30 * * * ?")
+    @Scheduled(cron = "0 0/5 * * * ?")
     public void scheduleOfferLoad() {
         inokerEngineService.invoke();
     }
