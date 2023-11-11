@@ -10,6 +10,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import rea.system.common.dto.OfferDto;
 import rea.system.common.model.EstateServiceType;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+import reactor.util.function.Tuple2;
 
 import java.util.Comparator;
 import java.util.List;
@@ -25,14 +28,14 @@ public class OfferDomainServiceImpl implements OfferService {
     private final OfferResponseMapper offerResponseMapper;
 
     @Override
-    public List<OfferDto> findOffers(EstateServiceType estateServiceType,
-                                                   Set<String> offerIds,
-                                                   Integer pageIndex,
-                                                   Integer pageSize,
-                                                   Integer priceFrom,
-                                                   Integer priceTo,
-                                                   Double metersFrom,
-                                                   Double metersTo) {
+    public Flux<OfferDto> findOffers(EstateServiceType estateServiceType,
+                                     Set<String> offerIds,
+                                     Integer pageIndex,
+                                     Integer pageSize,
+                                     Integer priceFrom,
+                                     Integer priceTo,
+                                     Double metersFrom,
+                                     Double metersTo) {
         Fillter filter = Fillter.builder()
                 .service(estateServiceType)
                 .priceFrom(priceFrom)
@@ -41,20 +44,17 @@ public class OfferDomainServiceImpl implements OfferService {
                 .metersTo(metersTo)
                 .offerIds(offerIds)
                 .build();
-        return availableOfferDataService.findOffersById(filter, pageIndex, pageSize).stream()
-                .map(offerResponseMapper::toResponse)
-                .toList();
+        return availableOfferDataService.findOffersById(filter, pageIndex, pageSize)
+                .map(offerResponseMapper::toResponse);
     }
 
     @Override
-    public List<OfferDto> getMonitoringData(String publicId, EstateServiceType serviceType) {
-        List<DomainOffer> monitorOffers = historicalOfferService.findByPublicId(publicId, serviceType);
-        DomainOffer offerDto = availableOfferDataService.findById(publicId, serviceType);
-        monitorOffers.add(offerDto);
-        return monitorOffers.stream()
-                .sorted(Comparator.comparing(DomainOffer::getModifiedAt).reversed())
-                .map(offerResponseMapper::toResponse)
-                .collect(Collectors.toList());
+    public Flux<OfferDto> getMonitoringData(String publicId, EstateServiceType serviceType) {
+        Flux<DomainOffer> monitorOffers = historicalOfferService.findByPublicId(publicId, serviceType);
+        Mono<DomainOffer> offerDto = availableOfferDataService.findById(publicId, serviceType);
+        return Flux.concat(monitorOffers, offerDto)
+                .sort(Comparator.comparing(DomainOffer::getModifiedAt).reversed())
+                .map(offerResponseMapper::toResponse);
     }
 
 }

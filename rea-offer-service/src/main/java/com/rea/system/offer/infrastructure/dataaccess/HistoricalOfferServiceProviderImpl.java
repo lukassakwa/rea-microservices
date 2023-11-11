@@ -9,6 +9,8 @@ import com.rea.system.offer.infrastructure.dataaccess.service.HistoricalEngineOf
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import rea.system.common.model.EstateServiceType;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 
@@ -19,13 +21,13 @@ public class HistoricalOfferServiceProviderImpl implements EngineHistoricalOffer
     private final HistoricalOfferServiceResolver resolver;
 
     @Override
-    public ResolveOffer save(ResolveOffer resolveOffer, EstateServiceType estateServiceType) {
+    public Mono<ResolveOffer> save(ResolveOffer resolveOffer, EstateServiceType estateServiceType) {
         HistoricalEngineOfferService historicalOfferService = resolver.resolveEngineOfferService(estateServiceType);
         return historicalOfferService.save(resolveOffer);
     }
 
     @Override
-    public List<DomainOffer> findByPublicId(String publicId, EstateServiceType estateServiceType) {
+    public Flux<DomainOffer> findByPublicId(String publicId, EstateServiceType estateServiceType) {
         HistoricalDomainOfferService historicalOfferService = resolver.resolveDomainOfferService(estateServiceType);
         return historicalOfferService.findByPublicId(publicId);
     }

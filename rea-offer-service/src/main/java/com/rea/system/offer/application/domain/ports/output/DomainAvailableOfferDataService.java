@@ -4,13 +4,15 @@ import com.rea.system.offer.application.domain.entity.DomainOffer;
 import com.rea.system.offer.application.domain.entity.Fillter;
 import org.springframework.data.domain.Page;
 import rea.system.common.model.EstateServiceType;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 
 public interface DomainAvailableOfferDataService {
 
-    List<DomainOffer> findOffersById(Fillter fillter, int pageIndex, int pageSize);
+    Flux<DomainOffer> findOffersById(Fillter fillter, int pageIndex, int pageSize);
 
-    DomainOffer findById(String offerId, EstateServiceType estateServiceType);
+    Mono<DomainOffer> findById(String offerId, EstateServiceType estateServiceType);
 
 }

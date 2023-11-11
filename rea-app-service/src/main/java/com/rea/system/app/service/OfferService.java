@@ -8,6 +8,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import rea.system.common.dto.OfferDto;
 import rea.system.common.model.EstateServiceType;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 
@@ -17,13 +19,13 @@ public class OfferService {
 
     private final OfferClient offerClient;
 
-    public Page<OfferDto> getPaginatedOffers(EstateServiceType estateServiceType,
-                                             String pageIndex,
-                                             String pageSize,
-                                             Integer priceFrom,
-                                             Integer priceTo,
-                                             Double metersFrom,
-                                             Double metersTo) {
+    public Flux<OfferDto> getPaginatedOffers(EstateServiceType estateServiceType,
+                                              String pageIndex,
+                                              String pageSize,
+                                              Integer priceFrom,
+                                              Integer priceTo,
+                                              Double metersFrom,
+                                              Double metersTo) {
         OfferParamsBuilder offerParamsBuilder = OfferParamsBuilder.builder()
                 .estateServiceType(estateServiceType)
                 .pageIndex(pageIndex)
@@ -34,7 +36,6 @@ public class OfferService {
                 .metersTo(metersTo)
                 .build()
                 .buildParams();
-        List<OfferDto> offers = offerClient.getOffers(offerParamsBuilder.getParams());
-        return new PageImpl<>(offers, PageRequest.of(Integer.parseInt(pageIndex), Integer.parseInt(pageSize)), offers.size());
+        return offerClient.getOffers(offerParamsBuilder.getParams());
     }
 }

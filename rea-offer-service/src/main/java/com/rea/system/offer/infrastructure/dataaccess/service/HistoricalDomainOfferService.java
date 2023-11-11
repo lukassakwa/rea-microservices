@@ -1,11 +1,12 @@
 package com.rea.system.offer.infrastructure.dataaccess.service;
 
 import com.rea.system.offer.application.domain.entity.DomainOffer;
+import reactor.core.publisher.Flux;
 
 import java.util.List;
 
 public interface HistoricalDomainOfferService {
 
-    List<DomainOffer> findByPublicId(String publicId);
+    Flux<DomainOffer> findByPublicId(String publicId);
 
 }

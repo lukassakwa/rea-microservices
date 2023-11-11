@@ -1,18 +1,25 @@
 package com.rea.system.offer.infrastructure.dataaccess.repository;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.querydsl.QuerydslPredicateExecutor;
+import com.querydsl.core.types.Predicate;
+import com.rea.system.offer.infrastructure.dataaccess.entity.Offer;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
+import org.springframework.data.querydsl.ReactiveQuerydslPredicateExecutor;
 import org.springframework.data.repository.NoRepositoryBean;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
-import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 @NoRepositoryBean
-public interface OfferRepository<T, ID> extends MongoRepository<T, ID>, QuerydslPredicateExecutor<T> {
+public interface OfferRepository<T, ID> extends ReactiveMongoRepository<T, ID>, ReactiveQuerydslPredicateExecutor<T> {
 
-    Optional<T> findByDuplicateKey(String duplicateKey);
+    Mono<T> findByDuplicateKey(String duplicateKey);
 
-    List<T> findAllByIdIn(Set<String> ids);
+    Flux<T> findAllByIdIn(Set<String> ids);
+
+    Flux<T> findAllBy(Predicate predicate, Pageable pageable);
+
+    Flux<T> findAllBy(Pageable pageable);
 
 }

@@ -1,14 +1,13 @@
 package com.rea.system.offer.infrastructure.dataaccess.repository;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.querydsl.QuerydslPredicateExecutor;
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
+import org.springframework.data.querydsl.ReactiveQuerydslPredicateExecutor;
 import org.springframework.data.repository.NoRepositoryBean;
-
-import java.util.List;
+import reactor.core.publisher.Flux;
 
 @NoRepositoryBean
-public interface HistoricalOfferRepository<T, ID> extends MongoRepository<T, ID>, QuerydslPredicateExecutor<T> {
+public interface HistoricalOfferRepository<T, ID> extends ReactiveMongoRepository<T, ID>, ReactiveQuerydslPredicateExecutor<T> {
 
-    List<T> findAllByPublicId(String publicId);
+    Flux<T> findAllByPublicId(String publicId);
 
 }

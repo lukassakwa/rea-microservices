@@ -9,9 +9,8 @@ import com.rea.system.offer.infrastructure.dataaccess.service.HistoricalDomainOf
 import com.rea.system.offer.infrastructure.dataaccess.service.HistoricalEngineOfferService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.stream.Collectors;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @Service
 @RequiredArgsConstructor
@@ -21,15 +20,14 @@ public class HistoricalSellService implements HistoricalEngineOfferService, Hist
     private final HistoricalOfferMapper historicalOfferMapper;
 
     @Override
-    public ResolveOffer save(ResolveOffer offer) {
-        HistoricalSellOffer historicalSellOffer = historicalSellRepository.save(historicalOfferMapper.toSellEntity(offer));
-        return historicalOfferMapper.toResolveSellDto(historicalSellOffer);
+    public Mono<ResolveOffer> save(ResolveOffer offer) {
+        Mono<HistoricalSellOffer> historicalSellOffer = historicalSellRepository.save(historicalOfferMapper.toSellEntity(offer));
+        return historicalSellOffer.map(historicalOfferMapper::toResolveSellDto);
     }
 
     @Override
-    public List<DomainOffer> findByPublicId(String publicId) {
-        return historicalSellRepository.findAllByPublicId(publicId).stream()
-                .map(historicalOfferMapper::toDomainSellDto)
-                .collect(Collectors.toList());
+    public Flux<DomainOffer> findByPublicId(String publicId) {
+        return historicalSellRepository.findAllByPublicId(publicId)
+                .map(historicalOfferMapper::toDomainSellDto);
     }
 }

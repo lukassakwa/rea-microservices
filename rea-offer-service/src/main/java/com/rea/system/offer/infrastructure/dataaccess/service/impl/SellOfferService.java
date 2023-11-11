@@ -15,6 +15,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 import java.util.Optional;
@@ -30,47 +32,49 @@ public class SellOfferService implements AvailableEngineOfferService, AvailableD
     private final OfferMapper offerMapper;
 
     @Override
-    public Optional<ResolveOffer> findByDuplicateKey(String dupicateKey) {
-        return sellOfferRepository.findByDuplicateKey(dupicateKey).map(offerMapper::toResolveSellDto);
+    public Mono<ResolveOffer> findByDuplicateKey(String dupicateKey) {
+        return sellOfferRepository.findByDuplicateKey(dupicateKey)
+                .map(offerMapper::toResolveSellDto);
     }
 
     @Override
-    public ResolveOffer save(ResolveOffer offerDto) {
-        SellOffer offer = sellOfferRepository.save(offerMapper.toSellEntity(offerDto));
-        return offerMapper.toResolveSellDto(offer);
+    public Mono<ResolveOffer> save(ResolveOffer offerDto) {
+        Mono<SellOffer> offer = sellOfferRepository.save(offerMapper.toSellEntity(offerDto));
+        return offer.map(offerMapper::toResolveSellDto);
     }
 
     @Override
-    public ResolveOffer update(String offerId, ResolveOffer updatedOffer) {
-        ResolveOffer offer = findResolveOfferById(offerId);
-        ResolveOffer updatedOfferDto = offerMapper.updateOffer(offer, updatedOffer);
-        return save(updatedOfferDto);
+    public Mono<ResolveOffer> update(String offerId, ResolveOffer updatedOffer) {
+        return findResolveOfferById(offerId)
+                .map(foundOffer -> offerMapper.updateOffer(foundOffer, updatedOffer))
+                .flatMap(this::save);
     }
 
     @Override
-    public List<DomainOffer> findOffersById(Fillter fillter, int pageIndex, int pageSize) {
+    public Flux<DomainOffer> findOffersById(Fillter fillter, int pageIndex, int pageSize) {
         BooleanExpression expression = OfferPredicateBuilder.builder()
                 .fillter(fillter)
                 .build()
                 .buildQuery();
         Sort sort = Sort.by(Sort.Order.desc(MODIFIED_DATE), Sort.Order.asc(ID));
         Pageable pageable = PageRequest.of(pageIndex, pageSize, sort);
-        return Optional.ofNullable(expression).map(expr -> sellOfferRepository.findAll(expr, pageable))
-                .orElse(sellOfferRepository.findAll(pageable))
-                .getContent().stream()
-                .map(offerMapper::toDomainSellDto)
-                .toList();
+        return Optional.ofNullable(expression)
+                .map(expr -> sellOfferRepository.findAllBy(expr, pageable))
+                .orElse(sellOfferRepository.findAllBy(pageable))
+                .map(offerMapper::toDomainSellDto);
     }
 
     @Override
-    public DomainOffer findById(String offerId) {
-        SellOffer offer = sellOfferRepository.findById(offerId).orElseThrow();
-        return offerMapper.toDomainSellDto(offer);
+    public Mono<DomainOffer> findById(String offerId) {
+        Mono<SellOffer> offer = sellOfferRepository.findById(offerId)
+                .switchIfEmpty(Mono.error(new IllegalStateException("Offer does not exist")));
+        return offer.map(offerMapper::toDomainSellDto);
     }
 
-    private ResolveOffer findResolveOfferById(String offerId) {
-        SellOffer offer = sellOfferRepository.findById(offerId).orElseThrow();
-        return offerMapper.toResolveSellDto(offer);
+    private Mono<ResolveOffer> findResolveOfferById(String offerId) {
+        Mono<SellOffer> offer = sellOfferRepository.findById(offerId)
+                .switchIfEmpty(Mono.error(new IllegalStateException("Offer does not exist")));
+        return offer.map(offerMapper::toResolveSellDto);
     }
 
 }
