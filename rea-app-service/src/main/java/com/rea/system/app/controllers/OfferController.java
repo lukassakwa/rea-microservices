@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import rea.system.common.dto.OfferDto;
 import rea.system.common.model.EstateServiceType;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/api/interface/offer")
@@ -18,13 +20,13 @@ public class OfferController {
     private final OfferService offerService;
 
     @GetMapping()
-    Page<OfferDto> getOffers(@RequestParam EstateServiceType estateServiceType,
-                             @RequestParam String pageIndex,
-                             @RequestParam String pageSize,
-                             @RequestParam(required = false) Integer priceFrom,
-                             @RequestParam(required = false) Integer priceTo,
-                             @RequestParam(required = false) Double metersFrom,
-                             @RequestParam(required = false) Double metersTo
+    Flux<OfferDto> getOffers(@RequestParam EstateServiceType estateServiceType,
+                              @RequestParam String pageIndex,
+                              @RequestParam String pageSize,
+                              @RequestParam(required = false) Integer priceFrom,
+                              @RequestParam(required = false) Integer priceTo,
+                              @RequestParam(required = false) Double metersFrom,
+                              @RequestParam(required = false) Double metersTo
     ) {
         return offerService.getPaginatedOffers(estateServiceType,
                 pageIndex,

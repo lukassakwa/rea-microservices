@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import rea.system.common.dto.OfferDto;
 import rea.system.common.model.EstateServiceType;
+import reactor.core.publisher.Flux;
 
 import java.util.List;
 import java.util.Set;
@@ -18,7 +19,7 @@ public class OfferController {
     private final OfferService offerService;
 
     @GetMapping()
-    List<OfferDto> getOffers(@RequestParam EstateServiceType estateServiceType,
+    Flux<OfferDto> getOffers(@RequestParam EstateServiceType estateServiceType,
                              @RequestParam String pageIndex,
                              @RequestParam String pageSize,
                              @RequestParam(required = false) Set<String> offerIds,
@@ -39,7 +40,7 @@ public class OfferController {
     }
 
     @GetMapping("/monitor/{estateServiceType}/{offerId}")
-    List<OfferDto> getHistoricalOffers(@PathVariable EstateServiceType estateServiceType,
+    Flux<OfferDto> getHistoricalOffers(@PathVariable EstateServiceType estateServiceType,
                                                        @PathVariable String offerId) {
         return offerService.getMonitoringData(offerId, estateServiceType);
     }
