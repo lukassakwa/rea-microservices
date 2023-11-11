@@ -10,7 +10,6 @@ import rea.system.common.model.ServiceType;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDateTime;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -84,8 +83,8 @@ public class ResolveOffer {
         return new BigDecimal(meters).setScale(2, RoundingMode.HALF_EVEN).toString();
     }
 
-    public static ResolveOffer order(ResolveOffer a, ResolveOffer b) {
-        return a.getServiceType().getIndex().compareTo(b.getServiceType().getIndex()) < 0 ? a : b;
+    public int order() {
+        return serviceType.getIndex();
     }
 
     @Override

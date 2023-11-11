@@ -8,7 +8,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
-import reactor.core.scheduler.Schedulers;
+
+import java.util.Comparator;
+import java.util.LinkedHashSet;
+
+import static com.rea.system.offer.application.engine.OfferLoadContext.buildOfferContext;
 
 @Slf4j
 @Service
@@ -26,16 +30,14 @@ class OfferProcessingServiceImpl implements OfferProcessingService {
                 .flatMap(acquisitionReactiveOfferService::resolveAllSpecificOffers)
                 .filter(ResolveOffer::isOfferValid)
                 .map(ResolveOffer::prepareKeyValues)
-                .groupBy(ResolveOffer::getDuplicateKey)
-                .flatMap(resolveOffers -> resolveOffers.reduce(ResolveOffer::order))
-                .subscribe(dataService::upsertOfferAndMoveToHistoricalIfNecessarily);
-    }
-
-    private OfferLoadContext buildOfferContext(String url, OfferLoadDto offerLoadDto) {
-        return OfferLoadContext.builder()
-                .url(url)
-                .estateServiceType(offerLoadDto.getEstateServiceType())
-                .build();
+                .sort(Comparator.comparing(ResolveOffer::order))
+                .collectList()
+                .doOnNext(resolveOffers -> log.info("scrapped {} offers", resolveOffers.size()))
+                .map(LinkedHashSet::new)
+                .flatMapMany(Flux::fromIterable)
+                .flatMap(dataService::upsertOfferAndMoveToHistoricalIfNecessarily)
+                .collectList()
+                .subscribe(resolveOffers -> log.info("processing ended for {} offers", resolveOffers.size()));
     }
 
 }

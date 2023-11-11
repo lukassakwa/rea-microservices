@@ -17,11 +17,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import rea.system.common.model.ServiceType;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import reactor.core.scheduler.Scheduler;
 import reactor.core.scheduler.Schedulers;
-
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 @Slf4j
 @Service
@@ -49,6 +45,7 @@ public class AcquisitionReactiveServiceImpl implements AcquisitionReactiveOfferS
                 .retrieve()
                 .bodyToMono(String.class)
                 .map(Jsoup::parse)
+                .onErrorStop()
                 .subscribeOn(Schedulers.boundedElastic());
     }
 

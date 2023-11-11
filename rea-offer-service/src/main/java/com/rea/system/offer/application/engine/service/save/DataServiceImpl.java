@@ -21,10 +21,10 @@ class DataServiceImpl implements DataService {
 
     @Override
     @Transactional
-    public void upsertOfferAndMoveToHistoricalIfNecessarily(ResolveOffer resolveOffer) {
+    public Mono<ResolveOffer> upsertOfferAndMoveToHistoricalIfNecessarily(ResolveOffer resolveOffer) {
         EstateServiceType estateServiceType = resolveOffer.getEstateServiceType();
         Mono<ResolveOffer> duplicateOfferDto = availableOfferDataService.findByDuplicateKey(resolveOffer.getDuplicateKey(), estateServiceType);
-        duplicateOfferDto
+        return duplicateOfferDto
                 .flatMap(duplicate -> {
                     if (duplicate != null) {
                         duplicate.processDuplicateData();
@@ -42,10 +42,6 @@ class DataServiceImpl implements DataService {
                 .switchIfEmpty(Mono.defer(() -> {
                     resolveOffer.updateCreatedDate();
                     return availableOfferDataService.save(resolveOffer, estateServiceType);
-                }))
-                .subscribe(
-                        savedOffer -> log.info("Offer saved: {}", savedOffer.getDuplicateKey()),
-                        error -> log.error("Error while saving offer: {}", error.getMessage())
-                );
+                }));
     }
 }
