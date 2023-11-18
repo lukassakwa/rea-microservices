@@ -1,0 +1,3 @@
+com\rea\system\intent\IntentApplication.class
+com\rea\system\intent\infrastructure\config\security\SecurityConfiguration.class
+com\rea\system\intent\infrastructure\resource\TestController.class
