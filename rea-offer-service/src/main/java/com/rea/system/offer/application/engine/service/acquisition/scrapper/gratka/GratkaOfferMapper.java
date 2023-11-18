@@ -9,8 +9,8 @@ import com.rea.system.offer.application.engine.service.acquisition.scrapper.grat
 import com.rea.system.offer.application.engine.service.acquisition.scrapper.gratka.dto.specify.GratkaDetailsOffer;
 import com.rea.system.offer.application.engine.service.acquisition.scrapper.gratka.dto.specify.GratkaMainOffer;
 import org.springframework.stereotype.Component;
-import rea.system.common.model.Floor;
-import rea.system.common.model.Room;
+import rea.system.common.model.offer.Floor;
+import rea.system.common.model.offer.Room;
 
 import java.util.List;
 import java.util.Optional;
