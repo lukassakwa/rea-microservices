@@ -5,10 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import rea.system.common.model.EstateServiceType;
-import rea.system.common.model.Floor;
-import rea.system.common.model.Room;
-import rea.system.common.model.ServiceType;
+import rea.system.common.model.offer.EstateServiceType;
+import rea.system.common.model.offer.Floor;
+import rea.system.common.model.offer.Room;
+import rea.system.common.model.offer.ServiceType;
 
 import java.time.LocalDateTime;
 import java.util.List;

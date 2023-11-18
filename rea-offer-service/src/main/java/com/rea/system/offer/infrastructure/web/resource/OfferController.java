@@ -2,13 +2,11 @@ package com.rea.system.offer.infrastructure.web.resource;
 
 import com.rea.system.offer.application.domain.ports.input.OfferService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import rea.system.common.dto.OfferDto;
-import rea.system.common.model.EstateServiceType;
+import rea.system.common.dto.offer.OfferDto;
+import rea.system.common.model.offer.EstateServiceType;
 import reactor.core.publisher.Flux;
 
-import java.util.List;
 import java.util.Set;
 
 @RestController

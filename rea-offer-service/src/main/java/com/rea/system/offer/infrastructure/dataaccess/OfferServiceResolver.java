@@ -6,7 +6,7 @@ import com.rea.system.offer.infrastructure.dataaccess.service.AvailableEngineOff
 import com.rea.system.offer.infrastructure.dataaccess.service.impl.SellOfferService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import rea.system.common.model.EstateServiceType;
+import rea.system.common.model.offer.EstateServiceType;
 
 @Service
 @RequiredArgsConstructor

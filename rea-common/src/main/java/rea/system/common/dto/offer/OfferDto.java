@@ -1,12 +1,12 @@
-package rea.system.common.dto;
+package rea.system.common.dto.offer;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.assertj.core.util.Lists;
-import rea.system.common.model.Floor;
-import rea.system.common.model.Room;
+import rea.system.common.model.offer.Floor;
+import rea.system.common.model.offer.Room;
 
 import java.time.LocalDateTime;
 import java.util.List;

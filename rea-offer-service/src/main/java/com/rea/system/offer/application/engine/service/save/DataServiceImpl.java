@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import rea.system.common.model.EstateServiceType;
+import rea.system.common.model.offer.EstateServiceType;
 import reactor.core.publisher.Mono;
 
 @Slf4j
@@ -25,23 +25,25 @@ class DataServiceImpl implements DataService {
         EstateServiceType estateServiceType = resolveOffer.getEstateServiceType();
         Mono<ResolveOffer> duplicateOfferDto = availableOfferDataService.findByDuplicateKey(resolveOffer.getDuplicateKey(), estateServiceType);
         return duplicateOfferDto
-                .flatMap(duplicate -> {
-                    if (duplicate != null) {
-                        duplicate.processDuplicateData();
-                        if (!resolveOffer.getPrice().equals(duplicate.getPrice())) {
-                            return historicalOfferDataService.save(duplicate, estateServiceType);
-                        }
-                        return Mono.just(duplicate);
-                    }
-                    return Mono.empty();
-                })
-                .flatMap(savedDuplicate -> {
-                    resolveOffer.updateModifiedDate();
-                    return availableOfferDataService.update(savedDuplicate.getPublicId(), resolveOffer, estateServiceType);
-                })
-                .switchIfEmpty(Mono.defer(() -> {
-                    resolveOffer.updateCreatedDate();
-                    return availableOfferDataService.save(resolveOffer, estateServiceType);
-                }));
+                .map(ResolveOffer::processDuplicateData)
+                .flatMap(duplicate -> updateHistoricalIfNecessery(duplicate, resolveOffer))
+                .flatMap(duplicate -> updateOffer(duplicate, resolveOffer))
+                .switchIfEmpty(Mono.defer(() -> this.createOffer(resolveOffer)));
+    }
+
+    private Mono<ResolveOffer> updateHistoricalIfNecessery(ResolveOffer duplicate, ResolveOffer resolveOffer) {
+        if (!resolveOffer.getPrice().equals(duplicate.getPrice())) {
+            return historicalOfferDataService.save(duplicate, resolveOffer.getEstateServiceType());
+        }
+        return Mono.just(duplicate);
+    }
+
+    private Mono<ResolveOffer> updateOffer(ResolveOffer duplicate, ResolveOffer resolveOffer) {
+        resolveOffer.updateModifiedDate();
+        return availableOfferDataService.update(duplicate.getPublicId(), resolveOffer, resolveOffer.getEstateServiceType());
+    }
+    private Mono<ResolveOffer> createOffer(ResolveOffer resolveOffer) {
+        resolveOffer.updateCreatedDate();
+        return availableOfferDataService.save(resolveOffer, resolveOffer.getEstateServiceType());
     }
 }

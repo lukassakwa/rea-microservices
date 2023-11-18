@@ -1,4 +1,4 @@
-package rea.system.common.model;
+package rea.system.common.model.offer;
 
 import java.util.Arrays;
 import java.util.Map;

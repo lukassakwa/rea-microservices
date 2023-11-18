@@ -1,7 +1,7 @@
 package com.rea.system.offer.application.engine.util;
 
 import com.rea.system.offer.application.engine.model.OfferLoadDto;
-import rea.system.common.model.EstateServiceType;
+import rea.system.common.model.offer.EstateServiceType;
 
 import java.util.List;
 

@@ -1,17 +1,15 @@
 package com.rea.system.offer.application.domain.ports.output;
 
+import com.querydsl.core.types.dsl.BooleanExpression;
 import com.rea.system.offer.application.domain.entity.DomainOffer;
 import com.rea.system.offer.application.domain.entity.Fillter;
-import org.springframework.data.domain.Page;
-import rea.system.common.model.EstateServiceType;
+import rea.system.common.model.offer.EstateServiceType;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.List;
-
 public interface DomainAvailableOfferDataService {
 
-    Flux<DomainOffer> findOffersById(Fillter fillter, int pageIndex, int pageSize);
+    Flux<DomainOffer> findOffersById(BooleanExpression expression, int pageIndex, int pageSize, EstateServiceType estateServiceType);
 
     Mono<DomainOffer> findById(String offerId, EstateServiceType estateServiceType);
 

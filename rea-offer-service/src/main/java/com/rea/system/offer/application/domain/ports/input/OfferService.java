@@ -1,11 +1,9 @@
 package com.rea.system.offer.application.domain.ports.input;
 
-import rea.system.common.dto.OfferDto;
-import org.springframework.data.domain.Page;
-import rea.system.common.model.EstateServiceType;
+import rea.system.common.dto.offer.OfferDto;
+import rea.system.common.model.offer.EstateServiceType;
 import reactor.core.publisher.Flux;
 
-import java.util.List;
 import java.util.Set;
 
 public interface OfferService {

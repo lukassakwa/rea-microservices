@@ -8,11 +8,9 @@ import com.rea.system.offer.infrastructure.dataaccess.service.HistoricalDomainOf
 import com.rea.system.offer.infrastructure.dataaccess.service.HistoricalEngineOfferService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import rea.system.common.model.EstateServiceType;
+import rea.system.common.model.offer.EstateServiceType;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor

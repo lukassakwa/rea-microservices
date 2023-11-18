@@ -2,10 +2,10 @@ package com.rea.system.offer.application.engine.entity;
 
 import lombok.*;
 import org.apache.commons.lang3.ObjectUtils;
-import rea.system.common.model.EstateServiceType;
-import rea.system.common.model.Floor;
-import rea.system.common.model.Room;
-import rea.system.common.model.ServiceType;
+import rea.system.common.model.offer.EstateServiceType;
+import rea.system.common.model.offer.Floor;
+import rea.system.common.model.offer.Room;
+import rea.system.common.model.offer.ServiceType;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -72,8 +72,9 @@ public class ResolveOffer {
         this.modifiedAt = LocalDateTime.now();
     }
 
-    public void processDuplicateData() {
+    public ResolveOffer processDuplicateData() {
         this.publicId = this.id;
+        return this;
     }
 
     private String getParsedMeters() {

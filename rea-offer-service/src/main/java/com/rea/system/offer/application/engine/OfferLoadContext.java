@@ -4,7 +4,7 @@ import com.rea.system.offer.application.engine.model.OfferLoadDto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import rea.system.common.model.EstateServiceType;
+import rea.system.common.model.offer.EstateServiceType;
 
 @Getter
 @Setter

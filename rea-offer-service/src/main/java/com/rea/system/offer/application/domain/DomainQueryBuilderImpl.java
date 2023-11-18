@@ -1,4 +1,4 @@
-package com.rea.system.offer.infrastructure.dataaccess.service.impl.query_builder;
+package com.rea.system.offer.application.domain;
 
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.core.types.dsl.Expressions;
@@ -12,7 +12,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Builder
-public class OfferPredicateBuilder implements QueryBuilder<BooleanExpression> {
+class DomainQueryBuilderImpl implements DomainQueryBuilder<BooleanExpression> {
+
 
     private final Fillter fillter;
 
@@ -35,5 +36,4 @@ public class OfferPredicateBuilder implements QueryBuilder<BooleanExpression> {
 
         return predicates;
     }
-
 }

@@ -4,7 +4,7 @@ import com.rea.system.offer.application.engine.OfferLoadContext;
 import com.rea.system.offer.application.engine.entity.ResolveOffer;
 import com.rea.system.offer.application.engine.service.acquisition.context.GeneralOfferContext;
 import org.jsoup.nodes.Document;
-import rea.system.common.model.ServiceType;
+import rea.system.common.model.offer.ServiceType;
 
 import java.util.List;
 

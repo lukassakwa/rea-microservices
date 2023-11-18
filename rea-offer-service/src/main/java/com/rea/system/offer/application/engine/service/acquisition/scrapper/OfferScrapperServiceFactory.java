@@ -3,7 +3,7 @@ package com.rea.system.offer.application.engine.service.acquisition.scrapper;
 import com.rea.system.offer.application.engine.service.acquisition.context.GeneralOfferContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import rea.system.common.model.ServiceType;
+import rea.system.common.model.offer.ServiceType;
 
 import java.util.HashMap;
 import java.util.Map;

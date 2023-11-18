@@ -8,8 +8,8 @@ import com.rea.system.offer.application.engine.service.acquisition.scrapper.oto_
 import com.rea.system.offer.application.engine.service.acquisition.scrapper.oto_dom.detailed_offer.DetailedOffer;
 import com.rea.system.offer.application.engine.service.acquisition.scrapper.oto_dom.detailed_offer.Image;
 import com.rea.system.offer.application.engine.service.acquisition.scrapper.oto_dom.detailed_offer.Location;
-import rea.system.common.model.Floor;
-import rea.system.common.model.Room;
+import rea.system.common.model.offer.Floor;
+import rea.system.common.model.offer.Room;
 
 import java.util.HashMap;
 import java.util.List;

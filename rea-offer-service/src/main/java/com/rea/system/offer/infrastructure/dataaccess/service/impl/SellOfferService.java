@@ -2,14 +2,12 @@ package com.rea.system.offer.infrastructure.dataaccess.service.impl;
 
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.rea.system.offer.application.domain.entity.DomainOffer;
-import com.rea.system.offer.application.domain.entity.Fillter;
 import com.rea.system.offer.application.engine.entity.ResolveOffer;
 import com.rea.system.offer.infrastructure.dataaccess.entity.SellOffer;
 import com.rea.system.offer.infrastructure.dataaccess.mapper.OfferMapper;
 import com.rea.system.offer.infrastructure.dataaccess.repository.SellOfferRepository;
 import com.rea.system.offer.infrastructure.dataaccess.service.AvailableDomainOfferService;
 import com.rea.system.offer.infrastructure.dataaccess.service.AvailableEngineOfferService;
-import com.rea.system.offer.infrastructure.dataaccess.service.impl.query_builder.OfferPredicateBuilder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -18,7 +16,6 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.List;
 import java.util.Optional;
 
 import static com.rea.system.offer.infrastructure.dataaccess.entity.Offer.ID;
@@ -51,11 +48,7 @@ public class SellOfferService implements AvailableEngineOfferService, AvailableD
     }
 
     @Override
-    public Flux<DomainOffer> findOffersById(Fillter fillter, int pageIndex, int pageSize) {
-        BooleanExpression expression = OfferPredicateBuilder.builder()
-                .fillter(fillter)
-                .build()
-                .buildQuery();
+    public Flux<DomainOffer> findOffersById(BooleanExpression expression, int pageIndex, int pageSize) {
         Sort sort = Sort.by(Sort.Order.desc(MODIFIED_DATE), Sort.Order.asc(ID));
         Pageable pageable = PageRequest.of(pageIndex, pageSize, sort);
         return Optional.ofNullable(expression)

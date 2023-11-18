@@ -2,7 +2,7 @@ package com.rea.system.offer.application.engine.model;
 
 import lombok.Builder;
 import lombok.Data;
-import rea.system.common.model.EstateServiceType;
+import rea.system.common.model.offer.EstateServiceType;
 
 import java.util.ArrayList;
 import java.util.List;

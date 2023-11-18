@@ -31,9 +31,7 @@ class OfferProcessingServiceImpl implements OfferProcessingService {
                 .filter(ResolveOffer::isOfferValid)
                 .map(ResolveOffer::prepareKeyValues)
                 .sort(Comparator.comparing(ResolveOffer::order))
-                .collectList()
-                .map(LinkedHashSet::new)
-                .flatMapMany(Flux::fromIterable)
+                .distinct()
                 .flatMap(dataService::upsertOfferAndMoveToHistoricalIfNecessarily)
                 .collectList()
                 .subscribe(resolveOffers -> log.info("processing ended for {} offers", resolveOffers.size()));

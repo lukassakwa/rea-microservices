@@ -1,4 +1,4 @@
-package rea.system.common.model;
+package rea.system.common.model.offer;
 
 public enum EstateServiceType {
     SELL, RENT

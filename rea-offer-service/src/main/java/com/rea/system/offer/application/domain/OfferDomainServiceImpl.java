@@ -1,5 +1,6 @@
 package com.rea.system.offer.application.domain;
 
+import com.querydsl.core.types.dsl.BooleanExpression;
 import com.rea.system.offer.application.domain.entity.DomainOffer;
 import com.rea.system.offer.application.domain.entity.Fillter;
 import com.rea.system.offer.application.domain.ports.input.OfferService;
@@ -8,16 +9,13 @@ import com.rea.system.offer.application.domain.ports.output.DomainHistoricalOffe
 import com.rea.system.offer.application.domain.presenter.OfferResponseMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import rea.system.common.dto.OfferDto;
-import rea.system.common.model.EstateServiceType;
+import rea.system.common.dto.offer.OfferDto;
+import rea.system.common.model.offer.EstateServiceType;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import reactor.util.function.Tuple2;
 
 import java.util.Comparator;
-import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -44,7 +42,11 @@ public class OfferDomainServiceImpl implements OfferService {
                 .metersTo(metersTo)
                 .offerIds(offerIds)
                 .build();
-        return availableOfferDataService.findOffersById(filter, pageIndex, pageSize)
+        BooleanExpression expression = DomainQueryBuilderImpl.builder()
+                .fillter(filter)
+                .build()
+                .buildQuery();
+        return availableOfferDataService.findOffersById(expression, pageIndex, pageSize, estateServiceType)
                 .map(offerResponseMapper::toResponse);
     }
 
