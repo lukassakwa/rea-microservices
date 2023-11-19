@@ -1,0 +1,9 @@
+server:
+  port: 8084
+
+keycloak-admin-client:
+      server-url: http://localhost:8080
+      realm: rea-keycloak
+      client-id: rea-app
+      client-secret: OwhyefCFH3qzZoOq8hRQ9CwLzJeegVyl
+      grant-type: CLIENT_CREDENTIALS
