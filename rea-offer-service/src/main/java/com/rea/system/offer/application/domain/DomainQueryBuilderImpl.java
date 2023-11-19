@@ -12,12 +12,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Builder
-class DomainQueryBuilderImpl implements DomainQueryBuilder<BooleanExpression> {
+class DomainQueryBuilderImpl {
 
 
     private final Fillter fillter;
 
-    @Override
     public BooleanExpression buildQuery() {
         List<BooleanExpression> criteriaList = buildCriteria();
         return Expressions.allOf(criteriaList.toArray(new BooleanExpression[0]));

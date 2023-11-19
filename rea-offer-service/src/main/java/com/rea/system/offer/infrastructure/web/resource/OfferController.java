@@ -15,6 +15,7 @@ import java.util.Set;
 public class OfferController {
 
     private final OfferService offerService;
+    private final OfferResponseMapper offerResponseMapper;
 
     @GetMapping()
     Flux<OfferDto> getOffers(@RequestParam EstateServiceType estateServiceType,
@@ -34,13 +35,14 @@ public class OfferController {
                 priceTo,
                 metersFrom,
                 metersTo
-        );
+        ).map(offerResponseMapper::toResponse);
     }
 
     @GetMapping("/monitor/{estateServiceType}/{offerId}")
     Flux<OfferDto> getHistoricalOffers(@PathVariable EstateServiceType estateServiceType,
                                                        @PathVariable String offerId) {
-        return offerService.getMonitoringData(offerId, estateServiceType);
+        return offerService.getMonitoringData(offerId, estateServiceType)
+                .map(offerResponseMapper::toResponse);
     }
 
 }

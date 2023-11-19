@@ -6,7 +6,7 @@ import com.rea.system.offer.application.domain.entity.Fillter;
 import com.rea.system.offer.application.domain.ports.input.OfferService;
 import com.rea.system.offer.application.domain.ports.output.DomainAvailableOfferDataService;
 import com.rea.system.offer.application.domain.ports.output.DomainHistoricalOfferDataService;
-import com.rea.system.offer.application.domain.presenter.OfferResponseMapper;
+import com.rea.system.offer.infrastructure.web.resource.OfferResponseMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import rea.system.common.dto.offer.OfferDto;
@@ -26,7 +26,7 @@ public class OfferDomainServiceImpl implements OfferService {
     private final OfferResponseMapper offerResponseMapper;
 
     @Override
-    public Flux<OfferDto> findOffers(EstateServiceType estateServiceType,
+    public Flux<DomainOffer> findOffers(EstateServiceType estateServiceType,
                                      Set<String> offerIds,
                                      Integer pageIndex,
                                      Integer pageSize,
@@ -46,17 +46,15 @@ public class OfferDomainServiceImpl implements OfferService {
                 .fillter(filter)
                 .build()
                 .buildQuery();
-        return availableOfferDataService.findOffersById(expression, pageIndex, pageSize, estateServiceType)
-                .map(offerResponseMapper::toResponse);
+        return availableOfferDataService.findOffersById(expression, pageIndex, pageSize, estateServiceType);
     }
 
     @Override
-    public Flux<OfferDto> getMonitoringData(String publicId, EstateServiceType serviceType) {
+    public Flux<DomainOffer> getMonitoringData(String publicId, EstateServiceType serviceType) {
         Flux<DomainOffer> monitorOffers = historicalOfferService.findByPublicId(publicId, serviceType);
         Mono<DomainOffer> offerDto = availableOfferDataService.findById(publicId, serviceType);
         return Flux.concat(monitorOffers, offerDto)
-                .sort(Comparator.comparing(DomainOffer::getModifiedAt).reversed())
-                .map(offerResponseMapper::toResponse);
+                .sort(Comparator.comparing(DomainOffer::getModifiedAt).reversed());
     }
 
 }
