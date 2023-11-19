@@ -13,13 +13,13 @@ import reactor.core.publisher.Mono;
 public class DomainUserServiceImpl implements DomainUserService {
 
     private final UserDataService userDataService;
-    private final DomainUserSettingsMapper userSettingsMapper;
+    private final DomainUserMapper userMapper;
 
     @Override
     public Mono<UserEntity> update(UserEntity userEntity) {
         String userId = userEntity.getUserId();
         return userDataService.getUser(userId)
-                .map(currentUserSettings -> userSettingsMapper.update(currentUserSettings, userEntity))
+                .map(currentUserSettings -> userMapper.update(currentUserSettings, userEntity))
                 .flatMap(userDataService::save)
                 .switchIfEmpty(Mono.error(new RuntimeException("users settings does not exist")));
     }

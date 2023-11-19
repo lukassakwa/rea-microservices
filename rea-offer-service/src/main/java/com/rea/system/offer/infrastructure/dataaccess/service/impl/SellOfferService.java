@@ -48,12 +48,11 @@ public class SellOfferService implements AvailableEngineOfferService, AvailableD
     }
 
     @Override
-    public Flux<DomainOffer> findOffersById(BooleanExpression expression, int pageIndex, int pageSize) {
+    public Flux<DomainOffer> findOffersById(BooleanExpression expression) {
         Sort sort = Sort.by(Sort.Order.desc(MODIFIED_DATE), Sort.Order.asc(ID));
-        Pageable pageable = PageRequest.of(pageIndex, pageSize, sort);
         return Optional.ofNullable(expression)
-                .map(expr -> sellOfferRepository.findAllBy(expr, pageable))
-                .orElse(sellOfferRepository.findAllBy(pageable))
+                .map(expr -> sellOfferRepository.findAll(expr, sort))
+                .orElse(sellOfferRepository.findAll(sort))
                 .map(offerMapper::toDomainSellDto);
     }
 

@@ -9,7 +9,6 @@ import com.rea.system.offer.application.domain.ports.output.DomainHistoricalOffe
 import com.rea.system.offer.infrastructure.web.resource.OfferResponseMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import rea.system.common.dto.offer.OfferDto;
 import rea.system.common.model.offer.EstateServiceType;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -23,13 +22,10 @@ public class OfferDomainServiceImpl implements OfferService {
 
     private final DomainHistoricalOfferDataService historicalOfferService;
     private final DomainAvailableOfferDataService availableOfferDataService;
-    private final OfferResponseMapper offerResponseMapper;
 
     @Override
     public Flux<DomainOffer> findOffers(EstateServiceType estateServiceType,
                                      Set<String> offerIds,
-                                     Integer pageIndex,
-                                     Integer pageSize,
                                      Integer priceFrom,
                                      Integer priceTo,
                                      Double metersFrom,
@@ -46,7 +42,7 @@ public class OfferDomainServiceImpl implements OfferService {
                 .fillter(filter)
                 .build()
                 .buildQuery();
-        return availableOfferDataService.findOffersById(expression, pageIndex, pageSize, estateServiceType);
+        return availableOfferDataService.findOffersById(expression, estateServiceType);
     }
 
     @Override

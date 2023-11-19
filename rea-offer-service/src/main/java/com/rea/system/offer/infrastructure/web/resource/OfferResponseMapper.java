@@ -2,11 +2,14 @@ package com.rea.system.offer.infrastructure.web.resource;
 
 import com.rea.system.offer.application.domain.entity.DomainOffer;
 import org.mapstruct.Mapper;
-import rea.system.common.dto.offer.OfferDto;
+import rea.system.common.intent.offer.HistoricalOfferIntentResponse;
+import rea.system.common.intent.offer.OfferIntentResponse;
 
 @Mapper(componentModel = "spring")
 public interface OfferResponseMapper {
 
-    OfferDto toResponse(DomainOffer domainOffer);
+    OfferIntentResponse toResponse(DomainOffer domainOffer);
+
+    HistoricalOfferIntentResponse toHistoricalResponse(DomainOffer domainOffer);
 
 }

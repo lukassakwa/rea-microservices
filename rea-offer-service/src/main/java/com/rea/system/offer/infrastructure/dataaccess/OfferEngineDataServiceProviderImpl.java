@@ -39,9 +39,9 @@ public class OfferEngineDataServiceProviderImpl implements EngineAvailableOfferD
     }
 
     @Override
-    public Flux<DomainOffer> findOffersById(BooleanExpression expression, int pageIndex, int pageSize, EstateServiceType estateServiceType) {
+    public Flux<DomainOffer> findOffersById(BooleanExpression expression, EstateServiceType estateServiceType) {
         AvailableDomainOfferService offerService = resolver.resolveDomainOfferService(estateServiceType);
-        return offerService.findOffersById(expression, pageIndex, pageSize);
+        return offerService.findOffersById(expression);
     }
 
     @Override

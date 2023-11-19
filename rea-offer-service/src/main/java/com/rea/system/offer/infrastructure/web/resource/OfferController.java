@@ -3,7 +3,8 @@ package com.rea.system.offer.infrastructure.web.resource;
 import com.rea.system.offer.application.domain.ports.input.OfferService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import rea.system.common.dto.offer.OfferDto;
+import rea.system.common.intent.offer.HistoricalOfferIntentResponse;
+import rea.system.common.intent.offer.OfferIntentResponse;
 import rea.system.common.model.offer.EstateServiceType;
 import reactor.core.publisher.Flux;
 
@@ -18,19 +19,15 @@ public class OfferController {
     private final OfferResponseMapper offerResponseMapper;
 
     @GetMapping()
-    Flux<OfferDto> getOffers(@RequestParam EstateServiceType estateServiceType,
-                             @RequestParam String pageIndex,
-                             @RequestParam String pageSize,
-                             @RequestParam(required = false) Set<String> offerIds,
-                             @RequestParam(required = false) Integer priceFrom,
-                             @RequestParam(required = false) Integer priceTo,
-                             @RequestParam(required = false) Double metersFrom,
-                             @RequestParam(required = false) Double metersTo) {
+    Flux<OfferIntentResponse> getOffers(@RequestParam EstateServiceType estateServiceType,
+                                        @RequestParam(required = false) Set<String> offerIds,
+                                        @RequestParam(required = false) Integer priceFrom,
+                                        @RequestParam(required = false) Integer priceTo,
+                                        @RequestParam(required = false) Double metersFrom,
+                                        @RequestParam(required = false) Double metersTo) {
         return offerService.findOffers(
                 estateServiceType,
                 offerIds,
-                Integer.parseInt(pageIndex),
-                Integer.parseInt(pageSize),
                 priceFrom,
                 priceTo,
                 metersFrom,
@@ -39,10 +36,10 @@ public class OfferController {
     }
 
     @GetMapping("/monitor/{estateServiceType}/{offerId}")
-    Flux<OfferDto> getHistoricalOffers(@PathVariable EstateServiceType estateServiceType,
-                                                       @PathVariable String offerId) {
+    Flux<HistoricalOfferIntentResponse> getHistoricalOffers(@PathVariable EstateServiceType estateServiceType,
+                                                            @PathVariable String offerId) {
         return offerService.getMonitoringData(offerId, estateServiceType)
-                .map(offerResponseMapper::toResponse);
+                .map(offerResponseMapper::toHistoricalResponse);
     }
 
 }

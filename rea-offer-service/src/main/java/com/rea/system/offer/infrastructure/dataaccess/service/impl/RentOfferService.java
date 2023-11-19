@@ -48,12 +48,11 @@ public class RentOfferService implements AvailableEngineOfferService, AvailableD
     }
 
     @Override
-    public Flux<DomainOffer> findOffersById(BooleanExpression expression, int pageIndex, int pageSize) {
+    public Flux<DomainOffer> findOffersById(BooleanExpression expression) {
         Sort sort = Sort.by(Sort.Order.desc(MODIFIED_DATE), Sort.Order.asc(ID));
-        Pageable pageable = PageRequest.of(pageIndex, pageSize, sort);
         return Optional.ofNullable(expression)
-                .map(expr -> rentOfferRepository.findAllBy(expr, pageable))
-                .orElse(rentOfferRepository.findAllBy(pageable))
+                .map(expr -> rentOfferRepository.findAll(expr, sort))
+                .orElse(rentOfferRepository.findAll(sort))
                 .map(offerMapper::toDomainRentDto);
     }
 

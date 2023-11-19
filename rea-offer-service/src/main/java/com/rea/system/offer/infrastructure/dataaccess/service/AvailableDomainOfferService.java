@@ -8,7 +8,7 @@ import reactor.core.publisher.Mono;
 
 public interface AvailableDomainOfferService {
 
-    Flux<DomainOffer> findOffersById(BooleanExpression expression, int pageIndex, int pageSize);
+    Flux<DomainOffer> findOffersById(BooleanExpression expression);
 
     Mono<DomainOffer> findById(String offerId);
 
