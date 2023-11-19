@@ -1,9 +1,12 @@
 server:
   port: 8084
 
-keycloak-admin-client:
-      server-url: http://localhost:8080
-      realm: rea-keycloak
-      client-id: rea-app
-      client-secret: OwhyefCFH3qzZoOq8hRQ9CwLzJeegVyl
-      grant-type: CLIENT_CREDENTIALS
+spring:
+    jackson:
+        date-format: "yyyy-MM-dd'T'HH:mm:ss"
+    data:
+        mongodb:
+            host: localhost
+            port: 27017
+            database: real_estate_aggragetor
+            auto-index-creation: true
