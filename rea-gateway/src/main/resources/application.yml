@@ -1,5 +1,5 @@
 server:
-  port: 8084
+  port: 8081
 
 spring:
   application:
@@ -10,7 +10,7 @@ spring:
         - TokenRelay
       routes:
         - id: intent-service
-          uri: http://127.0.0.1:8081
+          uri: http://127.0.0.1:8082
           predicates:
             - Path=/api/**
           filters:
@@ -25,7 +25,7 @@ spring:
           keycloak-spring-gateway-client:
             provider: keycloak
             client-id: rea-app
-            client-secret: OwhyefCFH3qzZoOq8hRQ9CwLzJeegVyl
+            client-secret:
             scope: openid
             authorization-grant-type: authorization_code
             redirect-uri: '{baseUrl}/login/oauth2/code/keycloak'
