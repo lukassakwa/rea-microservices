@@ -4,84 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6403b02b-995a-4d29-b00c-ca9f908216e7" name="Changes" comment="changed engine implementation">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rea-common/src/main/java/rea/system/common/dto/favorites/FavoriteOperationType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rea-common/src/main/java/rea/system/common/dto/favorites/FavoriteUserDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rea-common/src/main/java/rea/system/common/dto/favorites/FavoriteUserOfferDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rea-common/src/main/java/rea/system/common/dto/user/UserDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rea-common/src/main/java/rea/system/common/model/user/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rea-gateway/src/main/java/com/rea/system/app/config/SecurityConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/config/SecurityConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/user/TestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/domain/DomainQueryBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="6403b02b-995a-4d29-b00c-ca9f908216e7" name="Changes" comment="intent and user flow">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-app-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-app-service/src/main/java/com/rea/system/app/AppApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-app-service/src/main/java/com/rea/system/app/client/OfferClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-app-service/src/main/java/com/rea/system/app/config/WebClientConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-app-service/src/main/java/com/rea/system/app/controllers/OfferController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-app-service/src/main/java/com/rea/system/app/service/OfferParamsBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-app-service/src/main/java/com/rea/system/app/service/OfferService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-app-service/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-common/src/main/java/rea/system/common/dto/OfferDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-common/src/main/java/rea/system/common/dto/offer/OfferDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-common/src/main/java/rea/system/common/model/EstateServiceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-common/src/main/java/rea/system/common/model/offer/EstateServiceType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-common/src/main/java/rea/system/common/model/Floor.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-common/src/main/java/rea/system/common/model/offer/Floor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-common/src/main/java/rea/system/common/model/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-common/src/main/java/rea/system/common/model/offer/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-common/src/main/java/rea/system/common/model/ServiceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-common/src/main/java/rea/system/common/model/offer/ServiceType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-gateway/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-intent/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-mail-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-mail-service/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/domain/OfferDomainServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/domain/OfferDomainServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/domain/entity/DomainOffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/domain/entity/DomainOffer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/domain/entity/Fillter.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/domain/entity/Fillter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/domain/ports/input/OfferService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/domain/ports/input/OfferService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/domain/ports/output/DomainAvailableOfferDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/domain/ports/output/DomainAvailableOfferDataService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/domain/ports/output/DomainHistoricalOfferDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/domain/ports/output/DomainHistoricalOfferDataService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/domain/presenter/OfferResponseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/domain/presenter/OfferResponseMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/OfferLoadContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/OfferLoadContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/OfferProcessingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/OfferProcessingServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/entity/ResolveOffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/entity/ResolveOffer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/model/OfferLoadDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/model/OfferLoadDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/ports/output/EngineAvailableOfferDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/ports/output/EngineAvailableOfferDataService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/ports/output/EngineHistoricalOfferDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/ports/output/EngineHistoricalOfferDataService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/service/acquisition/AcquisitionReactiveServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/service/acquisition/AcquisitionReactiveServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/service/acquisition/scrapper/OfferScrapperService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/service/acquisition/scrapper/OfferScrapperService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/service/acquisition/scrapper/OfferScrapperServiceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/service/acquisition/scrapper/OfferScrapperServiceFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/service/acquisition/scrapper/gratka/GratkaOfferMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/service/acquisition/scrapper/gratka/GratkaOfferMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/service/acquisition/scrapper/gratka/GratkaOfferScraper.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/service/acquisition/scrapper/gratka/GratkaOfferScraper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/service/acquisition/scrapper/oto_dom/OtoDomMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/service/acquisition/scrapper/oto_dom/OtoDomMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/service/acquisition/scrapper/oto_dom/OtoDomOfferScraper.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/service/acquisition/scrapper/oto_dom/OtoDomOfferScraper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/service/save/DataServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/service/save/DataServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/util/ServiceUrlConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/engine/util/ServiceUrlConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/infrastructure/dataaccess/HistoricalOfferServiceProviderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/infrastructure/dataaccess/HistoricalOfferServiceProviderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/infrastructure/dataaccess/HistoricalOfferServiceResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/infrastructure/dataaccess/HistoricalOfferServiceResolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/infrastructure/dataaccess/OfferEngineDataServiceProviderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/infrastructure/dataaccess/OfferEngineDataServiceProviderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/infrastructure/dataaccess/OfferServiceResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/infrastructure/dataaccess/OfferServiceResolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/infrastructure/dataaccess/entity/Offer.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/infrastructure/dataaccess/entity/Offer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/infrastructure/dataaccess/service/AvailableDomainOfferService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/infrastructure/dataaccess/service/AvailableDomainOfferService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/infrastructure/dataaccess/service/impl/RentOfferService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/infrastructure/dataaccess/service/impl/RentOfferService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/infrastructure/dataaccess/service/impl/SellOfferService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/infrastructure/dataaccess/service/impl/SellOfferService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/infrastructure/dataaccess/service/impl/query_builder/OfferPredicateBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/application/domain/DomainQueryBuilderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/infrastructure/dataaccess/service/impl/query_builder/QueryBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/infrastructure/web/resource/OfferController.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/infrastructure/web/resource/OfferController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rea-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/infrastructure/web/shedulers/OfferLoaderSheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/java/com/rea/system/offer/infrastructure/web/shedulers/OfferLoaderSheduler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rea-offer-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/target/classes/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-system/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-offer-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-offer-service/src/main/java/com/rea/system/useroffer/UserOfferApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/IntentApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-offer-service/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/UserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-gateway/src/main/java/com/rea/system/app/AppApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-service/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rea-user-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/resources/application.yml" afterDir="false" />
     </list>
     <list id="d05a8cd2-f876-4cfa-9c7d-c73a3e1f9de4" name="app_config" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -92,9 +22,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Dockerfile" />
         <option value="Enum" />
+        <option value="package-info" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -153,6 +84,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.rea.system.intent.user" />
       <recent name="com.rea.system.user.domain" />
       <recent name="com.rea.system.app.domain.user" />
       <recent name="com.rea.system.useroffer.application.domain.entity" />
@@ -170,19 +102,20 @@
       <recent name="com.rea.system.offer.application.domain" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.rea.system.intent.offer" />
+      <recent name="com.rea.system.user.dataaccess" />
+      <recent name="com.rea.system.intent.config" />
+      <recent name="com.rea.system.user.infratruture.config" />
       <recent name="com.rea.system.user.domain" />
-      <recent name="rea.system.common.dto.user" />
-      <recent name="com.rea.system.app.web.controllers.dto" />
-      <recent name="com.rea.system.app.web.controllers.response" />
-      <recent name="com.rea.system.app.domain.auth" />
     </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
+      <command value="mvn dependency:tree" />
       <command value="mvn clean install" />
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.OfferApplication">
+  <component name="RunManager" selected="Spring Boot.IntentApplication">
     <configuration name="AppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="rea-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.rea.system.app.AppApplication" />
@@ -231,8 +164,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.OfferApplication" />
         <item itemvalue="Spring Boot.IntentApplication" />
+        <item itemvalue="Spring Boot.OfferApplication" />
         <item itemvalue="Spring Boot.AppApplication" />
         <item itemvalue="Spring Boot.UserApplication" />
       </list>
@@ -262,7 +195,9 @@
       <workItem from="1700148604009" duration="8163000" />
       <workItem from="1700170911502" duration="2557000" />
       <workItem from="1700331641944" duration="3629000" />
-      <workItem from="1700335575510" duration="1234000" />
+      <workItem from="1700335575510" duration="4373000" />
+      <workItem from="1700344415474" duration="18406000" />
+      <workItem from="1700399231475" duration="5837000" />
     </task>
     <task id="LOCAL-00001" summary="config">
       <option name="closed" value="true" />
@@ -344,7 +279,55 @@
       <option name="project" value="LOCAL" />
       <updated>1700336056632</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="changed offer domain implementation">
+      <option name="closed" value="true" />
+      <created>1700336987716</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1700336987716</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added intent and gateway">
+      <option name="closed" value="true" />
+      <created>1700337097113</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1700337097113</updated>
+    </task>
+    <task id="LOCAL-00013" summary="added user service">
+      <option name="closed" value="true" />
+      <created>1700360147878</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1700360147878</updated>
+    </task>
+    <task id="LOCAL-00014" summary="offer correction">
+      <option name="closed" value="true" />
+      <created>1700360492076</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1700360492076</updated>
+    </task>
+    <task id="LOCAL-00015" summary="offer correction">
+      <option name="closed" value="true" />
+      <created>1700408261886</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1700408261886</updated>
+    </task>
+    <task id="LOCAL-00016" summary="intent and user flow">
+      <option name="closed" value="true" />
+      <created>1700408304207</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1700408304207</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,7 +342,12 @@
     <MESSAGE value="refactor app microservice to reactive" />
     <MESSAGE value="vonfig" />
     <MESSAGE value="changed engine implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed engine implementation" />
+    <MESSAGE value="changed offer domain implementation" />
+    <MESSAGE value="added intent and gateway" />
+    <MESSAGE value="added user service" />
+    <MESSAGE value="offer correction" />
+    <MESSAGE value="intent and user flow" />
+    <option name="LAST_COMMIT_MESSAGE" value="intent and user flow" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -378,6 +366,16 @@
           <url>mock:///AbstractUserDetailsReactiveAuthenticationManager.java</url>
           <line>61</line>
           <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/user/UserIntentController.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/offer/OfferIntentController.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="52" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
