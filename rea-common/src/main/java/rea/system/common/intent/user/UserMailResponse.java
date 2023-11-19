@@ -1,4 +1,4 @@
-package rea.system.common.intent.mail;
+package rea.system.common.intent.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -3,7 +3,7 @@ package com.rea.system.user.resource;
 import com.rea.system.user.domain.core.UserEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import rea.system.common.intent.mail.UserMailResponse;
+import rea.system.common.intent.user.UserMailResponse;
 import rea.system.common.intent.user.UserIntentPayload;
 import rea.system.common.intent.user.UserIntentResponse;
 
@@ -29,7 +29,6 @@ public interface UserIntentMapper {
     @Mapping(target = "priceTo", source = "userFilterSettingsEntity.priceTo")
     @Mapping(target = "metersFrom", source = "userFilterSettingsEntity.metersFrom")
     @Mapping(target = "metersTo", source = "userFilterSettingsEntity.metersTo")
-
     UserIntentResponse toIntentResponse(UserEntity userEntity);
 
 

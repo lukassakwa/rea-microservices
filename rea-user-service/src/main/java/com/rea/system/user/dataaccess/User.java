@@ -17,6 +17,7 @@ public class User {
     private String id;
     @Indexed
     private String userId;
+    private String username;
     private UserFilterSettings userFilterSettings;
 
 }
