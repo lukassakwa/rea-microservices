@@ -1,4 +1,4 @@
-package com.rea.system.intent.config;
+package com.rea.system.intent.infrastructure.config;
 
 import io.netty.channel.ChannelOption;
 import io.netty.handler.timeout.ReadTimeoutHandler;
@@ -18,9 +18,29 @@ public class WebClientConfiguration {
 
     private static final int BUFFER_SIZE_16MB = 16 * 1024 * 1024;
 
-    @Bean
-    WebClient webClient() {
+    @Bean(name = "userClient")
+    WebClient userClient() {
+        return webClient("http://localhost:8084");
+    }
+
+    @Bean(name = "offerClient")
+    WebClient offerClient() {
+        return webClient("http://localhost:8083");
+    }
+
+    @Bean(name = "offerEngineClient")
+    WebClient offerEngineClient() {
+        return webClient("http://localhost:8086");
+    }
+
+    @Bean(name = "userOfferClient")
+    WebClient userOfferClient() {
+        return webClient("http://localhost:8085");
+    }
+
+    WebClient webClient(String baseUrl) {
         return WebClient.builder()
+                .baseUrl(baseUrl)
                 .exchangeStrategies(ExchangeStrategies.builder().codecs(this::acceptedCodecs).build())
                 .clientConnector(new ReactorClientHttpConnector(create()))
                 .build();

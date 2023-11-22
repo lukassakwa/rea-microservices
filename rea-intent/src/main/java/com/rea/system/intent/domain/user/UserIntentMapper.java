@@ -1,4 +1,4 @@
-package com.rea.system.intent.user;
+package com.rea.system.intent.domain.user;
 
 
 import org.mapstruct.Mapper;

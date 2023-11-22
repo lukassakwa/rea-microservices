@@ -1,5 +1,6 @@
-package com.rea.system.intent.offer;
+package com.rea.system.intent.infrastructure.web.resource;
 
+import com.rea.system.intent.domain.offer.OfferIntentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import rea.system.common.intent.offer.HistoricalOfferIntentResponse;

@@ -1,14 +1,10 @@
-package com.rea.system.intent.user;
+package com.rea.system.intent.infrastructure.web.resource;
 
+import com.rea.system.intent.domain.user.UserIntentService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.ReactiveSecurityContextHolder;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.reactive.function.client.WebClient;
 import rea.system.common.intent.user.UserIntentPayload;
 import rea.system.common.intent.user.UserIntentResponse;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController

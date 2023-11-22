@@ -1,6 +1,7 @@
-package com.rea.system.intent.common;
+package com.rea.system.intent.infrastructure.service;
 
-import com.rea.system.intent.user.UserSecurityAuthenticationService;
+import com.rea.system.intent.domain.port.output.security.UserSecurityAuthenticationService;
+import com.rea.system.intent.domain.port.output.security.UserOfferSecurityAuthenticationService;
 import org.springframework.security.core.context.ReactiveSecurityContextHolder;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
 @Service
-public class SecurityAuthenticationServiceImpl implements UserSecurityAuthenticationService {
+public class SecurityAuthenticationServiceImpl implements UserSecurityAuthenticationService, UserOfferSecurityAuthenticationService {
 
     private static final String USERNAME = "email";
 

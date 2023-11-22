@@ -1,4 +1,4 @@
-package com.rea.system.intent.user;
+package com.rea.system.intent.domain.port.output.security;
 
 import reactor.core.publisher.Mono;
 

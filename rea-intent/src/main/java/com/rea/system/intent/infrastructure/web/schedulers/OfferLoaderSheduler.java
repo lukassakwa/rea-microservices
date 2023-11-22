@@ -1,6 +1,6 @@
-package com.rea.system.offer.infrastructure.web.shedulers;
+package com.rea.system.intent.infrastructure.web.schedulers;
 
-import com.rea.system.offer.application.engine.ports.input.InvokerEngineService;
+import com.rea.system.intent.domain.offer.OfferIntentService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
@@ -14,12 +14,12 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class OfferLoaderSheduler {
 
-    private final InvokerEngineService inokerEngineService;
+    private final OfferIntentService offerIntentService;
 
     @Async
     @Scheduled(cron = "0 0/5 * * * ?")
     public void scheduleOfferLoad() {
-        inokerEngineService.invoke();
+        offerIntentService.invokeOfferEngine();
     }
 
 }

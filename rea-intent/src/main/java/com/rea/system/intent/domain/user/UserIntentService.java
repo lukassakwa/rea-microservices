@@ -1,5 +1,7 @@
-package com.rea.system.intent.user;
+package com.rea.system.intent.domain.user;
 
+import com.rea.system.intent.domain.port.output.client.UserClientService;
+import com.rea.system.intent.domain.port.output.security.UserSecurityAuthenticationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -16,12 +18,12 @@ public class UserIntentService {
     private final UserIntentMapper userIntentMapper;
     private final UserSecurityAuthenticationService securityAuthenticationService;
 
-    Mono<UserIntentResponse> getUser() {
+    public Mono<UserIntentResponse> getUser() {
         return securityAuthenticationService.getUserId()
                 .flatMap(userClientService::getUserIntentResponse);
     }
 
-    Mono<UserIntentResponse> updateUser(UserIntentPayload payload) {
+    public Mono<UserIntentResponse> updateUser(UserIntentPayload payload) {
         Mono<String> userId = securityAuthenticationService.getUserId();
         Mono<String> username = securityAuthenticationService.getUsername();
         return Mono.zip(userId, username)

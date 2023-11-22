@@ -1,5 +1,7 @@
-package com.rea.system.intent.offer;
+package com.rea.system.intent.domain.offer;
 
+import com.rea.system.intent.domain.port.output.client.OfferClientService;
+import com.rea.system.intent.domain.user_offer.UserOfferOfferService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
@@ -12,11 +14,11 @@ import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
-public class OfferIntentService {
+public class OfferIntentService implements UserOfferOfferService {
 
     private final OfferClientService offerClientService;
 
-    Flux<OfferIntentResponse> getOffers(EstateServiceType estateServiceType,
+    public Flux<OfferIntentResponse> getOffers(EstateServiceType estateServiceType,
                                                Integer priceFrom,
                                                Integer priceTo,
                                                Double metersFrom,
@@ -32,7 +34,21 @@ public class OfferIntentService {
         return offerClientService.getOffers(queryMap);
     }
 
-    Flux<HistoricalOfferIntentResponse> getMonitoringData(String offerId, EstateServiceType estateServiceType) {
+    public Flux<HistoricalOfferIntentResponse> getMonitoringData(String offerId, EstateServiceType estateServiceType) {
         return offerClientService.getMonitoringOffers(offerId, estateServiceType);
+    }
+
+    public void invokeOfferEngine() {
+        offerClientService.invokeOfferEngine();
+    }
+
+    @Override
+    public Flux<OfferIntentResponse> getOffers(Set<String> ids, EstateServiceType estateServiceType) {
+        LinkedMultiValueMap<String, String> queryMap = OfferQueryBuilder.builder()
+                .estateServiceType(estateServiceType)
+                .offerIds(ids)
+                .build()
+                .buildQueryParams();
+        return offerClientService.getProvidedOffers(queryMap);
     }
 }
