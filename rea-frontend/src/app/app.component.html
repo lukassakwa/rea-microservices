@@ -1,0 +1,27 @@
+<div id="app">
+  <nav class="navbar navbar-dark bg-dark">
+    <a href="offers" class="navbar-brand"> {{title}} </a>
+    <button class="navbar-toggler" type="button" (click)="togglePanel()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+  <div class="panel-overlay" *ngIf="showPanel" (click)="togglePanel()"></div>
+  <div class="navbar-dark bg-dark panel" *ngIf="showPanel">
+    <button type="button" class="close-button btn position-absolute btn-dark top-0 end-0 p-3" (click)="togglePanel()">X</button>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item" *ngIf="isLoggedIn()">
+        <a href="/offers" class="nav-link" routerLink="offers" (click)="hidePanel()" style="margin: 10px 10px 5px;">Strona główna</a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn()">
+        <a href="/favorites" class="nav-link" routerLink="favorites" (click)="hidePanel()" style="margin: 10px 10px 5px;">Ulubione oferty</a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn()">
+        <a href="/settings" class="nav-link" routerLink="settings" (click)="hidePanel()" style="margin: 10px 10px 5px;">Ustawienia użytkownika</a>
+      </li>
+      <li class="nav-item">
+        <a href class="nav-link" *ngIf="isLoggedIn()" (click)="logout(); hidePanel()" style="margin: 10px 10px 5px;">Wyloguj się</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<router-outlet></router-outlet>

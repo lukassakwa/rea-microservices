@@ -1,0 +1,40 @@
+<a #top></a>
+<div class="wrapper container" *ngIf="offers">
+  <app-filter (clicked)="onFillter($event)"></app-filter>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card mb-3" *ngFor="let offer of offers;">
+          <img class="card-img-top" src="{{ getImage(offer.images!) }}" alt="Card image cap" >
+          <div class="card-body">
+            <h5 class="card-title">{{ offer.title }}</h5>
+            <p class="card-text">title: {{ offer.title }}</p>
+            <p class="card-text">description: {{ offer.description }}</p>
+            <div class="details">
+              <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <th class="text-center">Cena</th>
+                  <th class="text-center">Metraż</th>
+                  <th class="text-center">link</th>
+                  <th class="text-center">tel.</th>
+                  <th class="text-center">adres</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-center">{{ offer.price }} </td>
+                    <td class="text-center">{{ offer.meters }} </td>
+                    <td class="text-center"><a href="{{ offer.href }}">{{ offer.href }}</a></td>
+                    <td class="text-center">{{ offer.contactPhone }} </td>
+                    <td class="text-center">{{ offer.fullAddress! }} </td>
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary" (click)="likeOffer(offer)">Polub</button>
+            <button type="button" class="btn btn-primary" (click)="historicalOffer(offer)">Historia</button>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

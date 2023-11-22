@@ -1,0 +1,14 @@
+.wrapper {
+  margin-top: 60px;
+}
+
+.card-img-top {
+  height: 300px;
+  object-fit: cover;
+}
+
+.details {
+  margin-top: 10px;
+  font-size: 14px;
+}
+

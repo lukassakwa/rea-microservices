@@ -1,0 +1,27 @@
+<div class="wrapper container" *ngIf="offers">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card mb-3">
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead>
+              <th class="text-center">Cena</th>
+              <th class="text-center">tel.</th>
+              <th class="text-center">adres</th>
+              <th class="text-center">Data modyfikacji:</th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let offer of offers;">
+              <td class="text-center">{{ offer.price }} </td>
+              <td class="text-center">{{ offer.contactPhone }} </td>
+              <td class="text-center">{{ offer.fullAddress }}</td>
+              <td class="text-center">{{ getDate(offer.modifiedAt) }}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
