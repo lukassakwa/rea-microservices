@@ -18,11 +18,12 @@
     <name>rea-parent</name>
     <url>https://www.rea.com</url>
     <modules>
-        <module>rea-gateway</module>
-        <module>rea-offer-service</module>
         <module>rea-common</module>
         <module>rea-intent</module>
         <module>rea-user-service</module>
+        <module>rea-user-offer-service</module>
+        <module>rea-offer-service/offer-service</module>
+        <module>rea-offer-service/engine-service</module>
     </modules>
 
     <properties>
