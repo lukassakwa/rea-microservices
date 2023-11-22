@@ -9,6 +9,7 @@ import rea.system.common.intent.offer.HistoricalOfferIntentResponse;
 import rea.system.common.intent.offer.OfferIntentResponse;
 import rea.system.common.model.offer.EstateServiceType;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @Service
 public class OfferClientServiceImpl implements OfferClientService {
@@ -44,9 +45,12 @@ public class OfferClientServiceImpl implements OfferClientService {
     @Override
     public void invokeOfferEngine() {
         offerEngineClient.get()
-                .uri("/api/offer/engine")
+                .uri(uriBuilder -> uriBuilder
+                        .path("/api/offer/engine")
+                        .build())
                 .retrieve()
-                .bodyToMono(Void.class);
+                .bodyToMono(Void.class)
+                .subscribe();
     }
 
     @Override
