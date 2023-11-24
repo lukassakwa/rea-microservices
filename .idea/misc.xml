@@ -1,17 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/untitled/pom.xml" />
-        <option value="$PROJECT_DIR$/rea-system/pom.xml" />
-        <option value="$PROJECT_DIR$/rea-offer-service/pom.xml" />
-        <option value="$PROJECT_DIR$/rea-app-service/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/rea-user-service/pom.xml" />
-        <option value="$PROJECT_DIR$/rea-common/pom.xml" />
-        <option value="$PROJECT_DIR$/rea-gateway/pom.xml" />
-        <option value="$PROJECT_DIR$/rea-intent/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

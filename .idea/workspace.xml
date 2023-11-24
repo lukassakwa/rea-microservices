@@ -116,6 +116,17 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.IntentApplication">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="rea-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.rea.system.app.AppApplication" />
