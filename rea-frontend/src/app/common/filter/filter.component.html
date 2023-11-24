@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card mb-3">
+        <select id="city" class="form-control" [(ngModel)]="selectedEstate" [disabled]="true">
+          <option *ngFor="let estate of estates" [selected]="estate == selectedEstate" [value]="estate">{{getTranslationEstate(estate)}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-3">
+        <select id="price" class="form-control" [(ngModel)]="selectedService">
+          <option *ngFor="let service of services" [value]="service">{{getTranslation(service)}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card mb-3">
+          <input type="text" class="form-control" [(ngModel)]="priceFrom" placeholder="Kwota od">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-3">
+        <input type="text" class="form-control" [(ngModel)]="priceTo" placeholder="Kwota do">
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card mb-3">
+        <input type="text" class="form-control" [(ngModel)]="metersFrom" placeholder="Metry od">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-3">
+        <input type="text" class="form-control" [(ngModel)]="metersTo" placeholder="Metry do">
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-2">
+      <div class="card mb-3">
+        <button type="button" class="btn btn-primary" (click)="onFillter()">Filtruj</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="wrapper d-flex justify-content-center">
+  <form [formGroup]="userForms">
+    <div class="mb-3">
+      <label>Rodzaj Nieruchomosci:</label>
+      <select class="form-control" formControlName="estate">
+        <option *ngFor="let estate of estates" [selected]="userForms.get('estate')?.value" [value]="estate">{{getTranslationEstate(estate)}}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label>Sprzedaz / wynajem:</label>
+      <select class="form-control" formControlName="service">
+        <option *ngFor="let service of services" [value]="service">{{getTranslation(service)}}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label>Kwota od:</label>
+      <input type="text" class="form-control" formControlName="priceFrom">
+    </div>
+    <div class="mb-3">
+      <label>Kwota do:</label>
+      <input type="text" class="form-control" formControlName="priceTo">
+    </div>
+    <div class="mb-3">
+      <label>Metraż od:</label>
+      <input type="text" class="form-control" formControlName="metersFrom">
+    </div>
+    <div class="mb-3">
+      <label>Metraż do:</label>
+      <input type="text" class="form-control" formControlName="metersTo">
+    </div>
+    <div class="mb-3">
+      <label>Czestotliwosc maili (h):</label>
+      <select class="form-control" formControlName="emailDayDelays">
+        <option *ngFor="let emailDelay of emailDelays" [value]="emailDelay">{{emailDelay}}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Zapisz ustawienia</button>
+  </form>
+</div>
