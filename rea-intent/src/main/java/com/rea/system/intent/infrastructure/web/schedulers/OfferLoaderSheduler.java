@@ -17,7 +17,7 @@ public class OfferLoaderSheduler {
     private final OfferIntentService offerIntentService;
 
     @Async
-    @Scheduled(cron = "0 0/5 * * * ?")
+    @Scheduled(cron = "0 0/30 * * * ?")
     public void scheduleOfferLoad() {
         offerIntentService.invokeOfferEngine();
     }

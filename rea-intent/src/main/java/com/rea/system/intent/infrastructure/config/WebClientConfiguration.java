@@ -20,22 +20,22 @@ public class WebClientConfiguration {
 
     @Bean(name = "userClient")
     WebClient userClient() {
-        return webClient("http://localhost:8084");
+        return webClient("http://user-service-appliation:8084");
     }
 
     @Bean(name = "offerClient")
     WebClient offerClient() {
-        return webClient("http://localhost:8083");
+        return webClient("http://offer-service-application:8083");
     }
 
     @Bean(name = "offerEngineClient")
     WebClient offerEngineClient() {
-        return webClient("http://localhost:8086");
+        return webClient("http://engine-offer-appliation:8086");
     }
 
     @Bean(name = "userOfferClient")
     WebClient userOfferClient() {
-        return webClient("http://localhost:8085");
+        return webClient("http://user-offer-service-appliation:8085");
     }
 
     WebClient webClient(String baseUrl) {

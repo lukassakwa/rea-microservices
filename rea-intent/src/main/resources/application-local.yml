@@ -6,4 +6,4 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8080/realms/rea-keycloak
+          issuer-uri: http://rea-keycloak:8080/realms/rea-keycloak

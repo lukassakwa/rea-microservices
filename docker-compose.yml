@@ -1,0 +1,73 @@
+version: "2"
+
+services:
+
+  intent-service-appliation:
+    container_name: intent-service-appliation
+    build:
+      context: ./rea-intent
+      dockerfile: DockerFile
+    image: intent-service-image:0.0.1-local
+    ports:
+      - 8082:8082
+
+  user-service-appliation:
+    container_name: user-service-appliation
+    build:
+      context: ./rea-user-service
+      dockerfile: DockerFile
+    image: user-service-image:0.0.1-local
+    depends_on:
+      - rea-offer-db
+    ports:
+      - 8084:8084
+
+  user-offer-service-appliation:
+    container_name: user-offer-service-appliation
+    build:
+      context: ./rea-user-offer-service
+      dockerfile: DockerFile
+    image: user-offer-service-image:0.0.1-local
+    depends_on:
+      - rea-offer-db
+    ports:
+      - 8085:8085
+
+  engine-offer-appliation:
+    container_name: engine-offer-appliation
+    build:
+      context: ./rea-offer-service/engine-service
+      dockerfile: DockerFile
+    depends_on:
+      - rea-offer-db
+    image: engine-service-image:0.0.1-local
+    ports:
+      - 8086:8086
+    links:
+      - rea-offer-db
+
+  offer-service-application:
+    container_name: offer-service-application
+    build:
+      context: ./rea-offer-service/offer-service
+      dockerfile: DockerFile
+    depends_on:
+      - rea-offer-db
+    image: offer-service-image:0.0.1-local
+    ports:
+      - 8083:8083
+    links:
+      - rea-offer-db
+
+  rea-offer-db:
+    image: mongo:latest
+    container_name: rea-offer-db
+    expose:
+      - 27017
+    ports:
+      - 27017:27017
+    volumes:
+      - dbdata6:/data/db
+
+volumes:
+  dbdata6:
