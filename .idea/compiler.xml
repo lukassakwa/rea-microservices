@@ -14,10 +14,11 @@
         </processorPath>
         <module name="engine-service" />
         <module name="rea-intent" />
-        <module name="rea-user-service" />
         <module name="offer-service" />
         <module name="rea-user-offer-service" />
         <module name="rea-common" />
+        <module name="rea-mail-service" />
+        <module name="rea-user-service" />
       </profile>
     </annotationProcessing>
   </component>
@@ -27,6 +28,7 @@
       <module name="offer-service" options="-parameters" />
       <module name="rea-common" options="-parameters" />
       <module name="rea-intent" options="-parameters" />
+      <module name="rea-mail-service" options="-parameters" />
       <module name="rea-user-offer-service" options="-parameters" />
       <module name="rea-user-service" options="-parameters" />
     </option>

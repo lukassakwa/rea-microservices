@@ -4,6 +4,8 @@ services:
 
   intent-service-appliation:
     container_name: intent-service-appliation
+    depends_on:
+      - rea-keycloak
     build:
       context: ./rea-intent
       dockerfile: DockerFile
@@ -59,6 +61,42 @@ services:
     links:
       - rea-offer-db
 
+  rea-postgres:
+    container_name: rea-postgres
+    image: "postgres:14.4"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: keycloak
+      POSTGRES_HOST: postgres
+    ports:
+      - "5432:5432"
+
+  rea-keycloak:
+    container_name: rea-keycloak
+    build:
+      context: ./docker/keycloak
+      args:
+        KEYCLOAK_VERSION: latest
+    command: [ 'start', '--optimized' ]
+    depends_on:
+      - rea-postgres
+    environment:
+      JAVA_OPTS_APPEND: -Dkeycloak.profile.feature.upload_scripts=enabled
+      KC_DB_PASSWORD: postgres
+      KC_DB_URL: jdbc:postgresql://postgres/keycloak
+      KC_DB_USERNAME: postgres
+      KC_HEALTH_ENABLED: 'true'
+      KC_HTTP_ENABLED: 'true'
+      KC_METRICS_ENABLED: 'true'
+      KC_PROXY: reencrypt
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    ports:
+      - "8080:8080"
+
   rea-offer-db:
     image: mongo:latest
     container_name: rea-offer-db
@@ -71,3 +109,4 @@ services:
 
 volumes:
   dbdata6:
+  postgres_data:
