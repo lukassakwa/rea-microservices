@@ -3,9 +3,9 @@ package com.rea.system.user.resource;
 import com.rea.system.user.domain.core.UserEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import rea.system.common.intent.user.UserMailResponse;
 import rea.system.common.intent.user.UserIntentPayload;
 import rea.system.common.intent.user.UserIntentResponse;
+import rea.system.common.mail.UserMailResponse;
 
 @Mapper(componentModel = "spring")
 public interface UserIntentMapper {
