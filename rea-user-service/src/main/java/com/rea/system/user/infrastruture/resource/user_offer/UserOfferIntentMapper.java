@@ -1,12 +1,12 @@
 package com.rea.system.user.infrastruture.resource.user_offer;
 
 import com.rea.system.user.domain.user_offer.DomainUserOfferPayload;
+import com.rea.system.user.infrastruture.resource.model.UserOfferPayload;
 import org.mapstruct.Mapper;
-import rea.system.common.intent.user_offer.UserOfferIntentPayload;
 
 @Mapper(componentModel = "spring")
 public interface UserOfferIntentMapper {
 
-    DomainUserOfferPayload mapToDomain(UserOfferIntentPayload userOfferIntentPayload);
+    DomainUserOfferPayload mapToDomain(UserOfferPayload userOfferIntentPayload);
 
 }

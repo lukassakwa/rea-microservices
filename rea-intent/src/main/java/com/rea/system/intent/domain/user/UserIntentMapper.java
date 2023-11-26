@@ -3,8 +3,8 @@ package com.rea.system.intent.domain.user;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import rea.system.common.intent.user.UserIntentPayload;
-import rea.system.common.intent.user_offer.UserOfferIntentPayload;
+import com.rea.system.intent.infrastructure.web.model.user.UserIntentPayload;
+import com.rea.system.intent.infrastructure.web.model.user.UserOfferIntentPayload;
 
 @Mapper(componentModel = "spring")
 public interface UserIntentMapper {

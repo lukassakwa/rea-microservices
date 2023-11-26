@@ -23,6 +23,11 @@ public class WebClientConfiguration {
         return webClient("http://localhost:8084");
     }
 
+    @Bean(name = "aggregateClient")
+    WebClient aggregateClient() {
+        return webClient("http://localhost:8085");
+    }
+
     @Bean(name = "offerClient")
     WebClient offerClient() {
         return webClient("http://localhost:8083");

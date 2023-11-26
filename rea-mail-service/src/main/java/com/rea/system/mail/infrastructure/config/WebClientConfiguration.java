@@ -18,14 +18,9 @@ public class WebClientConfiguration {
 
     private static final int BUFFER_SIZE_16MB = 16 * 1024 * 1024;
 
-    @Bean(name = "userClient")
-    WebClient userClient() {
-        return webClient("http://localhost:8084");
-    }
-
-    @Bean(name = "offerClient")
-    WebClient offerClient() {
-        return webClient("http://localhost:8083");
+    @Bean
+    WebClient aggregateClient() {
+        return webClient("http://localhost:8085");
     }
 
     WebClient webClient(String baseUrl) {
