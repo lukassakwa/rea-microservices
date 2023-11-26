@@ -4,63 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6403b02b-995a-4d29-b00c-ca9f908216e7" name="Changes" comment="intent and user flow">
+    <list default="true" id="6403b02b-995a-4d29-b00c-ca9f908216e7" name="Changes" comment="removed payload and response from common">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/offer/OfferIntentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/offer/OfferIntentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/port/output/client/UserClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/port/output/client/UserClientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/port/output/client/UserOfferClientService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/port/output/security/UserOfferSecurityAuthenticationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/user/UserIntentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/user/UserIntentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/user/UserIntentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/user/UserIntentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/user_offer/UserOfferIntentMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/user_offer/UserOfferIntentService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/user_offer/UserOfferOfferService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/user/UserOfferService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/config/WebClientConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/config/WebClientConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/service/SecurityAuthenticationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/service/SecurityAuthenticationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/web/client/UserClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/web/client/UserClientServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/web/client/UserOfferClientServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/web/resource/UserIntentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/web/resource/UserIntentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/web/resource/UserOfferController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-offer-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-offer-service/src/main/java/com/rea/system/user_offer/UserOfferApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-offer-service/src/main/java/com/rea/system/user_offer/config/WebClientConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-offer-service/src/main/java/com/rea/system/user_offer/dataaccess/UserOffer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-offer-service/src/main/java/com/rea/system/user_offer/dataaccess/UserOfferDataServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-offer-service/src/main/java/com/rea/system/user_offer/dataaccess/UserOfferMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-offer-service/src/main/java/com/rea/system/user_offer/dataaccess/UserOfferRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-offer-service/src/main/java/com/rea/system/user_offer/domain/DomainUserOfferMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/domain/user_offer/DomainUserOfferMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-offer-service/src/main/java/com/rea/system/user_offer/domain/DomainUserOfferPayload.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/domain/user_offer/DomainUserOfferPayload.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-offer-service/src/main/java/com/rea/system/user_offer/domain/DomainUserOfferServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/domain/user_offer/DomainUserOfferServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-offer-service/src/main/java/com/rea/system/user_offer/domain/core/UserOfferEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/domain/user_offer/core/UserOfferEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-offer-service/src/main/java/com/rea/system/user_offer/domain/port/input/DomainUserOfferService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/domain/port/input/DomainUserOfferService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-offer-service/src/main/java/com/rea/system/user_offer/domain/port/output/DomainUserOfferDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/domain/port/output/DomainUserOfferDataService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-offer-service/src/main/java/com/rea/system/user_offer/resource/web/UserFavoriteOfferController.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/infrastruture/resource/user_offer/UserFavoriteOfferController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-offer-service/src/main/java/com/rea/system/user_offer/resource/web/UserOfferIntentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/infrastruture/resource/user_offer/UserOfferIntentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-offer-service/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/dataaccess/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/infrastruture/dataaccess/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/dataaccess/UserDataServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/infrastruture/dataaccess/UserDataServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/dataaccess/UserFilterSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/infrastruture/dataaccess/UserFilterSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/dataaccess/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/infrastruture/dataaccess/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/dataaccess/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/infrastruture/dataaccess/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/domain/DomainUserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/domain/user/DomainUserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/domain/DomainUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/domain/user/DomainUserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/domain/core/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/domain/user/core/UserEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/domain/core/UserFilterSettingsEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/domain/user/core/UserFilterSettingsEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/domain/port/input/DomainUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/domain/port/input/DomainUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/domain/port/output/UserDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/domain/port/output/UserDataService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/resource/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/infrastruture/resource/user/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/resource/UserIntentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/infrastruture/resource/user/UserIntentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/resource/UserIntentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/infrastruture/resource/user/UserIntentService.java" afterDir="false" />
     </list>
     <list id="d05a8cd2-f876-4cfa-9c7d-c73a3e1f9de4" name="app_config" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="module" />
+    </option>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -108,9 +66,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "user-offer-service-remove",
+    "git-widget-placeholder": "aggregate-service-implementation",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "F:/rea-microservices/rea-user-service/src/main/java/com/rea/system/user/infrastruture/resource/user_offer",
+    "last_opened_file_path": "F:/rea-microservices/rea-user-service/src/main/java/com/rea/system/user/infrastruture/resource/model",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -127,18 +85,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.rea.system.aggregate.infrastructure.web.resource.mail" />
       <recent name="com.rea.system.mail.infrastructure.web.client" />
       <recent name="com.rea.system.intent.user" />
       <recent name="com.rea.system.user.domain" />
       <recent name="com.rea.system.app.domain.user" />
-      <recent name="com.rea.system.useroffer.application.domain.entity" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\rea-microservices\rea-user-service\src\main\java\com\rea\system\user\infrastruture\resource\user_offer" />
-      <recent name="F:\rea-microservices\rea-user-service\src\main\java\com\rea\system\user\domain\user_offer" />
-      <recent name="F:\rea-microservices\rea-mail-service\src\main\java\com\rea\system\mail\domain\port\output" />
-      <recent name="F:\rea-microservices\rea-app-service\src\main\java\com\rea\system\app\web\controllers\dto" />
-      <recent name="F:\rea-microservices\rea-app-service\src\main\java\com\rea\system\app\config\seurity" />
+      <recent name="F:\rea-microservices\rea-user-service\src\main\java\com\rea\system\user\infrastruture\resource\model" />
+      <recent name="F:\rea-microservices\rea-offer-service\offer-service\src\main\java\com\rea\system\offer\infrastructure\web\model" />
+      <recent name="F:\rea-microservices\rea-mail-service\src\main\java\com\rea\system\mail\infrastructure\web\model" />
+      <recent name="F:\rea-microservices\rea-aggregate-service\src\main\java\com\rea\system\aggregate\domain\mail\port\output" />
+      <recent name="F:\rea-microservices\rea-aggregate-service\src\main\java\com\rea\system\aggregate\infrastructure\web\client" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\rea-microservices\rea-system" />
@@ -149,17 +107,24 @@
       <recent name="com.rea.system.offer.application.domain" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.rea.system.user.domain.port.output" />
-      <recent name="com.rea.system.user.domain.port.input" />
-      <recent name="com.rea.system.mail.infrastructure.web.schedulers" />
-      <recent name="rea.system.common.mail" />
-      <recent name="com.rea.system.mail.domain.core" />
+      <recent name="com.rea.system.user.infrastruture.resource.model" />
+      <recent name="com.rea.system.aggregate.domain.user_offer.port.output" />
+      <recent name="com.rea.system.aggregate.infrastructure.web.client" />
+      <recent name="com.rea.system.aggregate.domain.mail" />
+      <recent name="com.rea.system.aggregate.domain.mail.core" />
     </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn dependency:tree" />
       <command value="mvn clean install" />
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.MailApplication">
@@ -270,6 +235,7 @@
       <workItem from="1700335575510" duration="4373000" />
       <workItem from="1700344415474" duration="18406000" />
       <workItem from="1700399231475" duration="5837000" />
+      <workItem from="1701001347275" duration="7691000" />
     </task>
     <task id="LOCAL-00001" summary="config">
       <option name="closed" value="true" />
@@ -399,7 +365,23 @@
       <option name="project" value="LOCAL" />
       <updated>1700408304207</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="create new aggregate microservice">
+      <option name="closed" value="true" />
+      <created>1701007099570</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1701007099570</updated>
+    </task>
+    <task id="LOCAL-00018" summary="removed payload and response from common">
+      <option name="closed" value="true" />
+      <created>1701009678205</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1701009678205</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,7 +401,9 @@
     <MESSAGE value="added user service" />
     <MESSAGE value="offer correction" />
     <MESSAGE value="intent and user flow" />
-    <option name="LAST_COMMIT_MESSAGE" value="intent and user flow" />
+    <MESSAGE value="create new aggregate microservice" />
+    <MESSAGE value="removed payload and response from common" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed payload and response from common" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

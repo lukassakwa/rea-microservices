@@ -18,6 +18,7 @@
         <module name="rea-common" />
         <module name="rea-mail-service" />
         <module name="rea-user-service" />
+        <module name="rea-aggregate-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -28,6 +29,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="engine-service" options="-parameters" />
       <module name="offer-service" options="-parameters" />
+      <module name="rea-aggregate-service" options="-parameters" />
       <module name="rea-common" options="-parameters" />
       <module name="rea-intent" options="-parameters" />
       <module name="rea-mail-service" options="-parameters" />

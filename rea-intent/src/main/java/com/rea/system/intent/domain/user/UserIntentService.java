@@ -5,16 +5,10 @@ import com.rea.system.intent.domain.port.output.security.UserSecurityAuthenticat
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import rea.system.common.intent.offer.OfferIntentResponse;
-import rea.system.common.intent.user.UserIntentPayload;
-import rea.system.common.intent.user.UserIntentResponse;
-import rea.system.common.intent.user_offer.UserOfferIntentPayload;
-import rea.system.common.model.offer.EstateServiceType;
-import reactor.core.publisher.Flux;
+import com.rea.system.intent.infrastructure.web.model.user.UserIntentPayload;
+import com.rea.system.intent.infrastructure.web.model.user.UserIntentResponse;
+import com.rea.system.intent.infrastructure.web.model.user.UserOfferIntentPayload;
 import reactor.core.publisher.Mono;
-
-import java.util.HashSet;
-import java.util.List;
 
 @Slf4j
 @Service
@@ -24,7 +18,6 @@ public class UserIntentService {
     private final UserClientService userClientService;
     private final UserIntentMapper userIntentMapper;
     private final UserSecurityAuthenticationService securityAuthenticationService;
-    private final UserOfferService userOfferService;
 
     public Mono<UserIntentResponse> getUser() {
         return securityAuthenticationService.getUserId()
@@ -48,16 +41,6 @@ public class UserIntentService {
         return userId
                 .map(id -> userIntentMapper.toPayload(id, userOfferIntentPayload))
                 .flatMap(userClientService::updateUserOffers);
-    }
-
-    public Flux<OfferIntentResponse> getUserOffers(EstateServiceType estateServiceType) {
-        Mono<String> userId = securityAuthenticationService.getUserId();
-        Mono<List<String>> userOffersId = userId
-                .flatMapMany(userClientService::getUserOfferIds)
-                .collectList();
-        return userOffersId.flatMapMany(userOffers ->
-                userOfferService.getOffers(new HashSet<>(userOffers), estateServiceType)
-        );
     }
 
 
