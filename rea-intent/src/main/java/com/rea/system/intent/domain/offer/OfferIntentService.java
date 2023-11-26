@@ -49,6 +49,6 @@ public class OfferIntentService implements UserOfferOfferService {
                 .offerIds(ids)
                 .build()
                 .buildQueryParams();
-        return offerClientService.getProvidedOffers(queryMap);
+        return offerClientService.getOffers(queryMap);
     }
 }

@@ -53,14 +53,4 @@ public class OfferClientServiceImpl implements OfferClientService {
                 .subscribe();
     }
 
-    @Override
-    public Flux<OfferIntentResponse> getProvidedOffers(LinkedMultiValueMap<String, String> queryMap) {
-        return offerWebClient.get()
-                .uri(uriBuilder -> uriBuilder
-                        .path("/api/offer/provided")
-                        .queryParams(queryMap)
-                        .build())
-                .retrieve()
-                .bodyToFlux(OfferIntentResponse.class);
-    }
 }
