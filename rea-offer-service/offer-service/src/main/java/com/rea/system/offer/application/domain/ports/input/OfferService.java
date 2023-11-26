@@ -12,9 +12,8 @@ public interface OfferService {
                                  Integer priceFrom,
                                  Integer priceTo,
                                  Double metersFrom,
-                                 Double metersTo);
-
-    Flux<DomainOffer> findOffers(EstateServiceType estateServiceType, Set<String> offerIds);
+                                 Double metersTo,
+                                 Set<String> offerIds);
 
     Flux<DomainOffer> getMonitoringData(String publicId, EstateServiceType serviceType);
 

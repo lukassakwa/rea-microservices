@@ -23,40 +23,22 @@ public class OfferDomainServiceImpl implements OfferService {
 
     @Override
     public Flux<DomainOffer> findOffers(EstateServiceType estateServiceType,
-                                     Integer priceFrom,
-                                     Integer priceTo,
-                                     Double metersFrom,
-                                     Double metersTo) {
+                                        Integer priceFrom,
+                                        Integer priceTo,
+                                        Double metersFrom,
+                                        Double metersTo,
+                                        Set<String> offerIds) {
         Fillter filter = Fillter.builder()
                 .service(estateServiceType)
                 .priceFrom(priceFrom)
                 .priceTo(priceTo)
                 .metersFrom(metersFrom)
                 .metersTo(metersTo)
-                .build();
-        DomainQueryBuilder queryBuilder = DomainQueryBuilder.builder()
-                .fillter(filter)
-                .build();
-        queryBuilder.buildQuery();
-        return availableOfferDataService.findOffersOrReturnAll(
-                queryBuilder.getExpression(),
-                queryBuilder.getSort(),
-                estateServiceType);
-    }
-
-    @Override
-    public Flux<DomainOffer> findOffers(EstateServiceType estateServiceType, Set<String> offerIds) {
-        Fillter filter = Fillter.builder()
-                .service(estateServiceType)
                 .offerIds(offerIds)
                 .build();
-        DomainQueryBuilder queryBuilder = DomainQueryBuilder.builder()
-                .fillter(filter)
-                .build();
-        queryBuilder.buildQuery();
-        return availableOfferDataService.findOffersOrReturnEmpty(
-                queryBuilder.getExpression(),
-                queryBuilder.getSort(),
+        return availableOfferDataService.findFilteredAndSortedOffers(
+                filter.getExpression(),
+                filter.getSort(),
                 estateServiceType);
     }
 

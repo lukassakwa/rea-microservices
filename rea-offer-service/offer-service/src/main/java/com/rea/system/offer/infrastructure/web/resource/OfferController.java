@@ -23,21 +23,14 @@ public class OfferController {
                                         @RequestParam(required = false) Integer priceFrom,
                                         @RequestParam(required = false) Integer priceTo,
                                         @RequestParam(required = false) Double metersFrom,
-                                        @RequestParam(required = false) Double metersTo) {
+                                        @RequestParam(required = false) Double metersTo,
+                                        @RequestParam(required = false) Set<String> userOfferIds) {
         return offerService.findOffers(
                 estateServiceType,
                 priceFrom,
                 priceTo,
                 metersFrom,
-                metersTo
-        ).map(offerResponseMapper::toResponse);
-    }
-
-    @GetMapping("/provided")
-    Flux<OfferIntentResponse> getOffers(@RequestParam EstateServiceType estateServiceType,
-                                        @RequestParam Set<String> userOfferIds) {
-        return offerService.findOffers(
-                estateServiceType,
+                metersTo,
                 userOfferIds
         ).map(offerResponseMapper::toResponse);
     }

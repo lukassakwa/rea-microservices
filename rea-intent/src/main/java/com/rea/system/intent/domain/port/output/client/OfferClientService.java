@@ -12,7 +12,5 @@ public interface OfferClientService {
 
     Flux<HistoricalOfferIntentResponse> getMonitoringOffers(String offerId, EstateServiceType estateServiceType);
 
-    Flux<OfferIntentResponse> getProvidedOffers(LinkedMultiValueMap<String, String> queryMap);
-
     void invokeOfferEngine();
 }

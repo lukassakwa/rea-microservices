@@ -1,6 +1,6 @@
 package com.rea.system.user.domain.port.output;
 
-import com.rea.system.user.domain.core.UserEntity;
+import com.rea.system.user.domain.user.core.UserEntity;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

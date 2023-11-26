@@ -15,17 +15,14 @@
         <module name="engine-service" />
         <module name="rea-intent" />
         <module name="offer-service" />
-        <module name="rea-user-offer-service" />
         <module name="rea-common" />
         <module name="rea-mail-service" />
         <module name="rea-user-service" />
       </profile>
-      <profile name="Maven default annotation processors profile" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-      </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="rea-user-offer-service" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

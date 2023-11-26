@@ -1,0 +1,17 @@
+spring:
+  jackson:
+    date-format: "yyyy-MM-dd'T'HH:mm:ss"
+  data:
+    mail:
+      host: smtp.gmail.com
+      mail:
+        port: 587
+        username:
+        password:
+        smtp:
+          auth: true
+        properties:
+          mail:
+            smtp:
+              starttls:
+                enable: true
