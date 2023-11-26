@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/rea-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rea-intent/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rea-mail-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rea-offer-service/engine-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rea-offer-service/offer-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rea-user-offer-service/src/main/java" charset="UTF-8" />

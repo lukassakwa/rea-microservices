@@ -8,9 +8,8 @@ import reactor.core.publisher.Mono;
 
 public interface AvailableDomainOfferService {
 
-    Flux<DomainOffer> findOffersOrReturnAll(BooleanExpression expression, Sort sort);
+    Flux<DomainOffer> findFilteredAndSortedOffers(BooleanExpression expression, Sort sort);
 
     Mono<DomainOffer> findById(String offerId);
 
-    Flux<DomainOffer> findOffersOrReturnEmpty(BooleanExpression expression, Sort sort);
 }

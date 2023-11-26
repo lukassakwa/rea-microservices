@@ -3,9 +3,9 @@ package com.rea.system.user.resource;
 import com.rea.system.user.domain.port.input.DomainUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import rea.system.common.intent.user.UserMailResponse;
 import rea.system.common.intent.user.UserIntentPayload;
 import rea.system.common.intent.user.UserIntentResponse;
+import rea.system.common.mail.UserMailResponse;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
