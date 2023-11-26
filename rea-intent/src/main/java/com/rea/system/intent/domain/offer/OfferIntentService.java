@@ -1,7 +1,7 @@
 package com.rea.system.intent.domain.offer;
 
 import com.rea.system.intent.domain.port.output.client.OfferClientService;
-import com.rea.system.intent.domain.user_offer.UserOfferOfferService;
+import com.rea.system.intent.domain.user.UserOfferService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
@@ -14,7 +14,7 @@ import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
-public class OfferIntentService implements UserOfferOfferService {
+public class OfferIntentService implements UserOfferService {
 
     private final OfferClientService offerClientService;
 
