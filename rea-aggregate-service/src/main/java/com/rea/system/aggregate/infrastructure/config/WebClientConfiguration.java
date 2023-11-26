@@ -1,4 +1,4 @@
-package com.rea.system.mail.infrastructure.config;
+package com.rea.system.aggregate.infrastructure.config;
 
 import io.netty.channel.ChannelOption;
 import io.netty.handler.timeout.ReadTimeoutHandler;
@@ -18,9 +18,14 @@ public class WebClientConfiguration {
 
     private static final int BUFFER_SIZE_16MB = 16 * 1024 * 1024;
 
-    @Bean
-    WebClient aggregateClient() {
-        return webClient("http://localhost:8085");
+    @Bean(name = "userClient")
+    WebClient userClient() {
+        return webClient("http://localhost:8084");
+    }
+
+    @Bean(name = "offerClient")
+    WebClient offerClient() {
+        return webClient("http://localhost:8083");
     }
 
     WebClient webClient(String baseUrl) {

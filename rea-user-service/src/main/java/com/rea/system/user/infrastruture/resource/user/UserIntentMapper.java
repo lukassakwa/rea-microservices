@@ -5,7 +5,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import rea.system.common.intent.user.UserIntentPayload;
 import rea.system.common.intent.user.UserIntentResponse;
-import rea.system.common.mail.UserMailResponse;
+import rea.system.common.aggregate.UserMailResponse;
 
 @Mapper(componentModel = "spring")
 public interface UserIntentMapper {

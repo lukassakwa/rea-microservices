@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import rea.system.common.intent.user.UserIntentPayload;
 import rea.system.common.intent.user.UserIntentResponse;
-import rea.system.common.mail.UserMailResponse;
+import rea.system.common.aggregate.UserMailResponse;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

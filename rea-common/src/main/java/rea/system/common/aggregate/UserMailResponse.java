@@ -1,4 +1,4 @@
-package rea.system.common.mail;
+package rea.system.common.aggregate;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

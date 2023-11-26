@@ -14,6 +14,4 @@ public interface UserClientService {
 
     Mono<Void> updateUserOffers(UserOfferIntentPayload userOfferIntentPayload);
 
-    Flux<String> getUserOfferIds(String userid);
-
 }

@@ -1,4 +1,4 @@
-package com.rea.system.mail.domain.core;
+package com.rea.system.aggregate.domain.mail.core;
 
 import lombok.Data;
 import org.springframework.util.LinkedMultiValueMap;

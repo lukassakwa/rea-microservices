@@ -43,11 +43,4 @@ public class UserClientServiceImpl implements UserClientService {
                 .bodyToMono(Void.class);
     }
 
-    public Flux<String> getUserOfferIds(String userid) {
-        return webClient.get()
-                .uri("/api/favorite/" + userid)
-                .retrieve()
-                .bodyToFlux(String.class);
-    }
-
 }

@@ -1,4 +1,4 @@
-package rea.system.common.mail;
+package rea.system.common.aggregate;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 public class OfferMailResponse {
 
     private String href;
-    private String fullAddress;
     private Integer price;
     private Double meters;
 

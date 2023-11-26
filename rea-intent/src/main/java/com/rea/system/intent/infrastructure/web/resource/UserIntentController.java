@@ -33,9 +33,4 @@ public class UserIntentController {
         return userOfferIntentPayload.flatMap(userIntentService::updateUserOffers);
     }
 
-    @GetMapping("/favorite")
-    Flux<OfferIntentResponse> getOffers(@RequestParam EstateServiceType estateServiceType) {
-        return userIntentService.getUserOffers(estateServiceType);
-    }
-
 }
