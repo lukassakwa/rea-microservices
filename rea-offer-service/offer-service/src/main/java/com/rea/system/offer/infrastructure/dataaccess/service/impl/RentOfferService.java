@@ -4,9 +4,12 @@ import com.querydsl.core.types.dsl.BooleanExpression;
 import com.rea.system.offer.application.domain.core.DomainOffer;
 import com.rea.system.offer.infrastructure.dataaccess.entity.Offer;
 import com.rea.system.offer.infrastructure.dataaccess.entity.RentOffer;
+import com.rea.system.offer.infrastructure.dataaccess.mapper.HistoricalOfferMapper;
 import com.rea.system.offer.infrastructure.dataaccess.mapper.OfferMapper;
+import com.rea.system.offer.infrastructure.dataaccess.repository.HistoricalRentRepository;
 import com.rea.system.offer.infrastructure.dataaccess.repository.RentOfferRepository;
 import com.rea.system.offer.infrastructure.dataaccess.service.AvailableDomainOfferService;
+import com.rea.system.offer.infrastructure.dataaccess.service.HistoricalDomainOfferService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -17,17 +20,18 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class RentOfferService implements AvailableDomainOfferService {
+public class RentOfferService implements AvailableDomainOfferService, HistoricalDomainOfferService {
 
     private final RentOfferRepository rentOfferRepository;
     private final OfferMapper offerMapper;
+    private final HistoricalRentRepository historicalRentRepository;
+    private final HistoricalOfferMapper historicalOfferMapper;
 
     @Override
-    public Flux<DomainOffer> findOffersOrReturnAll(BooleanExpression expression, Sort sort) {
-        return Optional.ofNullable(expression)
-                .map(expr -> rentOfferRepository.findAll(expr, sort))
-                .orElse(rentOfferRepository.findAll(sort))
-                .map(offerMapper::toDomainRentDto);
+    public Flux<DomainOffer> findFilteredAndSortedOffers(BooleanExpression expression, Sort sort) {
+        return rentOfferRepository.findAll(expression, sort)
+                .map(offerMapper::toDomainRentDto)
+                .switchIfEmpty(Flux.empty());
     }
 
     @Override
@@ -38,10 +42,9 @@ public class RentOfferService implements AvailableDomainOfferService {
     }
 
     @Override
-    public Flux<DomainOffer> findOffersOrReturnEmpty(BooleanExpression expression, Sort sort) {
-        return rentOfferRepository.findAll(expression, sort)
-                .map(offerMapper::toDomainRentDto)
-                .switchIfEmpty(Flux.empty());
+    public Flux<DomainOffer> findByPublicId(String publicId) {
+        return historicalRentRepository.findAllByPublicId(publicId)
+                .map(historicalOfferMapper::toDomainRentDto);
     }
 
 }

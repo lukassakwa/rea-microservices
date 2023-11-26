@@ -9,10 +9,8 @@ import reactor.core.publisher.Mono;
 
 public interface DomainAvailableOfferDataService {
 
-    Flux<DomainOffer> findOffersOrReturnAll(BooleanExpression expression, Sort sort, EstateServiceType estateServiceType);
+    Flux<DomainOffer> findFilteredAndSortedOffers(BooleanExpression expression, Sort sort, EstateServiceType estateServiceType);
 
     Mono<DomainOffer> findById(String offerId, EstateServiceType estateServiceType);
-
-    Flux<DomainOffer> findOffersOrReturnEmpty(BooleanExpression expression, Sort sort, EstateServiceType estateServiceType);
 
 }
