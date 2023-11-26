@@ -4,6 +4,7 @@ package com.rea.system.intent.domain.user;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import rea.system.common.intent.user.UserIntentPayload;
+import rea.system.common.intent.user_offer.UserOfferIntentPayload;
 
 @Mapper(componentModel = "spring")
 public interface UserIntentMapper {
@@ -16,5 +17,10 @@ public interface UserIntentMapper {
     @Mapping(target = "metersFrom", source = "userIntentPayload.metersFrom")
     @Mapping(target = "metersTo", source = "userIntentPayload.metersTo")
     UserIntentPayload update(String userId, String username, UserIntentPayload userIntentPayload);
+
+    @Mapping(target = "userId", source = "userId")
+    @Mapping(target = "offerId", source = "payload.offerId")
+    @Mapping(target = "operationType", source = "payload.operationType")
+    UserOfferIntentPayload toPayload(String userId, UserOfferIntentPayload payload);
 
 }

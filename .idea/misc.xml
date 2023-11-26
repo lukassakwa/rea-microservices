@@ -11,6 +11,7 @@
       <set>
         <option value="$PROJECT_DIR$/rea-system/pom.xml" />
         <option value="$PROJECT_DIR$/rea-system/rea-user-service/pom.xml" />
+        <option value="$PROJECT_DIR$/rea-user-offer-service/pom.xml" />
         <option value="$PROJECT_DIR$/untitled/pom.xml" />
       </set>
     </option>

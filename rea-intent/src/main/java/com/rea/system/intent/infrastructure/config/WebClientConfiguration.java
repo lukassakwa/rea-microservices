@@ -33,11 +33,6 @@ public class WebClientConfiguration {
         return webClient("http://localhost:8086");
     }
 
-    @Bean(name = "userOfferClient")
-    WebClient userOfferClient() {
-        return webClient("http://localhost:8085");
-    }
-
     WebClient webClient(String baseUrl) {
         return WebClient.builder()
                 .baseUrl(baseUrl)
