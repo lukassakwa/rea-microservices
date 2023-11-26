@@ -10,7 +10,7 @@ import java.util.Optional;
 public class UserMailEntity {
 
     private String username;
-    private EstateServiceType estateServiceType;
+    private EstateServiceType service;
     private Integer priceFrom;
     private Integer priceTo;
     private Double metersFrom;
@@ -18,7 +18,7 @@ public class UserMailEntity {
 
     public LinkedMultiValueMap<String, String> buildQueryParams() {
         final LinkedMultiValueMap<String, String> queryMap = new LinkedMultiValueMap<>();
-        Optional.ofNullable(estateServiceType).ifPresent(serviceType -> queryMap.add("estateServiceType", serviceType.name()));
+        Optional.ofNullable(service).ifPresent(serviceType -> queryMap.add("estateServiceType", serviceType.name()));
         Optional.ofNullable(priceFrom).ifPresent(priceF -> queryMap.add("priceFrom", priceF.toString()));
         Optional.ofNullable(priceTo).ifPresent(priceT -> queryMap.add("priceTo", priceT.toString()));
         Optional.ofNullable(metersFrom).ifPresent(metersF -> queryMap.add("metersFrom", metersF.toString()));
