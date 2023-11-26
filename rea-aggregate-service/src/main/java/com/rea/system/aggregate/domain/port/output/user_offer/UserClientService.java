@@ -1,4 +1,4 @@
-package com.rea.system.aggregate.domain.user_offer.port.output;
+package com.rea.system.aggregate.domain.port.output.user_offer;
 
 import reactor.core.publisher.Flux;
 

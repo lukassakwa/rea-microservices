@@ -5,9 +5,9 @@ import com.rea.system.intent.domain.port.output.security.UserSecurityAuthenticat
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import rea.system.common.intent.user.UserIntentPayload;
-import rea.system.common.intent.user.UserIntentResponse;
-import rea.system.common.intent.user_offer.UserOfferIntentPayload;
+import com.rea.system.intent.infrastructure.web.model.user.UserIntentPayload;
+import com.rea.system.intent.infrastructure.web.model.user.UserIntentResponse;
+import com.rea.system.intent.infrastructure.web.model.user.UserOfferIntentPayload;
 import reactor.core.publisher.Mono;
 
 @Slf4j

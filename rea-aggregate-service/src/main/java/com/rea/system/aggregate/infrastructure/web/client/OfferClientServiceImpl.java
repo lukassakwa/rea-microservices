@@ -1,15 +1,15 @@
 package com.rea.system.aggregate.infrastructure.web.client;
 
 import com.rea.system.aggregate.domain.mail.core.OfferMailEntity;
-import com.rea.system.aggregate.domain.mail.port.output.MailOfferClientService;
+import com.rea.system.aggregate.domain.port.output.mail.MailOfferClientService;
 import com.rea.system.aggregate.domain.user_offer.core.OfferAggregateEntity;
-import com.rea.system.aggregate.domain.user_offer.port.output.UserOfferClientService;
+import com.rea.system.aggregate.domain.port.output.user_offer.UserOfferClientService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.web.reactive.function.client.WebClient;
-import rea.system.common.aggregate.OfferAggregateResponse;
-import rea.system.common.aggregate.OfferMailResponse;
+import com.rea.system.aggregate.infrastructure.web.model.OfferAggregateResponse;
+import com.rea.system.aggregate.infrastructure.web.model.OfferMailResponse;
 import reactor.core.publisher.Flux;
 
 @Service

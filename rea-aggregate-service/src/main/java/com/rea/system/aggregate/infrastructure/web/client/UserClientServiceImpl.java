@@ -1,15 +1,12 @@
 package com.rea.system.aggregate.infrastructure.web.client;
 
 import com.rea.system.aggregate.domain.mail.core.UserMailEntity;
-import com.rea.system.aggregate.domain.mail.port.output.MailUserClientService;
-import com.rea.system.aggregate.domain.user_offer.core.OfferAggregateEntity;
-import com.rea.system.aggregate.domain.user_offer.port.output.UserClientService;
-import com.rea.system.aggregate.domain.user_offer.port.output.UserOfferClientService;
+import com.rea.system.aggregate.domain.port.output.mail.MailUserClientService;
+import com.rea.system.aggregate.domain.port.output.user_offer.UserClientService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.web.reactive.function.client.WebClient;
-import rea.system.common.aggregate.UserMailResponse;
+import com.rea.system.aggregate.infrastructure.web.model.UserMailResponse;
 import reactor.core.publisher.Flux;
 
 @Service

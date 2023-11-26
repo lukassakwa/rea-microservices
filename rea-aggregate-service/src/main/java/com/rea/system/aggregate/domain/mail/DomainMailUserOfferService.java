@@ -2,8 +2,8 @@ package com.rea.system.aggregate.domain.mail;
 
 import com.rea.system.aggregate.domain.mail.core.MailUserOfferEntity;
 import com.rea.system.aggregate.domain.mail.core.OfferMailEntity;
-import com.rea.system.aggregate.domain.mail.port.output.MailOfferClientService;
-import com.rea.system.aggregate.domain.mail.port.output.MailUserClientService;
+import com.rea.system.aggregate.domain.port.output.mail.MailOfferClientService;
+import com.rea.system.aggregate.domain.port.output.mail.MailUserClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;

@@ -4,9 +4,9 @@ import com.rea.system.aggregate.domain.mail.core.OfferMailEntity;
 import com.rea.system.aggregate.domain.mail.core.UserMailEntity;
 import com.rea.system.aggregate.domain.user_offer.core.OfferAggregateEntity;
 import org.mapstruct.Mapper;
-import rea.system.common.aggregate.OfferAggregateResponse;
-import rea.system.common.aggregate.OfferMailResponse;
-import rea.system.common.aggregate.UserMailResponse;
+import com.rea.system.aggregate.infrastructure.web.model.OfferAggregateResponse;
+import com.rea.system.aggregate.infrastructure.web.model.OfferMailResponse;
+import com.rea.system.aggregate.infrastructure.web.model.UserMailResponse;
 
 @Mapper(componentModel = "spring")
 public interface UserOfferClientMapper {

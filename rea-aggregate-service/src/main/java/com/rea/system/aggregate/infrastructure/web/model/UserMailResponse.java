@@ -1,4 +1,4 @@
-package rea.system.common.intent.user;
+package com.rea.system.aggregate.infrastructure.web.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,9 +8,8 @@ import rea.system.common.model.offer.EstateServiceType;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserIntentPayload {
+public class UserMailResponse {
 
-    private String userId;
     private String username;
     private EstateServiceType service;
     private Integer priceFrom;

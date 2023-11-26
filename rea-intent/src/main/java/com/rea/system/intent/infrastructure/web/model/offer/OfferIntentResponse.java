@@ -1,4 +1,4 @@
-package rea.system.common.aggregate;
+package com.rea.system.intent.infrastructure.web.model.offer;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class OfferAggregateResponse {
+public class OfferIntentResponse {
 
     private String id;
     private String publicId;

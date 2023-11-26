@@ -1,4 +1,4 @@
-package rea.system.common.intent.offer;
+package com.rea.system.offer.infrastructure.web.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class HistoricalOfferIntentResponse {
+public class HistoricalOfferResponse {
 
     private String href;
     private String fullAddress;

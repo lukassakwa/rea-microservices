@@ -1,4 +1,4 @@
-package rea.system.common.intent.user;
+package com.rea.system.user.infrastruture.resource.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +8,7 @@ import rea.system.common.model.offer.EstateServiceType;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserIntentResponse {
+public class UserResponse {
 
     private EstateServiceType service;
     private Integer priceFrom;

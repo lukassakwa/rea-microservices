@@ -3,12 +3,9 @@ package com.rea.system.intent.infrastructure.web.resource;
 import com.rea.system.intent.domain.user.UserIntentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import rea.system.common.intent.offer.OfferIntentResponse;
-import rea.system.common.intent.user.UserIntentPayload;
-import rea.system.common.intent.user.UserIntentResponse;
-import rea.system.common.intent.user_offer.UserOfferIntentPayload;
-import rea.system.common.model.offer.EstateServiceType;
-import reactor.core.publisher.Flux;
+import com.rea.system.intent.infrastructure.web.model.user.UserIntentPayload;
+import com.rea.system.intent.infrastructure.web.model.user.UserIntentResponse;
+import com.rea.system.intent.infrastructure.web.model.user.UserOfferIntentPayload;
 import reactor.core.publisher.Mono;
 
 @RestController

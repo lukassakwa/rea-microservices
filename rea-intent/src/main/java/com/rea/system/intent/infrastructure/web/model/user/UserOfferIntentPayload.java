@@ -1,4 +1,4 @@
-package rea.system.common.intent.user_offer;
+package com.rea.system.intent.infrastructure.web.model.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

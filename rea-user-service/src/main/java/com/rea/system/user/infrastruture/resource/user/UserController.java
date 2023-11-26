@@ -1,10 +1,10 @@
 package com.rea.system.user.infrastruture.resource.user;
 
+import com.rea.system.user.infrastruture.resource.model.UserMailResponse;
+import com.rea.system.user.infrastruture.resource.model.UserPayload;
+import com.rea.system.user.infrastruture.resource.model.UserResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import rea.system.common.intent.user.UserIntentPayload;
-import rea.system.common.intent.user.UserIntentResponse;
-import rea.system.common.aggregate.UserMailResponse;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -16,12 +16,12 @@ public class UserController {
     private final UserIntentService userIntentService;
 
     @PutMapping("/update")
-    Mono<UserIntentResponse> update(@RequestBody Mono<UserIntentPayload> userSettingsIntentPayload) {
+    Mono<UserResponse> update(@RequestBody Mono<UserPayload> userSettingsIntentPayload) {
         return userSettingsIntentPayload.flatMap(userIntentService::update);
     }
 
     @GetMapping("/{userId}")
-    Mono<UserIntentResponse> getUser(@PathVariable String userId) {
+    Mono<UserResponse> getUser(@PathVariable String userId) {
         return userIntentService.getUser(userId);
     }
 

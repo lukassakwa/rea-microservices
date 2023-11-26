@@ -3,7 +3,7 @@ package com.rea.system.aggregate.infrastructure.web.resource.user_offer;
 import com.rea.system.aggregate.domain.user_offer.DomainUserOfferService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import rea.system.common.aggregate.OfferAggregateResponse;
+import com.rea.system.aggregate.infrastructure.web.model.OfferAggregateResponse;
 import rea.system.common.model.offer.EstateServiceType;
 import reactor.core.publisher.Flux;
 

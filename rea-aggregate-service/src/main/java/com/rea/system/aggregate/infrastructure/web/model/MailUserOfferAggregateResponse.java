@@ -1,4 +1,4 @@
-package rea.system.common.aggregate;
+package com.rea.system.aggregate.infrastructure.web.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

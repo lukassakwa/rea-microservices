@@ -5,11 +5,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.web.reactive.function.client.WebClient;
-import rea.system.common.intent.offer.HistoricalOfferIntentResponse;
-import rea.system.common.intent.offer.OfferIntentResponse;
+import com.rea.system.intent.infrastructure.web.model.offer.HistoricalOfferIntentResponse;
+import com.rea.system.intent.infrastructure.web.model.offer.OfferIntentResponse;
 import rea.system.common.model.offer.EstateServiceType;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
 @Service
 public class OfferClientServiceImpl implements OfferClientService {

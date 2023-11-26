@@ -1,10 +1,10 @@
 package com.rea.system.offer.infrastructure.web.resource;
 
 import com.rea.system.offer.application.domain.ports.input.OfferService;
+import com.rea.system.offer.infrastructure.web.model.HistoricalOfferResponse;
+import com.rea.system.offer.infrastructure.web.model.OfferResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import rea.system.common.intent.offer.HistoricalOfferIntentResponse;
-import rea.system.common.intent.offer.OfferIntentResponse;
 import rea.system.common.model.offer.EstateServiceType;
 import reactor.core.publisher.Flux;
 
@@ -19,12 +19,12 @@ public class OfferController {
     private final OfferResponseMapper offerResponseMapper;
 
     @GetMapping()
-    Flux<OfferIntentResponse> getOffers(@RequestParam EstateServiceType estateServiceType,
-                                        @RequestParam(required = false) Integer priceFrom,
-                                        @RequestParam(required = false) Integer priceTo,
-                                        @RequestParam(required = false) Double metersFrom,
-                                        @RequestParam(required = false) Double metersTo,
-                                        @RequestParam(required = false) Set<String> userOfferIds) {
+    Flux<OfferResponse> getOffers(@RequestParam EstateServiceType estateServiceType,
+                                  @RequestParam(required = false) Integer priceFrom,
+                                  @RequestParam(required = false) Integer priceTo,
+                                  @RequestParam(required = false) Double metersFrom,
+                                  @RequestParam(required = false) Double metersTo,
+                                  @RequestParam(required = false) Set<String> userOfferIds) {
         return offerService.findOffers(
                 estateServiceType,
                 priceFrom,
@@ -36,8 +36,8 @@ public class OfferController {
     }
 
     @GetMapping("/monitor/{estateServiceType}/{offerId}")
-    Flux<HistoricalOfferIntentResponse> getHistoricalOffers(@PathVariable EstateServiceType estateServiceType,
-                                                            @PathVariable String offerId) {
+    Flux<HistoricalOfferResponse> getHistoricalOffers(@PathVariable EstateServiceType estateServiceType,
+                                                      @PathVariable String offerId) {
         return offerService.getMonitoringData(offerId, estateServiceType)
                 .map(offerResponseMapper::toHistoricalResponse);
     }
