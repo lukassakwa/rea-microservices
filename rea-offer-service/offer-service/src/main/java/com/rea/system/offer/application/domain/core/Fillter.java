@@ -18,6 +18,7 @@ import java.util.Set;
 @Builder
 public class Fillter {
 
+
     private EstateServiceType service;
     private Integer priceFrom;
     private Integer priceTo;
@@ -31,8 +32,13 @@ public class Fillter {
     private Sort sort;
 
     private void initialize() {
+        fillValuesIfEmpty();
         buildQuery();
-        validateExpression();
+    }
+
+    private void fillValuesIfEmpty() {
+        this.priceFrom = Optional.ofNullable(priceFrom).orElse(0);
+        this.metersFrom = Optional.ofNullable(metersFrom).orElse(0.0);
     }
 
     private void buildQuery() {
@@ -53,10 +59,6 @@ public class Fillter {
         }
 
         return predicates;
-    }
-
-    private void validateExpression() {
-        Optional.ofNullable(expression).orElseThrow(() -> new RuntimeException("Expression is null"));
     }
 
     public static FillterBuilder builder() {
