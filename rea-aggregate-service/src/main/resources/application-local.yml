@@ -1,0 +1,7 @@
+server:
+  port: 8085
+
+microservices:
+  url:
+    offer-service: ${OFFER_SERVICE_URL}
+    user-service: ${USER_SERVICE_URL}

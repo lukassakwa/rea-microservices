@@ -1,0 +1,144 @@
+version: "3"
+
+services:
+
+  intent-service:
+    container_name: intent-service
+    depends_on:
+      - keycloak
+    build:
+      context: ./rea-intent
+      dockerfile: DockerFile
+    image: rea-intent-service-image:0.0.1-local
+    ports:
+      - 8082:8082
+      - 5082:5082
+    environment:
+      - KEYCLOAK_URL=http://temp:8080
+      - ENGINE_OFFER_SERVICE_URL=http://engine-offer-service:8086
+      - OFFER_SERVICE_URL=http://offer-service:8083
+      - USER_SERVICE_URL=http://user-service:8084
+      - AGGREGATE_SERVICE_URL=http://aggregation-service:8085
+    networks:
+      - rea
+
+  user-service:
+    container_name: user-service
+    build:
+      context: ./rea-user-service
+      dockerfile: DockerFile
+    image: user-service-image:0.0.1-local
+    depends_on:
+      - offer-db
+    ports:
+      - 8084:8084
+      - 5084:5084
+    environment:
+      - DATABASE_HOSTNAME=offer-db
+      - DATABASE_PORT=27017
+      - DATABASE_NAME=real_estate_aggragetor
+    networks:
+      - rea
+
+  aggregation-service:
+    container_name: aggregation-service
+    build:
+      context: ./rea-aggregate-service
+      dockerfile: DockerFile
+    image: aggregate-service-image:0.0.1-local
+    ports:
+      - 8085:8085
+      - 5085:5085
+    environment:
+      - OFFER_SERVICE_URL=http://offer-service:8083
+      - USER_SERVICE_URL=http://user-service:8084
+    networks:
+      - rea
+
+  mail-service:
+    container_name: mail-service
+    build:
+      context: ./rea-mail-service
+      dockerfile: DockerFile
+    image: mail-service-image:0.0.1-local
+    ports:
+      - 8087:8087
+      - 5087:5087
+    environment:
+      - AGGREGATE_SERVICE_URL=http://aggregation-service:8085
+    networks:
+      - rea
+
+  engine-offer-service:
+    container_name: engine-offer-service
+    build:
+      context: ./rea-offer-service/engine-service
+      dockerfile: DockerFile
+    depends_on:
+      - offer-db
+    image: engine-service-image:0.0.1-local
+    ports:
+      - 8086:8086
+      - 5086:5086
+    environment:
+      - DATABASE_HOSTNAME=offer-db
+      - DATABASE_PORT=27017
+      - DATABASE_NAME=real_estate_aggragetor
+    links:
+      - offer-db
+    networks:
+      - rea
+
+  offer-service:
+    container_name: offer-service
+    build:
+      context: ./rea-offer-service/offer-service
+      dockerfile: DockerFile
+    depends_on:
+      - offer-db
+    image: offer-service-image:0.0.1-local
+    ports:
+      - 8083:8083
+      - 5083:5083
+    environment:
+      - DATABASE_HOSTNAME=offer-db
+      - DATABASE_PORT=27017
+      - DATABASE_NAME=real_estate_aggragetor
+    links:
+      - offer-db
+    networks:
+      - rea
+
+  keycloak:
+    container_name: keycloak
+    image: quay.io/keycloak/keycloak:latest
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin123
+      KEYCLOAK_LOGLEVEL: DEBUG
+      ROOT_LOGLEVEL: INFO
+    ports:
+      - 8080:8080
+    command:
+      - start-dev
+    networks:
+      - rea
+
+  offer-db:
+    image: mongo:latest
+    container_name: offer-db
+    expose:
+      - 27017
+    ports:
+      - 27017:27017
+    volumes:
+      - dbdata6:/data/db
+    networks:
+      - rea
+
+volumes:
+  dbdata6:
+  node_modules:
+
+networks:
+  rea:

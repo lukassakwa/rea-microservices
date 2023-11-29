@@ -6,7 +6,7 @@ spring:
     date-format: "yyyy-MM-dd'T'HH:mm:ss"
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: real_estate_aggragetor
+      host: ${DATABASE_HOSTNAME}
+      port: ${DATABASE_PORT}
+      database: ${DATABASE_NAME}
       auto-index-creation: true

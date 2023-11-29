@@ -1,0 +1,5 @@
+FROM openjdk:17
+COPY target/*.jar /aggregation-application.jar
+VOLUME /tmp
+CMD ["java", "-Dspring.profiles.active=local", "-Xdebug", "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5085", "-jar", "/aggregation-application.jar"]
+EXPOSE 8085

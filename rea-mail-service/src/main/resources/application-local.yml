@@ -15,3 +15,7 @@ spring:
             smtp:
               starttls:
                 enable: true
+
+microservices:
+  url:
+    aggregate-service: ${AGGREGATE_SERVICE_URL}

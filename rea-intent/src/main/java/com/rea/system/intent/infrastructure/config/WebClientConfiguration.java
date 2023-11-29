@@ -3,6 +3,7 @@ package com.rea.system.intent.infrastructure.config;
 import io.netty.channel.ChannelOption;
 import io.netty.handler.timeout.ReadTimeoutHandler;
 import io.netty.handler.timeout.WriteTimeoutHandler;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
@@ -18,24 +19,41 @@ public class WebClientConfiguration {
 
     private static final int BUFFER_SIZE_16MB = 16 * 1024 * 1024;
 
+    private final String aggregateServiceUrl;
+    private final String offerServiceUrl;
+    private final String userServiceUrl;
+    private final String engineServiceUrl;
+
+    public WebClientConfiguration(
+            @Value(value = "${microservices.url.aggregate-service}") String aggregateServiceUrl,
+            @Value(value = "${microservices.url.offer-service}") String offerServiceUrl,
+            @Value(value = "${microservices.url.user-service}") String userServiceUrl,
+            @Value(value = "${microservices.url.engine-service}") String engineServiceUrl
+    ) {
+        this.aggregateServiceUrl = aggregateServiceUrl;
+        this.offerServiceUrl = offerServiceUrl;
+        this.userServiceUrl = userServiceUrl;
+        this.engineServiceUrl = engineServiceUrl;
+    }
+
     @Bean(name = "userClient")
     WebClient userClient() {
-        return webClient("http://localhost:8084");
+        return webClient(userServiceUrl);
     }
 
     @Bean(name = "aggregateClient")
     WebClient aggregateClient() {
-        return webClient("http://localhost:8085");
+        return webClient(aggregateServiceUrl);
     }
 
     @Bean(name = "offerClient")
     WebClient offerClient() {
-        return webClient("http://localhost:8083");
+        return webClient(offerServiceUrl);
     }
 
     @Bean(name = "offerEngineClient")
     WebClient offerEngineClient() {
-        return webClient("http://localhost:8086");
+        return webClient(engineServiceUrl);
     }
 
     WebClient webClient(String baseUrl) {
