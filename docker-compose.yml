@@ -13,6 +13,12 @@ services:
     ports:
       - 8082:8082
       - 5082:5082
+    environment:
+      - KEYCLOAK_URL=http://temp:8080
+      - ENGINE_OFFER_SERVICE_URL=http://engine-offer-service:8086
+      - OFFER_SERVICE_URL=http://offer-service:8083
+      - USER_SERVICE_URL=http://user-service:8084
+      - AGGREGATE_SERVICE_URL=http://aggregation-service:8085
     networks:
       - rea
 
@@ -27,6 +33,10 @@ services:
     ports:
       - 8084:8084
       - 5084:5084
+    environment:
+      - DATABASE_HOSTNAME=offer-db
+      - DATABASE_PORT=27017
+      - DATABASE_NAME=real_estate_aggragetor
     networks:
       - rea
 
@@ -39,6 +49,9 @@ services:
     ports:
       - 8085:8085
       - 5085:5085
+    environment:
+      - OFFER_SERVICE_URL=http://offer-service:8083
+      - USER_SERVICE_URL=http://user-service:8084
     networks:
       - rea
 
@@ -51,6 +64,8 @@ services:
     ports:
       - 8087:8087
       - 5087:5087
+    environment:
+      - AGGREGATE_SERVICE_URL=http://aggregation-service:8085
     networks:
       - rea
 
@@ -59,14 +74,16 @@ services:
     build:
       context: ./rea-offer-service/engine-service
       dockerfile: DockerFile
-    environment:
-      RUN_IN_DEBUG: true
     depends_on:
       - offer-db
     image: engine-service-image:0.0.1-local
     ports:
       - 8086:8086
       - 5086:5086
+    environment:
+      - DATABASE_HOSTNAME=offer-db
+      - DATABASE_PORT=27017
+      - DATABASE_NAME=real_estate_aggragetor
     links:
       - offer-db
     networks:
@@ -77,14 +94,16 @@ services:
     build:
       context: ./rea-offer-service/offer-service
       dockerfile: DockerFile
-    environment:
-      RUN_IN_DEBUG: true
     depends_on:
       - offer-db
     image: offer-service-image:0.0.1-local
     ports:
       - 8083:8083
       - 5083:5083
+    environment:
+      - DATABASE_HOSTNAME=offer-db
+      - DATABASE_PORT=27017
+      - DATABASE_NAME=real_estate_aggragetor
     links:
       - offer-db
     networks:
@@ -99,7 +118,7 @@ services:
       KEYCLOAK_LOGLEVEL: DEBUG
       ROOT_LOGLEVEL: INFO
     ports:
-      - "8080:8080"
+      - 8080:8080
     command:
       - start-dev
     networks:

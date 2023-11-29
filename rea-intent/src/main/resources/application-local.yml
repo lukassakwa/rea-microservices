@@ -6,4 +6,11 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://rea-keycloak:8080/realms/rea-keycloak
+          issuer-uri: ${KEYCLOAK_URL}/realms/rea-keycloak
+
+microservices:
+  url:
+    aggregate-service: ${AGGREGATE_SERVICE_URL}
+    offer-service: ${OFFER_SERVICE_URL}
+    user-service: ${USER_SERVICE_URL}
+    engine-service: ${ENGINE_OFFER_SERVICE_URL}

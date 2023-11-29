@@ -3,6 +3,7 @@ package com.rea.system.aggregate.infrastructure.config;
 import io.netty.channel.ChannelOption;
 import io.netty.handler.timeout.ReadTimeoutHandler;
 import io.netty.handler.timeout.WriteTimeoutHandler;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
@@ -17,15 +18,25 @@ import java.time.Duration;
 public class WebClientConfiguration {
 
     private static final int BUFFER_SIZE_16MB = 16 * 1024 * 1024;
+    private final String offerServiceUrl;
+    private final String userServiceUrl;
+
+    public WebClientConfiguration(
+            @Value(value = "${microservices.url.offer-service}") String offerServiceUrl,
+            @Value(value = "${microservices.url.user-service}") String userServiceUrl
+    ) {
+        this.offerServiceUrl = offerServiceUrl;
+        this.userServiceUrl = userServiceUrl;
+    }
 
     @Bean(name = "userClient")
     WebClient userClient() {
-        return webClient("http://user-service:8084");
+        return webClient(userServiceUrl);
     }
 
     @Bean(name = "offerClient")
     WebClient offerClient() {
-        return webClient("http://offer-service:8083");
+        return webClient(offerServiceUrl);
     }
 
     WebClient webClient(String baseUrl) {

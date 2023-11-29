@@ -4,28 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6403b02b-995a-4d29-b00c-ca9f908216e7" name="Changes" comment="add to (.gitignore) later">
-      <change afterPath="$PROJECT_DIR$/rea-aggregate-service/DockerFile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rea-mail-service/DockerFile" afterDir="false" />
+    <list default="true" id="6403b02b-995a-4d29-b00c-ca9f908216e7" name="Changes" comment="dockerization - part 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-aggregate-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-aggregate-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rea-aggregate-service/src/main/java/com/rea/system/aggregate/infrastructure/config/WebClientConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-aggregate-service/src/main/java/com/rea/system/aggregate/infrastructure/config/WebClientConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-aggregate-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-aggregate-service/src/main/resources/application-local.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/rea-frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-intent/DockerFile" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/DockerFile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rea-aggregate-service/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-aggregate-service/src/main/resources/application-local.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/config/WebClientConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/config/WebClientConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/resources/application-local.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-mail-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-mail-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rea-mail-service/src/main/java/com/rea/system/mail/infrastructure/config/WebClientConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-mail-service/src/main/java/com/rea/system/mail/infrastructure/config/WebClientConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rea-mail-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-mail-service/src/main/resources/application-local.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rea-offer-service/engine-service/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/engine-service/src/main/resources/application-local.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/offer-service/DockerFile" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/offer-service/DockerFile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/offer-service/src/main/java/com/rea/system/offer/application/domain/core/Fillter.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/offer-service/src/main/java/com/rea/system/offer/application/domain/core/Fillter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rea-offer-service/offer-service/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/offer-service/src/main/resources/application-local.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-offer-service/DockerFile" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/rea-user-service/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/resources/application-local.yml" afterDir="false" />
     </list>
-    <list id="d05a8cd2-f876-4cfa-9c7d-c73a3e1f9de4" name="app_config" comment="" />
+    <list id="d05a8cd2-f876-4cfa-9c7d-c73a3e1f9de4" name="app_config" comment="">
+      <change beforePath="$PROJECT_DIR$/rea-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/rea-frontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/resources/application-local.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -144,7 +138,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Remote JVM Debug.aggregation-service">
+  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -296,10 +290,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.aggregation-service: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.offer-service: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.intent-service: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.engine-offer-service: Compose Deployment" />
       </list>
     </recent_temporary>
@@ -348,6 +342,7 @@
       <workItem from="1701190663548" duration="879000" />
       <workItem from="1701269649290" duration="2526000" />
       <workItem from="1701272260328" duration="12559000" />
+      <workItem from="1701297917483" duration="1421000" />
     </task>
     <task id="LOCAL-00001" summary="config">
       <option name="closed" value="true" />
@@ -493,7 +488,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701009678205</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="dockerization - part 2">
+      <option name="closed" value="true" />
+      <created>1701298172240</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1701298172240</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,7 +518,8 @@
     <MESSAGE value="intent and user flow" />
     <MESSAGE value="create new aggregate microservice" />
     <MESSAGE value="removed payload and response from common" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed payload and response from common" />
+    <MESSAGE value="dockerization - part 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="dockerization - part 2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
