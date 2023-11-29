@@ -1,5 +1,5 @@
 FROM openjdk:17
 COPY target/*.jar /offer-engine-application.jar
 VOLUME /tmp
-CMD ["java", "-Dspring.profiles.active=local", "-jar", "/offer-engine-application.jar"]
+CMD ["java", "-Dspring.profiles.active=local", "-Xdebug", "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5086", "-jar", "/offer-engine-application.jar"]
 EXPOSE 8086

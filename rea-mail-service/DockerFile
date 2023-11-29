@@ -1,0 +1,5 @@
+FROM openjdk:17
+COPY target/*.jar /mail-application.jar
+VOLUME /tmp
+CMD ["java", "-Dspring.profiles.active=local", "-Xdebug", "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5087", "-jar", "/mail-application.jar"]
+EXPOSE 8087

@@ -20,7 +20,7 @@ public class WebClientConfiguration {
 
     @Bean
     WebClient aggregateClient() {
-        return webClient("http://localhost:8085");
+        return webClient("http://aggregation-service:8085");
     }
 
     WebClient webClient(String baseUrl) {

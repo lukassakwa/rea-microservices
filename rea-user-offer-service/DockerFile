@@ -1,5 +1,0 @@
-FROM openjdk:17
-COPY target/*.jar /user-offer-application.jar
-VOLUME /tmp
-CMD ["java", "-Dspring.profiles.active=local", "-jar", "/user-offer-application.jar"]
-EXPOSE 8082
