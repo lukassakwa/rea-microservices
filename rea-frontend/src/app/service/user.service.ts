@@ -12,11 +12,11 @@ export class UserService {
   }
 
   createSettings(settings: any) {
-    return this.http.put<any>(`${this.userUrl}/settings`, settings);
+    return this.http.put<any>(`${this.userUrl}/update`, settings);
   }
 
   getSettings() {
-    return this.http.get<any>(`${this.userUrl}/settings`);
+    return this.http.get<any>(`${this.userUrl}`);
   }
 
 }
