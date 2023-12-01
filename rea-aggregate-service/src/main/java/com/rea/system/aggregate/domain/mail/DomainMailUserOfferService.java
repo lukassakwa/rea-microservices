@@ -2,6 +2,7 @@ package com.rea.system.aggregate.domain.mail;
 
 import com.rea.system.aggregate.domain.mail.core.MailUserOfferEntity;
 import com.rea.system.aggregate.domain.mail.core.OfferMailEntity;
+import com.rea.system.aggregate.domain.mail.core.UserMailEntity;
 import com.rea.system.aggregate.domain.port.output.mail.MailOfferClientService;
 import com.rea.system.aggregate.domain.port.output.mail.MailUserClientService;
 import lombok.RequiredArgsConstructor;
@@ -24,8 +25,9 @@ public class DomainMailUserOfferService {
     public Flux<MailUserOfferEntity> mailUserOfferAggregate() {
         return mailUserClientService.getUsers()
                 .subscribeOn(Schedulers.boundedElastic())
+                .map(UserMailEntity::initialize)
                 .flatMap(userMailEntity -> {
-                    LinkedMultiValueMap<String, String> query = userMailEntity.buildQueryParams();
+                    LinkedMultiValueMap<String, String> query = userMailEntity.getQueryMap();
                     Mono<List<OfferMailEntity>> offerMails = mailOfferClientService.getOffers(query)
                             .take(10, true)
                             .collectList();

@@ -16,14 +16,25 @@ public class UserMailEntity {
     private Double metersFrom;
     private Double metersTo;
 
-    public LinkedMultiValueMap<String, String> buildQueryParams() {
-        final LinkedMultiValueMap<String, String> queryMap = new LinkedMultiValueMap<>();
+    private final LinkedMultiValueMap<String, String> queryMap = new LinkedMultiValueMap<>();
+
+    public UserMailEntity initialize() {
+        fillValuesIfEmpty();
+        buildQueryParams();
+        return this;
+    }
+
+    private void fillValuesIfEmpty() {
+        this.priceFrom = Optional.ofNullable(priceFrom).orElse(0);
+        this.metersFrom = Optional.ofNullable(metersFrom).orElse(0.0);
+    }
+
+    private void buildQueryParams() {
         Optional.ofNullable(service).ifPresent(serviceType -> queryMap.add("estateServiceType", serviceType.name()));
         Optional.ofNullable(priceFrom).ifPresent(priceF -> queryMap.add("priceFrom", priceF.toString()));
         Optional.ofNullable(priceTo).ifPresent(priceT -> queryMap.add("priceTo", priceT.toString()));
         Optional.ofNullable(metersFrom).ifPresent(metersF -> queryMap.add("metersFrom", metersF.toString()));
         Optional.ofNullable(metersTo).ifPresent(metersT -> queryMap.add("metersTo", metersT.toString()));
-        return queryMap;
     }
 
 }
