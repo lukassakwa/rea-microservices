@@ -25,7 +25,7 @@ public class OfferAggregateQuery {
 
     public void buildQueryParams() {
         Optional.ofNullable(estateServiceType).ifPresent(serviceType -> query.add("estateServiceType", serviceType.name()));
-        Optional.ofNullable(offerIds).ifPresent(offers -> query.put("offerIds", new ArrayList<>(offers)));
+        Optional.ofNullable(offerIds).ifPresent(offers -> query.put("userOfferIds", new ArrayList<>(offers)));
     }
 
     private void validate() {

@@ -41,7 +41,7 @@ public class OfferClientServiceImpl implements MailOfferClientService, UserOffer
     public Flux<OfferAggregateEntity> getUserOffers(LinkedMultiValueMap<String, String> queryMap) {
         return webClient.get()
                 .uri(uriBuilder -> uriBuilder
-                        .path("/api/offer")
+                        .path("/api/offer/provided")
                         .queryParams(queryMap)
                         .build())
                 .retrieve()

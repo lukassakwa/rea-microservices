@@ -1,9 +1,10 @@
 package com.rea.system.aggregate.domain.port.output.user_offer;
 
-import reactor.core.publisher.Flux;
+import com.rea.system.aggregate.domain.user_offer.core.OfferUserEntity;
+import reactor.core.publisher.Mono;
 
 public interface UserClientService {
 
-    Flux<String> getUserOfferIds(String userid);
+    Mono<OfferUserEntity> getUserOfferIds(String userid);
 
 }
