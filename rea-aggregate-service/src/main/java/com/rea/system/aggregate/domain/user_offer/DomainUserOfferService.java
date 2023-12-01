@@ -19,8 +19,7 @@ public class DomainUserOfferService {
     private final UserOfferClientService userOfferClientService;
 
     public Flux<OfferAggregateEntity> aggregateUserOffers(String userId, EstateServiceType estateServiceType) {
-        Mono<OfferUserEntity> userOffersId = userClientService.getUserOfferIds(userId)
-                .map(OfferUserEntity::validate);
+        Mono<OfferUserEntity> userOffersId = userClientService.getUserOfferIds(userId);
         return userOffersId.flatMapMany(offerUserEntity -> {
             OfferAggregateQuery query = OfferAggregateQuery.builder()
                     .estateServiceType(estateServiceType)
