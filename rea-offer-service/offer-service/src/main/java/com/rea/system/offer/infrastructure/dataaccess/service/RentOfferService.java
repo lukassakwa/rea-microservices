@@ -1,22 +1,17 @@
-package com.rea.system.offer.infrastructure.dataaccess.service.impl;
+package com.rea.system.offer.infrastructure.dataaccess.service;
 
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.rea.system.offer.application.domain.core.DomainOffer;
-import com.rea.system.offer.infrastructure.dataaccess.entity.Offer;
 import com.rea.system.offer.infrastructure.dataaccess.entity.RentOffer;
 import com.rea.system.offer.infrastructure.dataaccess.mapper.HistoricalOfferMapper;
 import com.rea.system.offer.infrastructure.dataaccess.mapper.OfferMapper;
 import com.rea.system.offer.infrastructure.dataaccess.repository.HistoricalRentRepository;
 import com.rea.system.offer.infrastructure.dataaccess.repository.RentOfferRepository;
-import com.rea.system.offer.infrastructure.dataaccess.service.AvailableDomainOfferService;
-import com.rea.system.offer.infrastructure.dataaccess.service.HistoricalDomainOfferService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor

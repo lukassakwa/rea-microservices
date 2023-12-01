@@ -3,11 +3,14 @@ package com.rea.system.aggregate.infrastructure.web.client;
 import com.rea.system.aggregate.domain.mail.core.UserMailEntity;
 import com.rea.system.aggregate.domain.port.output.mail.MailUserClientService;
 import com.rea.system.aggregate.domain.port.output.user_offer.UserClientService;
+import com.rea.system.aggregate.domain.user_offer.core.OfferUserEntity;
+import com.rea.system.aggregate.infrastructure.web.model.UserOfferResponse;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import com.rea.system.aggregate.infrastructure.web.model.UserMailResponse;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @Service
 public class UserClientServiceImpl implements MailUserClientService, UserClientService {
@@ -32,10 +35,11 @@ public class UserClientServiceImpl implements MailUserClientService, UserClientS
 
 
     @Override
-    public Flux<String> getUserOfferIds(String userid) {
+    public Mono<OfferUserEntity> getUserOfferIds(String userid) {
         return webClient.get()
                 .uri("/api/favorite/" + userid)
                 .retrieve()
-                .bodyToFlux(String.class);
+                .bodyToMono(UserOfferResponse.class)
+                .map(mapper::toEntity);
     }
 }

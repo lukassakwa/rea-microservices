@@ -1,11 +1,10 @@
 package com.rea.system.intent.domain.offer;
 
 import com.rea.system.intent.domain.port.output.client.OfferClientService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import org.springframework.util.LinkedMultiValueMap;
 import com.rea.system.intent.infrastructure.web.model.offer.HistoricalOfferIntentResponse;
 import com.rea.system.intent.infrastructure.web.model.offer.OfferIntentResponse;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import rea.system.common.model.offer.EstateServiceType;
 import reactor.core.publisher.Flux;
 
@@ -20,15 +19,14 @@ public class OfferIntentService {
                                                Integer priceTo,
                                                Double metersFrom,
                                                Double metersTo) {
-        LinkedMultiValueMap<String, String> queryMap = OfferQueryBuilder.builder()
+        OfferQueryBuilder queryMap = OfferQueryBuilder.builder()
                 .estateServiceType(estateServiceType)
                 .priceFrom(priceFrom)
                 .priceTo(priceTo)
                 .metersFrom(metersFrom)
                 .metersTo(metersTo)
-                .build()
-                .buildQueryParams();
-        return offerClientService.getOffers(queryMap);
+                .build();
+        return offerClientService.getOffers(queryMap.getQuery());
     }
 
     public Flux<HistoricalOfferIntentResponse> getMonitoringData(String offerId, EstateServiceType estateServiceType) {

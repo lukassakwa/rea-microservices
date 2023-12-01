@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-@Getter
 @Builder
 public class Fillter {
 
@@ -26,19 +25,16 @@ public class Fillter {
     private Double metersTo;
     private Set<String> offerIds;
 
-    @Getter
     private BooleanExpression expression;
     @Getter
     private Sort sort;
 
     private void initialize() {
-        fillValuesIfEmpty();
         buildQuery();
     }
 
-    private void fillValuesIfEmpty() {
-        this.priceFrom = Optional.ofNullable(priceFrom).orElse(0);
-        this.metersFrom = Optional.ofNullable(metersFrom).orElse(0.0);
+    public Optional<BooleanExpression> getOptionalExpression() {
+        return Optional.ofNullable(expression);
     }
 
     private void buildQuery() {

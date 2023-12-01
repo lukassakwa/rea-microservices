@@ -26,12 +26,7 @@ public class OfferClientServiceImpl implements MailOfferClientService, UserOffer
 
     @Override
     public Flux<OfferMailEntity> getOffers(LinkedMultiValueMap<String, String> queryMap) {
-        return webClient.get()
-                .uri(uriBuilder -> uriBuilder
-                        .path("/api/offer")
-                        .queryParams(queryMap)
-                        .build())
-                .retrieve()
+        return getOffersResponceSpec(queryMap)
                 .bodyToFlux(OfferMailResponse.class)
                 .map(mapper::toEntity);
     }
@@ -39,13 +34,17 @@ public class OfferClientServiceImpl implements MailOfferClientService, UserOffer
 
     @Override
     public Flux<OfferAggregateEntity> getUserOffers(LinkedMultiValueMap<String, String> queryMap) {
+        return getOffersResponceSpec(queryMap)
+                .bodyToFlux(OfferAggregateResponse.class)
+                .map(mapper::toEntity);
+    }
+
+    private WebClient.ResponseSpec getOffersResponceSpec(LinkedMultiValueMap<String, String> queryMap) {
         return webClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path("/api/offer")
                         .queryParams(queryMap)
                         .build())
-                .retrieve()
-                .bodyToFlux(OfferAggregateResponse.class)
-                .map(mapper::toEntity);
+                .retrieve();
     }
 }

@@ -1,4 +1,4 @@
-package com.rea.system.user.infrastruture.dataaccess;
+package com.rea.system.user.infrastruture.dataaccess.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

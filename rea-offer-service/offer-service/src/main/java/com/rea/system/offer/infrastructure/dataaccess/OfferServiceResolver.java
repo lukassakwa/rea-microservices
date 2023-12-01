@@ -2,8 +2,8 @@ package com.rea.system.offer.infrastructure.dataaccess;
 
 import com.rea.system.offer.infrastructure.dataaccess.service.AvailableDomainOfferService;
 import com.rea.system.offer.infrastructure.dataaccess.service.HistoricalDomainOfferService;
-import com.rea.system.offer.infrastructure.dataaccess.service.impl.RentOfferService;
-import com.rea.system.offer.infrastructure.dataaccess.service.impl.SellOfferService;
+import com.rea.system.offer.infrastructure.dataaccess.service.RentOfferService;
+import com.rea.system.offer.infrastructure.dataaccess.service.SellOfferService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import rea.system.common.model.offer.EstateServiceType;
