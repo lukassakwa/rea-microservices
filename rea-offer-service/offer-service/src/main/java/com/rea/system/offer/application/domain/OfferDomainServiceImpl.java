@@ -1,5 +1,6 @@
 package com.rea.system.offer.application.domain;
 
+import com.querydsl.core.types.dsl.BooleanExpression;
 import com.rea.system.offer.application.domain.core.DomainOffer;
 import com.rea.system.offer.application.domain.core.Fillter;
 import com.rea.system.offer.application.domain.ports.input.OfferService;
@@ -12,6 +13,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.Comparator;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -36,10 +38,13 @@ public class OfferDomainServiceImpl implements OfferService {
                 .metersTo(metersTo)
                 .offerIds(offerIds)
                 .build();
-        return availableOfferDataService.findFilteredAndSortedOffers(
-                filter.getExpression(),
-                filter.getSort(),
-                estateServiceType);
+        Optional<BooleanExpression> expression = filter.getOptionalExpression();
+        return expression
+                .map(expr -> availableOfferDataService.findFilteredAndSortedOffers(
+                        expr,
+                        filter.getSort(),
+                        estateServiceType))
+                .orElse(Flux.empty());
     }
 
     @Override

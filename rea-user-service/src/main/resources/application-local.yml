@@ -1,0 +1,12 @@
+server:
+  port: 8084
+
+spring:
+    jackson:
+        date-format: "yyyy-MM-dd'T'HH:mm:ss"
+    data:
+        mongodb:
+            host: ${DATABASE_HOSTNAME}
+            port: ${DATABASE_PORT}
+            database: ${DATABASE_NAME}
+            auto-index-creation: true

@@ -3,6 +3,7 @@ package com.rea.system.mail.infrastructure.config;
 import io.netty.channel.ChannelOption;
 import io.netty.handler.timeout.ReadTimeoutHandler;
 import io.netty.handler.timeout.WriteTimeoutHandler;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
@@ -17,15 +18,15 @@ import java.time.Duration;
 public class WebClientConfiguration {
 
     private static final int BUFFER_SIZE_16MB = 16 * 1024 * 1024;
+    private final String aggregateServiceUrl;
 
-    @Bean(name = "userClient")
-    WebClient userClient() {
-        return webClient("http://localhost:8084");
+    public WebClientConfiguration(@Value(value = "${microservices.url.aggregate-service}") String aggregateServiceUrl) {
+        this.aggregateServiceUrl = aggregateServiceUrl;
     }
 
-    @Bean(name = "offerClient")
-    WebClient offerClient() {
-        return webClient("http://localhost:8083");
+    @Bean
+    WebClient aggregateClient() {
+        return webClient(aggregateServiceUrl);
     }
 
     WebClient webClient(String baseUrl) {

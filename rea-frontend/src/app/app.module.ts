@@ -25,7 +25,7 @@ export let KEYCLOAK_INITIALIZER: any
 
 function initializeKeycloak() {
   const keycloak = new Keycloak({
-    url: 'http://localhost:8080',
+    url: '',
     realm: 'rea-keycloak',
     clientId: 'rea-app'
   });

@@ -1,6 +1,9 @@
 <a #top></a>
 <div class="wrapper container" *ngIf="offers">
-  <app-filter (clicked)="onFillter($event)"></app-filter>
+  <app-filter
+    [showMeters]="true"
+    [showPrice]="true"
+    (clicked)="onFillter($event)"></app-filter>
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card mb-3" *ngFor="let offer of offers;">

@@ -15,17 +15,21 @@
         <module name="engine-service" />
         <module name="rea-intent" />
         <module name="offer-service" />
-        <module name="rea-user-offer-service" />
         <module name="rea-common" />
         <module name="rea-mail-service" />
         <module name="rea-user-service" />
+        <module name="rea-aggregate-service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="rea-user-offer-service" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="engine-service" options="-parameters" />
       <module name="offer-service" options="-parameters" />
+      <module name="rea-aggregate-service" options="-parameters" />
       <module name="rea-common" options="-parameters" />
       <module name="rea-intent" options="-parameters" />
       <module name="rea-mail-service" options="-parameters" />

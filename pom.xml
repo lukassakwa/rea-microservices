@@ -21,10 +21,10 @@
         <module>rea-common</module>
         <module>rea-intent</module>
         <module>rea-user-service</module>
-        <module>rea-user-offer-service</module>
         <module>rea-offer-service/offer-service</module>
         <module>rea-offer-service/engine-service</module>
         <module>rea-mail-service</module>
+        <module>rea-aggregate-service</module>
     </modules>
 
     <properties>

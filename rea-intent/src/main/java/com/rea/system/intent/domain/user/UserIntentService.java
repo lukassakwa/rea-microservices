@@ -5,8 +5,9 @@ import com.rea.system.intent.domain.port.output.security.UserSecurityAuthenticat
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import rea.system.common.intent.user.UserIntentPayload;
-import rea.system.common.intent.user.UserIntentResponse;
+import com.rea.system.intent.infrastructure.web.model.user.UserIntentPayload;
+import com.rea.system.intent.infrastructure.web.model.user.UserIntentResponse;
+import com.rea.system.intent.infrastructure.web.model.user.UserOfferIntentPayload;
 import reactor.core.publisher.Mono;
 
 @Slf4j
@@ -33,6 +34,13 @@ public class UserIntentService {
                         payload)
                 )
                 .flatMap(userClientService::updateUserClient);
+    }
+
+    public Mono<Void> updateUserOffers(UserOfferIntentPayload userOfferIntentPayload) {
+        Mono<String> userId = securityAuthenticationService.getUserId();
+        return userId
+                .map(id -> userIntentMapper.toPayload(id, userOfferIntentPayload))
+                .flatMap(userClientService::updateUserOffers);
     }
 
 

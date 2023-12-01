@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { EstateServiceType } from '../../model/offer.model';
 import {Filter} from "./Filter";
 import {FilterParams} from "../constants/filter-params";
@@ -10,6 +10,8 @@ import {FilterParams} from "../constants/filter-params";
 })
 export class FilterComponent implements OnInit {
 
+  @Input() showPrice: boolean = false;
+  @Input() showMeters: boolean = false;
   @Output() clicked = new EventEmitter<Filter>();
 
   selectedEstate: string = FilterParams.selectedEstate;

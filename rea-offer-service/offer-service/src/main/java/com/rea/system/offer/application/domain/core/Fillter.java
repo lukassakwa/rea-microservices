@@ -14,9 +14,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-@Getter
 @Builder
 public class Fillter {
+
 
     private EstateServiceType service;
     private Integer priceFrom;
@@ -25,14 +25,16 @@ public class Fillter {
     private Double metersTo;
     private Set<String> offerIds;
 
-    @Getter
     private BooleanExpression expression;
     @Getter
     private Sort sort;
 
     private void initialize() {
         buildQuery();
-        validateExpression();
+    }
+
+    public Optional<BooleanExpression> getOptionalExpression() {
+        return Optional.ofNullable(expression);
     }
 
     private void buildQuery() {
@@ -53,10 +55,6 @@ public class Fillter {
         }
 
         return predicates;
-    }
-
-    private void validateExpression() {
-        Optional.ofNullable(expression).orElseThrow(() -> new RuntimeException("Expression is null"));
     }
 
     public static FillterBuilder builder() {
