@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.ObjectUtils;
+import org.assertj.core.util.Sets;
 import org.springframework.util.CollectionUtils;
 import rea.system.common.model.user_offer.FavoriteOperationType;
 
@@ -20,7 +21,8 @@ public class UserOfferEntity {
     private String userId;
     private String offerId;
     private FavoriteOperationType operationType;
-    private Set<String> userOffersId;
+    @Builder.Default
+    private Set<String> userOffersId = Sets.newHashSet();
 
     public UserOfferEntity updateUserOffers() {
         validateKeyValues();

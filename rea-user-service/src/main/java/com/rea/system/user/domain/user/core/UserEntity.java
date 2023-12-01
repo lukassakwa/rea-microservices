@@ -13,7 +13,8 @@ public class UserEntity {
 
     private String userId;
     private String username;
-    private UserFilterSettingsEntity userFilterSettingsEntity;
+    @Builder.Default
+    private UserFilterSettingsEntity userFilterSettingsEntity = UserFilterSettingsEntity.builder().build();
 
     public static UserEntity userEntityWithUserId(String userId) {
         return UserEntity.builder()
