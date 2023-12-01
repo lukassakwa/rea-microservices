@@ -11,12 +11,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserEntity {
 
-    private String id;
     private String userId;
     private String username;
     private UserFilterSettingsEntity userFilterSettingsEntity;
 
-    public static UserEntity createDefaultUserSettings(String userId) {
+    public static UserEntity userEntityWithUserId(String userId) {
         return UserEntity.builder()
                 .userId(userId)
                 .build();

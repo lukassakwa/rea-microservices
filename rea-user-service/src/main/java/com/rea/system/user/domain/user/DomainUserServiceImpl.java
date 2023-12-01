@@ -1,8 +1,8 @@
 package com.rea.system.user.domain.user;
 
-import com.rea.system.user.domain.user.core.UserEntity;
 import com.rea.system.user.domain.port.input.DomainUserService;
 import com.rea.system.user.domain.port.output.UserDataService;
+import com.rea.system.user.domain.user.core.UserEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -18,16 +18,15 @@ public class DomainUserServiceImpl implements DomainUserService {
     @Override
     public Mono<UserEntity> update(UserEntity userEntity) {
         String userId = userEntity.getUserId();
-        return userDataService.getUser(userId)
-                .map(currentUserSettings -> userMapper.update(currentUserSettings, userEntity))
-                .flatMap(userDataService::save)
-                .switchIfEmpty(Mono.error(new RuntimeException("users settings does not exist")));
+        return getUser(userId)
+                .map(entity -> userMapper.update(entity, userEntity))
+                .flatMap(userDataService::update);
     }
 
     @Override
     public Mono<UserEntity> getUser(String userId) {
         return userDataService.getUser(userId)
-                .switchIfEmpty(Mono.defer(() -> userDataService.save(UserEntity.createDefaultUserSettings(userId))));
+                .switchIfEmpty(userDataService.save(UserEntity.userEntityWithUserId(userId)));
     }
 
     @Override

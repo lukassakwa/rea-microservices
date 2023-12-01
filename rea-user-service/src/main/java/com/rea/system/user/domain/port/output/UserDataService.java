@@ -12,4 +12,6 @@ public interface UserDataService {
 
     Mono<UserEntity> save(UserEntity userEntity);
 
+    Mono<UserEntity> update(UserEntity userEntity);
+
 }

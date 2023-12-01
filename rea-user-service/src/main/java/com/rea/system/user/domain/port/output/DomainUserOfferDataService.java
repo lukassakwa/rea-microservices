@@ -7,6 +7,8 @@ public interface DomainUserOfferDataService {
 
     Mono<UserOfferEntity> save(UserOfferEntity userOfferEntity);
 
+    Mono<UserOfferEntity> update(UserOfferEntity userOfferEntity);
+
     Mono<UserOfferEntity> get(String userId);
 
 }

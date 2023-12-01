@@ -1,8 +1,8 @@
 package com.rea.system.user.infrastruture.dataaccess;
 
 import com.rea.system.user.domain.port.output.DomainUserOfferDataService;
-import com.rea.system.user.domain.user.core.UserEntity;
 import com.rea.system.user.domain.port.output.UserDataService;
+import com.rea.system.user.domain.user.core.UserEntity;
 import com.rea.system.user.domain.user_offer.core.UserOfferEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -35,8 +35,24 @@ public class UserDataServiceImpl implements UserDataService, DomainUserOfferData
     }
 
     @Override
+    public Mono<UserEntity> update(UserEntity userEntity) {
+        return userRepository.findUserByUserId(userEntity.getUserId())
+                .map(user -> userMapper.update(user, userEntity))
+                .flatMap(userRepository::save)
+                .map(userMapper::toUserEntity);
+    }
+
+    @Override
     public Mono<UserOfferEntity> save(UserOfferEntity userOfferEntity) {
         return userRepository.save(userMapper.toModel(userOfferEntity))
+                .map(userMapper::toUserOfferEntity);
+    }
+
+    @Override
+    public Mono<UserOfferEntity> update(UserOfferEntity userOfferEntity) {
+        return userRepository.findUserByUserId(userOfferEntity.getUserId())
+                .map(user -> userMapper.update(user, userOfferEntity))
+                .flatMap(userRepository::save)
                 .map(userMapper::toUserOfferEntity);
     }
 

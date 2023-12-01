@@ -26,7 +26,7 @@ public class UserController {
     }
 
     @GetMapping("/mail")
-    Flux<UserMailResponse> getUser() {
+    Flux<UserMailResponse> getUsers() {
         return userIntentService.getUsers();
     }
 

@@ -2,6 +2,7 @@ package com.rea.system.user.infrastruture.resource.user_offer;
 
 import com.rea.system.user.domain.port.input.DomainUserOfferService;
 import com.rea.system.user.infrastruture.resource.model.UserOfferPayload;
+import com.rea.system.user.infrastruture.resource.model.UserOfferResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
@@ -24,8 +25,9 @@ public class UserFavoriteOfferController {
     }
 
     @GetMapping("/{userId}")
-    Flux<String> getUserFavoriteOffers(@PathVariable String userId) {
-        return domainUserOfferService.getUserOffers(userId);
+    Mono<UserOfferResponse> getUserFavoriteOffers(@PathVariable String userId) {
+        return domainUserOfferService.getUserOffers(userId)
+                .map(UserOfferResponse::new);
     }
 
 }
