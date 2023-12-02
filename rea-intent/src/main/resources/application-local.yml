@@ -14,3 +14,4 @@ microservices:
     offer-service: ${OFFER_SERVICE_URL}
     user-service: ${USER_SERVICE_URL}
     engine-service: ${ENGINE_OFFER_SERVICE_URL}
+    mail-service: ${MAIL_SERVICE_URL}
