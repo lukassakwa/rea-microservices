@@ -18,6 +18,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DomainMailUserOfferService {
 
+    private static final int OFFER_LIMIT = 10;
+
     private final MailOfferClientService mailOfferClientService;
     private final MailUserClientService mailUserClientService;
     private final DomainMailUserOfferMapper mapper;
@@ -29,7 +31,7 @@ public class DomainMailUserOfferService {
                 .flatMap(userMailEntity -> {
                     LinkedMultiValueMap<String, String> query = userMailEntity.getQueryMap();
                     Mono<List<OfferMailEntity>> offerMails = mailOfferClientService.getOffers(query)
-                            .take(10, true)
+                            .take(OFFER_LIMIT, true)
                             .collectList();
                     return offerMails.map(offerEntities -> mapper.toEntity(offerEntities, userMailEntity));
                 });

@@ -23,17 +23,20 @@ public class WebClientConfiguration {
     private final String offerServiceUrl;
     private final String userServiceUrl;
     private final String engineServiceUrl;
+    private final String mailServiceUrl;
 
     public WebClientConfiguration(
             @Value(value = "${microservices.url.aggregate-service}") String aggregateServiceUrl,
             @Value(value = "${microservices.url.offer-service}") String offerServiceUrl,
             @Value(value = "${microservices.url.user-service}") String userServiceUrl,
-            @Value(value = "${microservices.url.engine-service}") String engineServiceUrl
+            @Value(value = "${microservices.url.engine-service}") String engineServiceUrl,
+            @Value(value = "${microservices.url.mail-service}") String mailServiceUrl
     ) {
         this.aggregateServiceUrl = aggregateServiceUrl;
         this.offerServiceUrl = offerServiceUrl;
         this.userServiceUrl = userServiceUrl;
         this.engineServiceUrl = engineServiceUrl;
+        this.mailServiceUrl = mailServiceUrl;
     }
 
     @Bean(name = "userClient")
@@ -54,6 +57,11 @@ public class WebClientConfiguration {
     @Bean(name = "offerEngineClient")
     WebClient offerEngineClient() {
         return webClient(engineServiceUrl);
+    }
+
+    @Bean(name = "mailClient")
+    WebClient mailClient() {
+        return webClient(mailServiceUrl);
     }
 
     WebClient webClient(String baseUrl) {

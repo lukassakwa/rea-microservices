@@ -36,7 +36,7 @@ public class OfferEngineDataServiceProviderImpl implements EngineOfferDataServic
     @Override
     public Mono<ResolveOffer> saveHistorical(ResolveOffer resolveOffer, EstateServiceType estateServiceType) {
         HistoricalEngineOfferService historicalOfferService = resolver.resolveHistoricalEngineOfferService(estateServiceType);
-        return historicalOfferService.save(resolveOffer);
+        return historicalOfferService.saveHistorical(resolveOffer);
     }
 
 }
