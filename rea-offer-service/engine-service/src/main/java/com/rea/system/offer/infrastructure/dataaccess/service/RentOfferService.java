@@ -1,20 +1,22 @@
-package com.rea.system.offer.infrastructure.dataaccess.service.impl;
+package com.rea.system.offer.infrastructure.dataaccess.service;
 
 import com.rea.system.offer.application.engine.entity.ResolveOffer;
+import com.rea.system.offer.infrastructure.dataaccess.entity.HistoricalRentOffer;
 import com.rea.system.offer.infrastructure.dataaccess.entity.RentOffer;
-import com.rea.system.offer.infrastructure.dataaccess.mapper.OfferMapper;
+import com.rea.system.offer.infrastructure.dataaccess.repository.HistoricalRentRepository;
 import com.rea.system.offer.infrastructure.dataaccess.repository.RentOfferRepository;
-import com.rea.system.offer.infrastructure.dataaccess.service.AvailableEngineOfferService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
 @Service
 @RequiredArgsConstructor
-public class RentOfferService implements AvailableEngineOfferService {
+public class RentOfferService implements AvailableEngineOfferService, HistoricalEngineOfferService {
 
     private final RentOfferRepository rentOfferRepository;
     private final OfferMapper offerMapper;
+    private final HistoricalRentRepository historicalRentRepository;
+
 
     @Override
     public Mono<ResolveOffer> save(ResolveOffer resolveOffer) {
@@ -33,6 +35,12 @@ public class RentOfferService implements AvailableEngineOfferService {
     public Mono<ResolveOffer> findByDuplicateKey(String dupicateKey) {
         return rentOfferRepository.findByDuplicateKey(dupicateKey)
                 .map(offerMapper::toResolveRentDto);
+    }
+
+    @Override
+    public Mono<ResolveOffer> saveHistorical(ResolveOffer offer) {
+        Mono<HistoricalRentOffer> historicalRentOffer = historicalRentRepository.save(offerMapper.toHistoricalRentEntity(offer));
+        return historicalRentOffer.map(offerMapper::toResolveRentDto);
     }
 
     private Mono<ResolveOffer> findResolveOfferById(String offerId) {

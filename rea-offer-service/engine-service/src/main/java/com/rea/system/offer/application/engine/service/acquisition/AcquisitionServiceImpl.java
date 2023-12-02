@@ -2,7 +2,6 @@ package com.rea.system.offer.application.engine.service.acquisition;
 
 import com.rea.system.offer.application.engine.OfferLoadContext;
 import com.rea.system.offer.application.engine.entity.ResolveOffer;
-import com.rea.system.offer.application.engine.service.AcquisitionReactiveOfferService;
 import com.rea.system.offer.application.engine.service.acquisition.context.GeneralOfferContext;
 import com.rea.system.offer.application.engine.service.acquisition.context.ScrapperLoaderContext;
 import com.rea.system.offer.application.engine.service.acquisition.scrapper.OfferScrapperService;
@@ -22,7 +21,7 @@ import reactor.core.scheduler.Schedulers;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class AcquisitionReactiveServiceImpl implements AcquisitionReactiveOfferService {
+public class AcquisitionServiceImpl implements AcquisitionOfferService {
 
     private final OfferScrapperServiceFactory offerScrapperServiceFactory;
     private final WebClient webClient;
