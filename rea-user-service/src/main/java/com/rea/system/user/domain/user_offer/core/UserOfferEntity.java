@@ -21,8 +21,7 @@ public class UserOfferEntity {
     private String userId;
     private String offerId;
     private FavoriteOperationType operationType;
-    @Builder.Default
-    private Set<String> userOffersId = Sets.newHashSet();
+    private Set<String> userOffersId;
 
     public UserOfferEntity updateUserOffers() {
         validateKeyValues();
@@ -54,6 +53,7 @@ public class UserOfferEntity {
     public static UserOfferEntity userOfferEntityWithId(String userId) {
         return UserOfferEntity.builder()
                 .userId(userId)
+                .userOffersId(Sets.newHashSet())
                 .build();
     }
 
