@@ -1,6 +1,6 @@
-package com.rea.system.mail.infrastructure.web.schedulers;
+package com.rea.system.intent.infrastructure.web.schedulers;
 
-import com.rea.system.mail.domain.DomainMailService;
+import com.rea.system.intent.domain.mail.MailIntentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -12,12 +12,12 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class MailScheduler {
 
-    private final DomainMailService offerMailService;
+    private final MailIntentService mailIntentService;
 
     @Async
-    @Scheduled(cron = "0 0 */2 * * *")
+    @Scheduled(cron = "0 0/30 * * * ?")
     void sendMail() {
-        offerMailService.sendEmailToUser();
+        mailIntentService.invokeMailSend();
     }
 
 }
