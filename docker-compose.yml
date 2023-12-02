@@ -19,6 +19,7 @@ services:
       - OFFER_SERVICE_URL=http://offer-service:8083
       - USER_SERVICE_URL=http://user-service:8084
       - AGGREGATE_SERVICE_URL=http://aggregation-service:8085
+      - MAIL_SERVICE_URL=http://mail-service:8087
     networks:
       - rea
 
