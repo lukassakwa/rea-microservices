@@ -57,4 +57,8 @@ public class UserOfferEntity {
                 .build();
     }
 
+    public Set<String> getUserOffersId() {
+        initOfferIdsIfEmpty();
+        return userOffersId;
+    }
 }
