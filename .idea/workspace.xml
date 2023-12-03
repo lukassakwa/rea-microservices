@@ -4,21 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6403b02b-995a-4d29-b00c-ca9f908216e7" name="Changes" comment="dockerization - part 2">
+    <list default="true" id="6403b02b-995a-4d29-b00c-ca9f908216e7" name="Changes" comment="engine refactor dataaccess">
+      <change afterPath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/common/PaginateUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-aggregate-service/src/main/java/com/rea/system/aggregate/infrastructure/config/WebClientConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-aggregate-service/src/main/java/com/rea/system/aggregate/infrastructure/config/WebClientConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-aggregate-service/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-aggregate-service/src/main/resources/application-local.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/config/WebClientConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/config/WebClientConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-mail-service/src/main/java/com/rea/system/mail/infrastructure/config/WebClientConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-mail-service/src/main/java/com/rea/system/mail/infrastructure/config/WebClientConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-mail-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-mail-service/src/main/resources/application-local.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/engine-service/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/engine-service/src/main/resources/application-local.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-offer-service/offer-service/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-offer-service/offer-service/src/main/resources/application-local.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-user-service/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/resources/application-local.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rea-frontend/src/app/favorite-offers/favorite-offers.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/rea-frontend/src/app/favorite-offers/favorite-offers.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rea-frontend/src/app/favorite-offers/favorite-offers.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/rea-frontend/src/app/favorite-offers/favorite-offers.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rea-frontend/src/app/offers/offers.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/rea-frontend/src/app/offers/offers.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rea-frontend/src/app/offers/offers.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/rea-frontend/src/app/offers/offers.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rea-frontend/src/app/service/offer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/rea-frontend/src/app/service/offer.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/aggregate/AggregateIntentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/aggregate/AggregateIntentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/offer/OfferIntentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/offer/OfferIntentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/web/resource/AggregateIntentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/web/resource/AggregateIntentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/web/resource/OfferIntentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/web/resource/OfferIntentController.java" afterDir="false" />
     </list>
     <list id="d05a8cd2-f876-4cfa-9c7d-c73a3e1f9de4" name="app_config" comment="">
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rea-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/rea-frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/resources/application-local.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +77,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;rea-dockerization&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;offer-pagination&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
     &quot;last_opened_file_path&quot;: &quot;F:/rea-microservices/rea-mail-service&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -137,8 +138,16 @@
         <option value="SpringBootApplicationConfigurationType" />
       </set>
     </option>
+    <option name="excludedTypes">
+      <set>
+        <option value="HttpClient.HttpRequestRunConfigurationType" />
+      </set>
+    </option>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
+  <component name="RunManager" selected="Docker.docker-compose.yml.intent-service: Compose Deployment">
+    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -185,6 +194,19 @@
       <option name="AUTO_RESTART" value="false" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="5083" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="user-service" type="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5084" />
+      <option name="AUTO_RESTART" value="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="5084" />
         <option name="LOCAL" value="false" />
       </RunnerSettings>
       <method v="2" />
@@ -237,19 +259,6 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose.yml.engine-offer-service: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="engine-offer-service" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <configuration name="docker-compose.yml.intent-service: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -263,12 +272,12 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose.yml.offer-service: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+    <configuration name="docker-compose.yml.keycloak: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
           <option name="services">
             <list>
-              <option value="offer-service" />
+              <option value="keycloak" />
             </list>
           </option>
           <option name="sourceFilePath" value="docker-compose.yml" />
@@ -277,11 +286,12 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Docker.docker-compose.yml.keycloak: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yml.aggregation-service: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-      <item itemvalue="Docker.docker-compose.yml.engine-offer-service: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yml.intent-service: Compose Deployment" />
-      <item itemvalue="Docker.docker-compose.yml.offer-service: Compose Deployment" />
+      <item itemvalue="HTTP Request.generated-requests | #1" />
+      <item itemvalue="Remote JVM Debug.user-service" />
       <item itemvalue="Remote JVM Debug.aggregation-service" />
       <item itemvalue="Remote JVM Debug.intent-service" />
       <item itemvalue="Remote JVM Debug.offer-service" />
@@ -290,11 +300,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yml.aggregation-service: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yml.offer-service: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.intent-service: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yml.engine-offer-service: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="HTTP Request.generated-requests | #1" />
+        <item itemvalue="Docker.docker-compose.yml.keycloak: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.aggregation-service: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -343,6 +353,7 @@
       <workItem from="1701269649290" duration="2526000" />
       <workItem from="1701272260328" duration="12559000" />
       <workItem from="1701297917483" duration="1421000" />
+      <workItem from="1701630140105" duration="7513000" />
     </task>
     <task id="LOCAL-00001" summary="config">
       <option name="closed" value="true" />
@@ -496,11 +507,30 @@
       <option name="project" value="LOCAL" />
       <updated>1701298172240</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="engine refactor dataaccess">
+      <option name="closed" value="true" />
+      <created>1701635708450</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1701635708450</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -519,7 +549,8 @@
     <MESSAGE value="create new aggregate microservice" />
     <MESSAGE value="removed payload and response from common" />
     <MESSAGE value="dockerization - part 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="dockerization - part 2" />
+    <MESSAGE value="engine refactor dataaccess" />
+    <option name="LAST_COMMIT_MESSAGE" value="engine refactor dataaccess" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -550,29 +581,28 @@
           <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/offer/OfferIntentService.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/web/client/OfferClientServiceImpl.java</url>
           <line>27</line>
           <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/rea-offer-service/offer-service/src/main/java/com/rea/system/offer/application/domain/OfferDomainServiceImpl.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="58" />
+          <url>file://$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/web/resource/OfferIntentController.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="62" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/rea-aggregate-service/src/main/java/com/rea/system/aggregate/domain/user_offer/DomainUserOfferService.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="60" />
+          <url>file://$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/infrastruture/resource/user/UserController.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="75" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/rea-aggregate-service/src/main/java/com/rea/system/aggregate/domain/user_offer/DomainUserOfferService.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="61" />
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/web/resource/OfferIntentController.java</url>
+          <line>18</line>
+          <properties class="com.rea.system.intent.infrastructure.web.resource.OfferIntentController" method="getOffers">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="63" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

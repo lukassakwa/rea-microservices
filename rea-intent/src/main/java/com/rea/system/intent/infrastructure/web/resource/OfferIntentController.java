@@ -17,11 +17,13 @@ public class OfferIntentController {
 
     @GetMapping()
     Flux<OfferIntentResponse> getOffers(@RequestParam EstateServiceType estateServiceType,
+                                        @RequestParam String index,
                                         @RequestParam(required = false) Integer priceFrom,
                                         @RequestParam(required = false) Integer priceTo,
                                         @RequestParam(required = false) Double metersFrom,
                                         @RequestParam(required = false) Double metersTo) {
         return offerIntentService.getOffers(estateServiceType,
+                Integer.valueOf(index),
                 priceFrom,
                 priceTo,
                 metersFrom,
