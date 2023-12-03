@@ -18,8 +18,6 @@ import static com.rea.system.offer.application.engine.OfferLoadContext.buildOffe
 @RequiredArgsConstructor
 class OfferProcessingServiceImpl implements OfferProcessingService {
 
-    private static final int DELAY = 1;
-
     private final AcquisitionOfferService acquisitionOfferService;
     private final DataService dataService;
 
@@ -28,7 +26,6 @@ class OfferProcessingServiceImpl implements OfferProcessingService {
         log.info("processing started");
         Flux.fromIterable(offerLoadDto.getOffersUrl())
                 .map(href -> buildOfferContext(href, offerLoadDto))
-                .delayElements(Duration.ofSeconds(DELAY))
                 .flatMap(acquisitionOfferService::resolveAllSpecificOffers)
                 .filter(ResolveOffer::isOfferValid)
                 .map(ResolveOffer::prepareKeyValues)

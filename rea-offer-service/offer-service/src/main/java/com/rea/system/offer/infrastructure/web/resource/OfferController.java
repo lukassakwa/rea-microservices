@@ -20,6 +20,7 @@ public class OfferController {
 
     @GetMapping()
     Flux<OfferResponse> getOffers(@RequestParam EstateServiceType estateServiceType,
+                                  @RequestParam(defaultValue = "FALSE") Boolean force,
                                   @RequestParam(required = false) Integer priceFrom,
                                   @RequestParam(required = false) Integer priceTo,
                                   @RequestParam(required = false) Double metersFrom,
@@ -27,6 +28,7 @@ public class OfferController {
                                   @RequestParam(required = false) Set<String> userOfferIds) {
         return offerService.findOffers(
                 estateServiceType,
+                force,
                 priceFrom,
                 priceTo,
                 metersFrom,

@@ -17,8 +17,11 @@ import java.util.Set;
 @Builder
 public class Fillter {
 
+    private static final Integer DEFAULT_PRICE_FROM = 0;
+    private static final Double DEFAULT_METERS_FROM = 0.0;
 
     private EstateServiceType service;
+    private Boolean force;
     private Integer priceFrom;
     private Integer priceTo;
     private Double metersFrom;
@@ -30,7 +33,15 @@ public class Fillter {
     private Sort sort;
 
     private void initialize() {
+        if (force) {
+            fillRequiredValues();
+        }
         buildQuery();
+    }
+
+    private void fillRequiredValues() {
+        this.priceFrom = Optional.ofNullable(priceFrom).orElse(DEFAULT_PRICE_FROM);
+        this.metersFrom = Optional.ofNullable(metersFrom).orElse(DEFAULT_METERS_FROM);
     }
 
     public Optional<BooleanExpression> getOptionalExpression() {

@@ -18,8 +18,9 @@ public class AggregateIntentController {
     private final AggregateIntentService aggregateIntentService;
 
     @GetMapping("/favorite")
-    Flux<OfferIntentResponse> getOffers(@RequestParam EstateServiceType estateServiceType) {
-        return aggregateIntentService.getUserOffers(estateServiceType);
+    Flux<OfferIntentResponse> getOffers(@RequestParam EstateServiceType estateServiceType,
+                                        @RequestParam String index) {
+        return aggregateIntentService.getUserOffers(estateServiceType, Integer.valueOf(index));
     }
 
 }

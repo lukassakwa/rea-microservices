@@ -23,7 +23,7 @@ export class OffersComponent implements OnInit {
 
     ngOnInit(): void {
         FilterParams.selectedService = EstateServiceType.SELL;
-        this.offerService.getOffers({service: EstateServiceType.SELL})
+        this.offerService.getOffers({service: EstateServiceType.SELL}, '0')
             .subscribe(data => {
                 this.offers = data;
             });
@@ -38,7 +38,7 @@ export class OffersComponent implements OnInit {
     }
 
     onFillter(filter: Filter) {
-        this.offerService.getOffers(filter)
+        this.offerService.getOffers(filter, '0')
             .subscribe(data => {
                 this.offers = data;
             });
@@ -51,4 +51,19 @@ export class OffersComponent implements OnInit {
     historicalOffer(offer: OfferResponse) {
         this.router.navigate(['/historical', FilterParams.selectedService, offer.id]);
     }
+
+  nextPage($event: any) {
+    const filter = {
+      service: FilterParams.selectedService,
+      priceTo: FilterParams.priceTo,
+      priceFrom: FilterParams.priceFrom,
+      metersTo: FilterParams.metersTo,
+      metersFrom: FilterParams.metersFrom,
+    }
+    this.offerService.getOffers(filter, $event.pageIndex.toString())
+      .subscribe(data => {
+        this.offers = data;
+        this.top.nativeElement.scrollIntoView({ behavior: 'smooth'})
+      });
+  }
 }
