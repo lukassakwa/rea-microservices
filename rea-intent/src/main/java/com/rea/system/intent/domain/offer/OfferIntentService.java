@@ -21,6 +21,7 @@ public class OfferIntentService {
                                                Double metersTo) {
         OfferQueryBuilder queryMap = OfferQueryBuilder.builder()
                 .estateServiceType(estateServiceType)
+                .force(Boolean.TRUE)
                 .priceFrom(priceFrom)
                 .priceTo(priceTo)
                 .metersFrom(metersFrom)

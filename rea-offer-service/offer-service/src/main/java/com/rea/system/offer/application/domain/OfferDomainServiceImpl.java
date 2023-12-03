@@ -25,6 +25,7 @@ public class OfferDomainServiceImpl implements OfferService {
 
     @Override
     public Flux<DomainOffer> findOffers(EstateServiceType estateServiceType,
+                                        Boolean force,
                                         Integer priceFrom,
                                         Integer priceTo,
                                         Double metersFrom,
@@ -32,6 +33,7 @@ public class OfferDomainServiceImpl implements OfferService {
                                         Set<String> offerIds) {
         Fillter filter = Fillter.builder()
                 .service(estateServiceType)
+                .force(force)
                 .priceFrom(priceFrom)
                 .priceTo(priceTo)
                 .metersFrom(metersFrom)

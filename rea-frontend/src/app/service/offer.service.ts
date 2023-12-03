@@ -19,7 +19,6 @@ export class OfferService {
 
   getOffers(filter: Filter) : Observable<any> {
     let params = new HttpParams()
-      .set("estateModuleType", filter.estate!)
       .set("estateServiceType", filter.service!)
     params = filter.priceFrom ? params.set('priceFrom', filter.priceFrom) : params;
     params = filter.priceTo ? params.set('priceTo', filter.priceTo) : params;
@@ -34,7 +33,6 @@ export class OfferService {
 
   getLikedOffers(filter: Filter) {
     let params = new HttpParams()
-      .set("estateModuleType", filter.estate!)
       .set("estateServiceType", filter.service!)
     params = filter.priceFrom ? params.set('priceFrom', filter.priceFrom) : params;
     params = filter.priceTo ? params.set('priceTo', filter.priceTo) : params;
