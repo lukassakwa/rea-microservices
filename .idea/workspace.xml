@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6403b02b-995a-4d29-b00c-ca9f908216e7" name="Changes" comment="engine refactor dataaccess">
-      <change afterPath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/common/PaginateUtils.java" afterDir="false" />
+    <list default="true" id="6403b02b-995a-4d29-b00c-ca9f908216e7" name="Changes" comment="routing fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-frontend/src/app/favorite-offers/favorite-offers.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/rea-frontend/src/app/favorite-offers/favorite-offers.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-frontend/src/app/favorite-offers/favorite-offers.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/rea-frontend/src/app/favorite-offers/favorite-offers.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-frontend/src/app/offers/offers.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/rea-frontend/src/app/offers/offers.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-frontend/src/app/offers/offers.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/rea-frontend/src/app/offers/offers.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-frontend/src/app/service/offer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/rea-frontend/src/app/service/offer.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/aggregate/AggregateIntentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/aggregate/AggregateIntentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/offer/OfferIntentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/domain/offer/OfferIntentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/web/resource/AggregateIntentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/web/resource/AggregateIntentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/web/resource/OfferIntentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/web/resource/OfferIntentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rea-frontend/src/app/user/user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/rea-frontend/src/app/user/user.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rea-frontend/src/app/user/user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/rea-frontend/src/app/user/user.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/domain/user_offer/DomainUserOfferServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/domain/user_offer/DomainUserOfferServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/domain/user_offer/core/UserOfferEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/domain/user_offer/core/UserOfferEntity.java" afterDir="false" />
     </list>
     <list id="d05a8cd2-f876-4cfa-9c7d-c73a3e1f9de4" name="app_config" comment="">
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
@@ -144,7 +138,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml.intent-service: Compose Deployment">
+  <component name="RunManager" selected="Docker.docker-compose.yml.user-service: Compose Deployment">
     <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -245,20 +239,6 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose.yml.aggregation-service: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="envFilePath" value="" />
-          <option name="services">
-            <list>
-              <option value="aggregation-service" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <configuration name="docker-compose.yml.intent-service: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -285,9 +265,22 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="docker-compose.yml.user-service: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="user-service" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <list>
+      <item itemvalue="Docker.docker-compose.yml.user-service: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yml.keycloak: Compose Deployment" />
-      <item itemvalue="Docker.docker-compose.yml.aggregation-service: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yml.intent-service: Compose Deployment" />
       <item itemvalue="HTTP Request.generated-requests | #1" />
@@ -300,11 +293,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker-compose.yml.user-service: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.intent-service: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="HTTP Request.generated-requests | #1" />
         <item itemvalue="Docker.docker-compose.yml.keycloak: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yml.aggregation-service: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -353,7 +346,7 @@
       <workItem from="1701269649290" duration="2526000" />
       <workItem from="1701272260328" duration="12559000" />
       <workItem from="1701297917483" duration="1421000" />
-      <workItem from="1701630140105" duration="7513000" />
+      <workItem from="1701630140105" duration="8915000" />
     </task>
     <task id="LOCAL-00001" summary="config">
       <option name="closed" value="true" />
@@ -515,7 +508,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701635708450</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="simple paginate implementation">
+      <option name="closed" value="true" />
+      <created>1701637755717</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1701637755717</updated>
+    </task>
+    <task id="LOCAL-00022" summary="routing fix">
+      <option name="closed" value="true" />
+      <created>1701637969908</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1701637969908</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -550,7 +559,9 @@
     <MESSAGE value="removed payload and response from common" />
     <MESSAGE value="dockerization - part 2" />
     <MESSAGE value="engine refactor dataaccess" />
-    <option name="LAST_COMMIT_MESSAGE" value="engine refactor dataaccess" />
+    <MESSAGE value="simple paginate implementation" />
+    <MESSAGE value="routing fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="routing fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -591,9 +602,9 @@
           <option name="timeStamp" value="62" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/infrastruture/resource/user/UserController.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="75" />
+          <url>file://$PROJECT_DIR$/rea-user-service/src/main/java/com/rea/system/user/infrastruture/resource/user_offer/UserFavoriteOfferController.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="81" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/rea-intent/src/main/java/com/rea/system/intent/infrastructure/web/resource/OfferIntentController.java</url>
