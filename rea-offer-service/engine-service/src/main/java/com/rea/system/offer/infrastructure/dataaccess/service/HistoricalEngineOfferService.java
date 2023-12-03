@@ -5,6 +5,6 @@ import reactor.core.publisher.Mono;
 
 public interface HistoricalEngineOfferService {
 
-    Mono<ResolveOffer> save(ResolveOffer offerDto);
+    Mono<ResolveOffer> saveHistorical(ResolveOffer offerDto);
 
 }
