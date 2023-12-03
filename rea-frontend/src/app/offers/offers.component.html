@@ -38,6 +38,7 @@
             <button type="button" class="btn btn-primary" (click)="historicalOffer(offer)">Historia</button>
           </div>
       </div>
+      <mat-paginator [pageSizeOptions]="[10,15,25]" [pageSize]="10" [length]=100000 (page)="nextPage($event)"></mat-paginator>
     </div>
   </div>
 </div>

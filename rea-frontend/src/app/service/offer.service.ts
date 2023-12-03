@@ -17,10 +17,10 @@ export class OfferService {
 
   }
 
-  getOffers(filter: Filter) : Observable<any> {
+  getOffers(filter: Filter, pageIndex: string) : Observable<any> {
     let params = new HttpParams()
-      .set("estateModuleType", filter.estate!)
       .set("estateServiceType", filter.service!)
+      .set("index", pageIndex)
     params = filter.priceFrom ? params.set('priceFrom', filter.priceFrom) : params;
     params = filter.priceTo ? params.set('priceTo', filter.priceTo) : params;
     params = filter.metersFrom ? params.set('metersFrom', filter.metersFrom) : params;
@@ -32,10 +32,10 @@ export class OfferService {
     return this.http.put(`${this.likedOfferUrl}`, JSON.stringify(likedOffer));
   }
 
-  getLikedOffers(filter: Filter) {
+  getLikedOffers(filter: Filter, pageIndex: string) {
     let params = new HttpParams()
-      .set("estateModuleType", filter.estate!)
       .set("estateServiceType", filter.service!)
+      .set("index", pageIndex)
     params = filter.priceFrom ? params.set('priceFrom', filter.priceFrom) : params;
     params = filter.priceTo ? params.set('priceTo', filter.priceTo) : params;
     params = filter.metersFrom ? params.set('metersFrom', filter.metersFrom) : params;

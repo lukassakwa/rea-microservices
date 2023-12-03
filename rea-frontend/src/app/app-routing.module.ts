@@ -7,7 +7,7 @@ import {UserComponent} from './user/user.component';
 
 const routes: Routes = [
   { path: '', component: OffersComponent, pathMatch: 'full' },
-  { path: 'offer', component: OffersComponent },
+  { path: 'offers', component: OffersComponent },
   { path: 'favorites', component: FavoriteOffersComponent },
   { path: 'historical/:estateServiceType/:offerId', component: HistoricalOffersComponent },
   { path: 'settings', component: UserComponent }

@@ -23,7 +23,7 @@ export class FavoriteOffersComponent implements OnInit {
 
     ngOnInit(): void {
         FilterParams.selectedService = EstateServiceType.SELL;
-        this.offersService.getLikedOffers({service: EstateServiceType.SELL})
+        this.offersService.getLikedOffers({service: EstateServiceType.SELL}, '0')
             .subscribe(data => {
                 this.offers = data;
             });
@@ -33,7 +33,7 @@ export class FavoriteOffersComponent implements OnInit {
         const filter = {
             service: FilterParams.selectedService
         }
-        this.offersService.getLikedOffers(filter)
+        this.offersService.getLikedOffers(filter, '0')
             .subscribe(data => {
                 this.offers = data;
             });
@@ -60,9 +60,20 @@ export class FavoriteOffersComponent implements OnInit {
         const filter = {
             service: FilterParams.selectedService
         }
-        this.offersService.getLikedOffers(filter)
+        this.offersService.getLikedOffers(filter, '0')
             .subscribe(data => {
                 this.offers = data;
             });
     }
+
+  nextPage($event: any) {
+    const filter = {
+      service: FilterParams.selectedService
+    }
+    this.offersService.getLikedOffers(filter, $event.pageIndex.toString())
+      .subscribe(data => {
+        this.offers = data;
+        this.top.nativeElement.scrollIntoView({ behavior: 'smooth'})
+      });
+  }
 }

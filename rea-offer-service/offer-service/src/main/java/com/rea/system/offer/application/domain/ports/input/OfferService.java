@@ -9,6 +9,7 @@ import java.util.Set;
 public interface OfferService {
 
     Flux<DomainOffer> findOffers(EstateServiceType estateServiceType,
+                                 Boolean force,
                                  Integer priceFrom,
                                  Integer priceTo,
                                  Double metersFrom,

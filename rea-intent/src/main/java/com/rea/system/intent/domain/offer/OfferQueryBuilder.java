@@ -11,6 +11,7 @@ import java.util.Optional;
 public class OfferQueryBuilder {
 
     private EstateServiceType estateServiceType;
+    private Boolean force;
     private Integer priceFrom;
     private Integer priceTo;
     private Double metersFrom;
@@ -20,17 +21,12 @@ public class OfferQueryBuilder {
     private final LinkedMultiValueMap<String, String> query = new LinkedMultiValueMap<>();
 
     private void initialize() {
-        fillValuesIfEmpty();
         buildQueryParams();
-    }
-
-    private void fillValuesIfEmpty() {
-        this.priceFrom = Optional.ofNullable(priceFrom).orElse(0);
-        this.metersFrom = Optional.ofNullable(metersFrom).orElse(0.0);
     }
 
     private void buildQueryParams() {
         Optional.ofNullable(estateServiceType).ifPresent(serviceType -> query.add("estateServiceType", serviceType.name()));
+        Optional.ofNullable(force).ifPresent(f -> query.add("force", f.toString()));
         Optional.ofNullable(priceFrom).ifPresent(priceF -> query.add("priceFrom", priceF.toString()));
         Optional.ofNullable(priceTo).ifPresent(priceT -> query.add("priceTo", priceT.toString()));
         Optional.ofNullable(metersFrom).ifPresent(metersF -> query.add("metersFrom", metersF.toString()));

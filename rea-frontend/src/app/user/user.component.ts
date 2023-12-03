@@ -14,14 +14,12 @@ export class UserComponent implements OnInit {
   userForms!: FormGroup;
   estates: string[] = [FilterParams.selectedEstate];
   services: string[] = [EstateServiceType.RENT, EstateServiceType.SELL];
-  emailDelays: string[] = ["2", "4", "6", "8"];
 
   constructor(private userService: UserService,
               private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.userForms = this.formBuilder.group({
-      emailDayDelays: ["1"],
       estate: [{value: FilterParams.selectedEstate, disabled: true}],
       service: undefined,
       priceFrom: undefined,
@@ -44,7 +42,6 @@ export class UserComponent implements OnInit {
   }
 
   private updateForm(value: any) {
-    this.userForms.get("emailDayDelays")!.setValue(value.emailDayDelays);
     this.userForms.get("service")!.setValue(value.service);
     this.userForms.get("priceTo")!.setValue(value.priceTo);
     this.userForms.get("priceFrom")!.setValue(value.priceFrom);
