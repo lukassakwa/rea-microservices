@@ -32,18 +32,6 @@ public class Fillter {
     @Getter
     private Sort sort;
 
-    private void initialize() {
-        if (force) {
-            fillRequiredValues();
-        }
-        buildQuery();
-    }
-
-    private void fillRequiredValues() {
-        this.priceFrom = Optional.ofNullable(priceFrom).orElse(DEFAULT_PRICE_FROM);
-        this.metersFrom = Optional.ofNullable(metersFrom).orElse(DEFAULT_METERS_FROM);
-    }
-
     public Optional<BooleanExpression> getOptionalExpression() {
         return Optional.ofNullable(expression);
     }
@@ -51,6 +39,9 @@ public class Fillter {
     private void buildQuery() {
         List<BooleanExpression> criteriaList = buildCriteria();
         expression = Expressions.allOf(criteriaList.toArray(new BooleanExpression[0]));
+        if (force) {
+            expression = getOptionalExpression().orElse(Expressions.TRUE);
+        }
         sort = Sort.by(Sort.Order.desc(DomainOffer.MODIFIED_DATE), Sort.Order.asc(DomainOffer.ID));
     }
 
@@ -77,7 +68,7 @@ public class Fillter {
         @Override
         public Fillter build() {
             Fillter fillter = super.build();
-            fillter.initialize();
+            fillter.buildQuery();
             return fillter;
         }
     }
