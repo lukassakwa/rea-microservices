@@ -6,74 +6,79 @@ import {Router} from "@angular/router";
 import {Filter} from "../common/filter/Filter";
 
 @Component({
-    selector: 'app-favorite-offers',
-    templateUrl: './favorite-offers.component.html',
-    styleUrls: ['./favorite-offers.component.css']
+  selector: 'app-favorite-offers',
+  templateUrl: './favorite-offers.component.html',
+  styleUrls: ['./favorite-offers.component.css']
 })
 export class FavoriteOffersComponent implements OnInit {
 
-    @ViewChild('top') top!: ElementRef;
-    offers: OfferResponse[] = [];
+  @ViewChild('top') top!: ElementRef;
+  offers: OfferResponse[] = [];
+  index: number = 0;
 
-    constructor(
-        private offersService: OfferService,
-        private router: Router,
-    ) {
-    }
+  constructor(
+    private offersService: OfferService,
+    private router: Router,
+  ) {
+  }
 
-    ngOnInit(): void {
-        FilterParams.selectedService = EstateServiceType.SELL;
-        this.offersService.getLikedOffers({service: EstateServiceType.SELL}, '0')
-            .subscribe(data => {
-                this.offers = data;
-            });
-    }
+  ngOnInit(): void {
+    FilterParams.selectedService = EstateServiceType.SELL;
+    this.index = 0;
+    this.offersService.getLikedOffers({service: EstateServiceType.SELL}, '0')
+      .subscribe(data => {
+        this.offers = data;
+      });
+  }
 
-    getOffers() {
-        const filter = {
-            service: FilterParams.selectedService
-        }
-        this.offersService.getLikedOffers(filter, '0')
-            .subscribe(data => {
-                this.offers = data;
-            });
-    }
-
-    getImage(images: string[]) {
-        return images[0];
-    }
-
-    unlikeOffer(offerResponse: OfferResponse) {
-        this.offersService.addLikedOffer({
-            offerId: offerResponse.id,
-            operationType: FavoriteOperationType.REMOVE
-        }).subscribe(value => {
-            this.getOffers();
-        })
-    }
-
-    historicalOffer(offerResponse: OfferResponse) {
-        this.router.navigate(['/historical', FilterParams.selectedService, offerResponse.id]);
-    }
-
-    onFillter($event: Filter) {
-        const filter = {
-            service: FilterParams.selectedService
-        }
-        this.offersService.getLikedOffers(filter, '0')
-            .subscribe(data => {
-                this.offers = data;
-            });
-    }
-
-  nextPage($event: any) {
+  getOffers() {
     const filter = {
       service: FilterParams.selectedService
     }
-    this.offersService.getLikedOffers(filter, $event.pageIndex.toString())
+    this.index = 0;
+    this.offersService.getLikedOffers(filter, '0')
       .subscribe(data => {
         this.offers = data;
-        this.top.nativeElement.scrollIntoView({ behavior: 'smooth'})
+      });
+  }
+
+  getImage(images: string[]) {
+    return images[0];
+  }
+
+  unlikeOffer(offerResponse: OfferResponse) {
+    this.offersService.addLikedOffer({
+      offerId: offerResponse.id,
+      operationType: FavoriteOperationType.REMOVE
+    }).subscribe(value => {
+      this.getOffers();
+    })
+  }
+
+  historicalOffer(offerResponse: OfferResponse) {
+    this.router.navigate(['/historical', FilterParams.selectedService, offerResponse.id]);
+  }
+
+  onFillter($event: Filter) {
+    const filter = {
+      service: FilterParams.selectedService
+    }
+    this.index = 0;
+    this.offersService.getLikedOffers(filter, '0')
+      .subscribe(data => {
+        this.offers = data;
+      });
+  }
+
+  nextPage(index: number) {
+    const filter = {
+      service: FilterParams.selectedService
+    }
+    this.index = index;
+    this.offersService.getLikedOffers(filter, index.toString())
+      .subscribe(data => {
+        this.offers = data;
+        this.top.nativeElement.scrollIntoView({behavior: 'smooth'})
       });
   }
 }

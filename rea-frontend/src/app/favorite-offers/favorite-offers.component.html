@@ -35,7 +35,11 @@
           <button type="button" class="btn btn-primary" (click)="historicalOffer(offer)">Historia</button>
         </div>
       </div>
-      <mat-paginator [pageSizeOptions]="[10,15,25]" [pageSize]="10" [length]=100000 (page)="nextPage($event)"></mat-paginator>
+      <div class="pagination">
+        <button class="btn" (click)="nextPage(index - 1)" [disabled]="index === 0">Previous</button>
+        <span>Page {{ index }}</span>
+        <button class="btn" (click)="nextPage(index + 1)" [disabled]="offers.length < 10">Next</button>
+      </div>
     </div>
   </div>
 </div>
