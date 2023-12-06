@@ -32,16 +32,21 @@ public class Fillter {
     @Getter
     private Sort sort;
 
-    public Optional<BooleanExpression> getOptionalExpression() {
-        return Optional.ofNullable(expression);
+    private void initialize() {
+        if (force) {
+            fillRequiredValues();
+        }
+        buildQuery();
+    }
+
+    private void fillRequiredValues() {
+        this.priceFrom = Optional.ofNullable(this.priceFrom).orElse(DEFAULT_PRICE_FROM);
+        this.metersFrom = Optional.ofNullable(this.metersFrom).orElse(DEFAULT_METERS_FROM);
     }
 
     private void buildQuery() {
         List<BooleanExpression> criteriaList = buildCriteria();
         expression = Expressions.allOf(criteriaList.toArray(new BooleanExpression[0]));
-        if (force) {
-            expression = getOptionalExpression().orElse(Expressions.TRUE);
-        }
         sort = Sort.by(Sort.Order.desc(DomainOffer.MODIFIED_DATE), Sort.Order.asc(DomainOffer.ID));
     }
 
@@ -59,6 +64,10 @@ public class Fillter {
         return predicates;
     }
 
+    public Optional<BooleanExpression> getOptionalExpression() {
+        return Optional.ofNullable(expression);
+    }
+
     public static FillterBuilder builder() {
         return new CustomFillterBuilder();
     }
@@ -68,7 +77,7 @@ public class Fillter {
         @Override
         public Fillter build() {
             Fillter fillter = super.build();
-            fillter.buildQuery();
+            fillter.initialize();
             return fillter;
         }
     }
