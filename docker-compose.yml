@@ -2,6 +2,16 @@ version: "3"
 
 services:
 
+  rea-front:
+    container_name: rea-front
+    build:
+      context: ./rea-frontend
+      dockerfile: DockerFile
+    ports:
+      - '4200:80'
+    networks:
+      rea:
+
   intent-service:
     container_name: intent-service
     depends_on:
